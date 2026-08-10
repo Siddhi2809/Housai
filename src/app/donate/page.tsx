@@ -4,9 +4,11 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { Heart, ShieldCheck, Check, Copy, Star, Building2, Phone } from 'lucide-react';
 import { BANK_DETAILS, FOUNDATION_INFO } from '@/data/foundationData';
+import { useLanguage } from '@/context/LanguageContext';
 import confetti from 'canvas-confetti';
 
 export default function DonatePage() {
+  const { t } = useLanguage();
   const [copiedAccount, setCopiedAccount] = useState(false);
 
   const handleCopy = (text: string) => {
@@ -24,15 +26,15 @@ export default function DonatePage() {
       {/* PAGE BANNER */}
       <div className="page-banner">
         <div className="container">
-          <div className="badge-gold" style={{ marginBottom: '12px' }}>50% TAX SAVINGS UNDER SECTION 80G</div>
-          <h1 className="page-banner-title">Support Housai Vruddhashram &amp; Social Work</h1>
+          <div className="badge-gold" style={{ marginBottom: '12px' }}>{t('donate.bannerBadge')}</div>
+          <h1 className="page-banner-title">{t('donate.bannerTitle')}</h1>
           <p className="page-banner-subtitle">
-            Your contributions directly support Housai Vruddhashram (primary focus), 24/7 ambulance patient care, Yashanmukti de-addiction drives, and free ST child education.
+            {t('donate.bannerSub')}
           </p>
           <div className="breadcrumb">
-            <Link href="/">Home</Link>
+            <Link href="/">{t('nav.home')}</Link>
             <span>/</span>
-            <span>Donate Now</span>
+            <span>{t('nav.donate')}</span>
           </div>
         </div>
       </div>
@@ -46,7 +48,7 @@ export default function DonatePage() {
             <div className="card priority-card" style={{ padding: '36px', borderRadius: '20px' }}>
               <div className="priority-ribbon">OFFICIAL BANK ACCOUNT</div>
               <h3 style={{ fontSize: '1.35rem', color: 'var(--brand-blue)', marginBottom: '20px', borderBottom: '2px solid #f3a812', paddingBottom: '10px' }}>
-                Bank of India Account (Primary)
+                {t('donate.primaryBank')}
               </h3>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '24px' }}>
@@ -80,12 +82,12 @@ export default function DonatePage() {
               </div>
 
               <div style={{ padding: '16px', backgroundColor: '#eef7f2', borderRadius: '12px', border: '1px solid #1b7a4b', marginBottom: '20px', fontSize: '0.85rem', color: '#16366f' }}>
-                <strong>80G Receipt Confirmation:</strong> After making a bank transfer, please WhatsApp your payment reference screenshot to <strong style={{ color: '#1b7a4b' }}>+91 99229 43777 / 99756 01777</strong> to receive your 80G tax receipt immediately.
+                {t('donate.receiptNote')}
               </div>
 
               <button className="btn btn-gold" onClick={triggerConfetti} style={{ width: '100%', borderRadius: '12px', padding: '14px' }}>
                 <Heart size={18} />
-                <span>Confirm Payment / Pledge Support</span>
+                <span>{t('donate.confirmBtn')}</span>
               </button>
             </div>
 
@@ -96,7 +98,7 @@ export default function DonatePage() {
               <div className="card" style={{ padding: '28px', borderRadius: '20px', backgroundColor: '#f8fafc', border: '1px solid #e2e8f0' }}>
                 <h4 style={{ fontSize: '1.15rem', color: 'var(--brand-blue)', marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <Building2 size={20} style={{ color: '#1b7a4b' }} />
-                  State Bank of India (SBI Account)
+                  {t('donate.sbiBank')}
                 </h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.88rem', color: '#475569' }}>
                   <div><strong>Account Name:</strong> {BANK_DETAILS.sbiAccountName}</div>

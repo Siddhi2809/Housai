@@ -3,42 +3,34 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { Heart, Menu, X, Globe, Phone, Mail } from 'lucide-react';
 import { FOUNDATION_INFO } from '@/data/foundationData';
+import { useLanguage } from '@/context/LanguageContext';
 
 const NAV_LINKS = [
-  { label: { en: 'Home', hi: 'मुख्य पृष्ठ' }, href: '/' },
-  { label: { en: 'About Us', hi: 'हमारे बारे में' }, href: '/about' },
-  { label: { en: 'Vruddhashram', hi: 'वृद्धाश्रम' }, href: '/vruddhashram' },
-  { label: { en: 'Our Work', hi: 'हमारे कार्य' }, href: '/work' },
-  { label: { en: 'Members & Board', hi: 'सदस्य व पदाधिकारी' }, href: '/team' },
-  { label: { en: 'Portfolio', hi: 'पोर्टफोलियो' }, href: '/portfolio' },
-  { label: { en: 'Gallery', hi: 'गैलरी' }, href: '/gallery' },
-  { label: { en: 'Legal & 80G', hi: 'कानूनी दस्तावेज' }, href: '/legal' },
-  { label: { en: 'Contact', hi: 'संपर्क करें' }, href: '/contact' },
+  { key: 'nav.home', href: '/' },
+  { key: 'nav.about', href: '/about' },
+  { key: 'nav.vruddhashram', href: '/vruddhashram' },
+  { key: 'nav.work', href: '/work' },
+  { key: 'nav.team', href: '/team' },
+  { key: 'nav.portfolio', href: '/portfolio' },
+  { key: 'nav.gallery', href: '/gallery' },
+  { key: 'nav.legal', href: '/legal' },
+  { key: 'nav.contact', href: '/contact' },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activePath, setActivePath] = useState('/');
-  const [lang, setLang] = useState<'en' | 'hi'>('en');
+  const { lang, setLang, t } = useLanguage();
 
   useEffect(() => {
-    setActivePath(window.location.pathname);
-    const savedLang = localStorage.getItem('app_lang') as 'en' | 'hi';
-    if (savedLang) setLang(savedLang);
-
     const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const toggleLanguage = (selectedLang: 'en' | 'hi') => {
-    setLang(selectedLang);
-    localStorage.setItem('app_lang', selectedLang);
-    window.dispatchEvent(new Event('languageChange'));
-  };
 
   return (
     <>
@@ -47,7 +39,7 @@ export default function Navbar() {
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
             <span style={{ display: 'flex', alignItems: 'center', gap: '5px', color: '#f3a812', fontWeight: '700' }}>
-              <Phone size={13} /> Helpline / हेल्पलाइन: +91 {FOUNDATION_INFO.phoneMobile} | 0233 3560136
+              <Phone size={13} /> {t('nav.helpline')} +91 {FOUNDATION_INFO.phoneMobile} | 0233 3560136
             </span>
             <span style={{ color: 'rgba(255,255,255,0.7)', display: 'flex', alignItems: 'center', gap: '5px' }}>
               <Mail size={13} /> {FOUNDATION_INFO.emailPrimary}
@@ -57,10 +49,10 @@ export default function Navbar() {
           {/* LANGUAGE SELECTOR */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
             <Globe size={13} style={{ color: '#22c55e' }} />
-            <span style={{ color: 'rgba(255,255,255,0.8)', fontWeight: 600, fontSize: '0.75rem' }}>Language / भाषा:</span>
+            <span style={{ color: 'rgba(255,255,255,0.8)', fontWeight: 600, fontSize: '0.75rem' }}>{t('nav.language')}</span>
             <div style={{ display: 'inline-flex', backgroundColor: 'rgba(255,255,255,0.15)', borderRadius: '9999px', padding: '2px' }}>
               <button
-                onClick={() => toggleLanguage('en')}
+                onClick={() => setLang('en')}
                 style={{
                   padding: '2px 10px',
                   borderRadius: '9999px',
@@ -76,7 +68,7 @@ export default function Navbar() {
                 English
               </button>
               <button
-                onClick={() => toggleLanguage('hi')}
+                onClick={() => setLang('hi')}
                 style={{
                   padding: '2px 10px',
                   borderRadius: '9999px',
@@ -179,25 +171,27 @@ export default function Navbar() {
           {/* Desktop Links */}
           <ul className="desktop-links" style={{ listStyle: 'none', alignItems: 'center', gap: '4px' }}>
             {NAV_LINKS.map((link) => {
-              const isActive = activePath === link.href;
+              const isActive = pathname === link.href;
               return (
                 <li key={link.href}>
                   <Link
                     href={link.href}
                     style={{
                       fontFamily: 'Plus Jakarta Sans, sans-serif',
-                      fontWeight: isActive ? 700 : 500,
+                      fontWeight: isActive ? 800 : 600,
                       fontSize: '0.82rem',
-                      color: isActive ? '#1b7a4b' : '#334155',
-                      padding: '6px 10px',
+                      color: isActive ? '#ffffff' : '#334155',
+                      padding: '6px 14px',
                       borderRadius: '9999px',
                       textDecoration: 'none',
                       whiteSpace: 'nowrap',
-                      backgroundColor: isActive ? '#eef7f2' : 'transparent',
-                      transition: 'all 0.2s ease',
+                      backgroundColor: isActive ? '#1b7a4b' : 'transparent',
+                      boxShadow: isActive ? '0 0 14px rgba(27, 122, 75, 0.6)' : 'none',
+                      border: isActive ? '1px solid #22c55e' : '1px solid transparent',
+                      transition: 'all 0.25s ease',
                     }}
                   >
-                    {link.label[lang]}
+                    {t(link.key)}
                   </Link>
                 </li>
               );
@@ -225,7 +219,7 @@ export default function Navbar() {
               }}
             >
               <Heart size={14} fill="#ffffff" />
-              {lang === 'en' ? 'DONATE NOW' : 'दान करें'}
+              {t('nav.donate')}
             </Link>
 
             <button
@@ -267,27 +261,31 @@ export default function Navbar() {
           }}
         >
           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '6px' }}>
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  style={{
-                    display: 'block',
-                    padding: '10px 14px',
-                    borderRadius: '8px',
-                    fontFamily: 'Plus Jakarta Sans, sans-serif',
-                    fontSize: '0.88rem',
-                    fontWeight: activePath === link.href ? 700 : 500,
-                    color: activePath === link.href ? '#1b7a4b' : '#1e293b',
-                    backgroundColor: activePath === link.href ? '#eef7f2' : 'transparent',
-                    textDecoration: 'none',
-                  }}
-                >
-                  {link.label[lang]}
-                </Link>
-              </li>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    style={{
+                      display: 'block',
+                      padding: '10px 14px',
+                      borderRadius: '8px',
+                      fontFamily: 'Plus Jakarta Sans, sans-serif',
+                      fontSize: '0.88rem',
+                      fontWeight: isActive ? 800 : 500,
+                      color: isActive ? '#ffffff' : '#1e293b',
+                      backgroundColor: isActive ? '#1b7a4b' : 'transparent',
+                      boxShadow: isActive ? '0 0 10px rgba(27, 122, 75, 0.5)' : 'none',
+                      textDecoration: 'none',
+                    }}
+                  >
+                    {t(link.key)}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       )}

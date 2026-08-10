@@ -3,10 +3,13 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Heart, Users, ArrowRight, Star, Award } from 'lucide-react';
+import { Heart, Users, ArrowRight, Star, Award, ShieldCheck, Activity, Briefcase } from 'lucide-react';
 import { IMPACT_STATS } from '@/data/foundationData';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function HomePage() {
+  const { t } = useLanguage();
+
   return (
     <div className="w-full">
       {/* ======================================================== */}
@@ -130,7 +133,7 @@ export default function HomePage() {
                 >
                   <Award size={11} color="#6ee7b7" />
                 </span>
-                RAMDAS ATHAWALE YOUTH FOUNDATION
+                {t('hero.badge')}
               </span>
             </div>
 
@@ -146,7 +149,7 @@ export default function HomePage() {
                   marginBottom: '2px',
                 }}
               >
-                Serving With Care,
+                {t('hero.title1')}
               </h1>
               <h1
                 style={{
@@ -157,7 +160,7 @@ export default function HomePage() {
                   color: '#22c55e',
                 }}
               >
-                Dignity &amp; Humanity
+                {t('hero.title2')}
               </h1>
               {/* Red underline accent */}
               <div
@@ -181,13 +184,7 @@ export default function HomePage() {
                 maxWidth: '480px',
               }}
             >
-              Ramdas Athawale Youth Foundation is committed to uplifting lives
-              through exemplary elderly care at{' '}
-              <strong style={{ color: '#ffffff', fontWeight: 700 }}>
-                Housai Vruddhashram
-              </strong>
-              , healthcare initiatives, social service outreach, youth sports, and
-              skill employment generation.
+              {t('hero.description')}
             </p>
 
             {/* CTA Buttons */}
@@ -218,7 +215,7 @@ export default function HomePage() {
                 }}
               >
                 <Heart size={16} fill="#ffffff" />
-                Donate Now
+                {t('hero.donateBtn')}
               </Link>
 
               <Link
@@ -248,7 +245,7 @@ export default function HomePage() {
                 }}
               >
                 <Users size={16} />
-                Join With Us <ArrowRight size={15} />
+                {t('hero.joinBtn')} <ArrowRight size={15} />
               </Link>
             </div>
 
@@ -272,7 +269,7 @@ export default function HomePage() {
                   letterSpacing: '0.3px',
                 }}
               >
-                Supporting Senior Care • Housai Vruddhashram
+                {t('hero.tagline')}
               </p>
             </div>
           </div>
@@ -303,7 +300,7 @@ export default function HomePage() {
                   color: '#ffffff',
                 }}
               >
-                &ldquo;Care Today.
+                &ldquo;{t('hero.quote1')}
               </p>
               <p
                 style={{
@@ -314,7 +311,7 @@ export default function HomePage() {
                   color: '#22c55e',
                 }}
               >
-                Hope for Tomorrow.
+                {t('hero.quote2')}
               </p>
               <div
                 style={{
@@ -454,7 +451,7 @@ export default function HomePage() {
               }}
             >
               <Star size={13} fill="#ffffff" />
-              HOUSAI CARE
+              {t('hero.careBadge')}
             </div>
 
             {/* Decorative dot grid — bottom-right corner */}
@@ -546,10 +543,10 @@ export default function HomePage() {
             }}
           >
             {[
-              { icon: '🏆', count: '17+', label: 'Years of Service (Est. 2007)' },
-              { icon: '📁', count: '400+', label: 'Projects Across 25 States' },
-              { icon: '🏠', count: '458', label: 'Homeless Houses Built' },
-              { icon: '🚩', count: '2,000+', label: 'Villages & Slums Covered' },
+              { icon: '🏆', count: '17+', label: t('stats.years') },
+              { icon: '📁', count: '400+', label: t('stats.projects') },
+              { icon: '🏠', count: '458', label: t('stats.houses') },
+              { icon: '🚩', count: '2,000+', label: t('stats.villages') },
             ].map((stat, idx, arr) => (
               <div
                 key={idx}
@@ -619,7 +616,7 @@ export default function HomePage() {
                   }}
                 >
                   <Heart size={14} fill="#1b7a4b" color="#1b7a4b" />
-                  ESTABLISHED 2007 • ALL INDIA CHARITABLE TRUST
+                  {t('about.badge')}
                 </span>
               </div>
 
@@ -632,7 +629,7 @@ export default function HomePage() {
                   color: '#16366f',
                 }}
               >
-                Dedicated to Elderly Care, Health, Education &amp; ST Community Welfare
+                {t('about.title')}
               </h2>
 
               <p
@@ -643,40 +640,48 @@ export default function HomePage() {
                   lineHeight: '1.75',
                 }}
               >
-                <strong style={{ color: '#0f172a', fontWeight: 700 }}>Khasdar Ramdasji Athawale Youth Foundation</strong> (Reg No: MH/323/F-17200/15) is a development organization operating over 400 projects across 2,000 remote villages &amp; urban slums in 25 states. Our primary flagship unit is <span style={{ color: '#1b7a4b', fontWeight: 700 }}>Housai Vruddhashram</span> in Sangli, providing free shelter, food, and nursing to homeless seniors.
+                {t('about.desc')}
               </p>
 
               {/* 2x2 Feature Grid */}
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px', marginTop: '8px' }}>
                 <div style={{ padding: '16px', backgroundColor: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 2px 8px rgba(0,0,0,0.04)', display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                  <div style={{ fontSize: '1.4rem', lineHeight: '1' }}>👵👴</div>
+                  <div style={{ width: '36px', height: '36px', borderRadius: '8px', backgroundColor: '#eef7f2', color: '#1b7a4b', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <Heart size={18} />
+                  </div>
                   <div>
-                    <h4 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '0.92rem', color: '#16366f' }}>Housai Vruddhashram</h4>
-                    <p style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '2px', lineHeight: '1.4' }}>Free shelter, meals, 24/7 nursing for homeless seniors.</p>
+                    <h4 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '0.92rem', color: '#16366f' }}>{t('initiatives.v1')}</h4>
+                    <p style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '2px', lineHeight: '1.4' }}>{t('initiatives.v1Desc')}</p>
                   </div>
                 </div>
 
                 <div style={{ padding: '16px', backgroundColor: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 2px 8px rgba(0,0,0,0.04)', display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                  <div style={{ fontSize: '1.4rem', lineHeight: '1' }}>🚫🍷</div>
+                  <div style={{ width: '36px', height: '36px', borderRadius: '8px', backgroundColor: '#dbeafe', color: '#16366f', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <ShieldCheck size={18} />
+                  </div>
                   <div>
-                    <h4 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '0.92rem', color: '#16366f' }}>Yashanmukti Drives</h4>
-                    <p style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '2px', lineHeight: '1.4' }}>De-addiction rallies &amp; youth counseling campaigns.</p>
+                    <h4 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '0.92rem', color: '#16366f' }}>{t('initiatives.v2')}</h4>
+                    <p style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '2px', lineHeight: '1.4' }}>{t('initiatives.v2Desc')}</p>
                   </div>
                 </div>
 
                 <div style={{ padding: '16px', backgroundColor: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 2px 8px rgba(0,0,0,0.04)', display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                  <div style={{ fontSize: '1.4rem', lineHeight: '1' }}>🩺🚑</div>
+                  <div style={{ width: '36px', height: '36px', borderRadius: '8px', backgroundColor: '#fff3d6', color: '#b45309', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <Activity size={18} />
+                  </div>
                   <div>
-                    <h4 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '0.92rem', color: '#16366f' }}>Arogya &amp; Ambulance</h4>
-                    <p style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '2px', lineHeight: '1.4' }}>24/7 ambulance patient care &amp; medical financial aid.</p>
+                    <h4 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '0.92rem', color: '#16366f' }}>{t('initiatives.v3')}</h4>
+                    <p style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '2px', lineHeight: '1.4' }}>{t('initiatives.v3Desc')}</p>
                   </div>
                 </div>
 
                 <div style={{ padding: '16px', backgroundColor: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 2px 8px rgba(0,0,0,0.04)', display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                  <div style={{ fontSize: '1.4rem', lineHeight: '1' }}>💼🧵</div>
+                  <div style={{ width: '36px', height: '36px', borderRadius: '8px', backgroundColor: '#ffe4e6', color: '#e11d48', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <Briefcase size={18} />
+                  </div>
                   <div>
-                    <h4 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '0.92rem', color: '#16366f' }}>Rojgar Nirmiti &amp; ST Welfare</h4>
-                    <p style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '2px', lineHeight: '1.4' }}>Poverty alleviation &amp; education for ST children.</p>
+                    <h4 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '0.92rem', color: '#16366f' }}>{t('initiatives.v5')}</h4>
+                    <p style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '2px', lineHeight: '1.4' }}>{t('initiatives.v5Desc')}</p>
                   </div>
                 </div>
               </div>
@@ -694,7 +699,7 @@ export default function HomePage() {
                     textDecoration: 'none',
                   }}
                 >
-                  Learn More About Our Trust &amp; Governance <ArrowRight size={16} />
+                  {t('about.learnMore')} <ArrowRight size={16} />
                 </Link>
               </div>
             </div>
@@ -738,14 +743,14 @@ export default function HomePage() {
                     marginBottom: '20px',
                   }}
                 >
-                  Transparent &amp; Registered Public Trust
+                  {t('about.cardTitle')}
                 </h3>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', fontSize: '0.9rem', color: '#475569', marginBottom: '28px' }}>
                   <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
                     <div style={{ width: '22px', height: '22px', borderRadius: '50%', backgroundColor: '#eef7f2', color: '#1b7a4b', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontWeight: '800', fontSize: '0.75rem', marginTop: '2px' }}>✓</div>
                     <div>
-                      <strong style={{ color: '#0f172a', display: 'block' }}>Trust Reg No:</strong>
+                      <strong style={{ color: '#0f172a', display: 'block' }}>{t('about.regNo')}</strong>
                       MH/323/F/17200/15 (Maharashtra Public Trust Act)
                     </div>
                   </div>
@@ -753,16 +758,16 @@ export default function HomePage() {
                   <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
                     <div style={{ width: '22px', height: '22px', borderRadius: '50%', backgroundColor: '#fff3d6', color: '#b45309', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontWeight: '800', fontSize: '0.75rem', marginTop: '2px' }}>★</div>
                     <div>
-                      <strong style={{ color: '#0f172a', display: 'block' }}>80G Tax Exemption:</strong>
-                      50% Income Tax rebate on all monetary donations under Section 80G.
+                      <strong style={{ color: '#0f172a', display: 'block' }}>{t('about.taxExempt')}</strong>
+                      {t('about.taxDesc')}
                     </div>
                   </div>
 
                   <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
                     <div style={{ width: '22px', height: '22px', borderRadius: '50%', backgroundColor: '#dbeafe', color: '#16366f', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontWeight: '800', fontSize: '0.75rem', marginTop: '2px' }}>ℹ</div>
                     <div>
-                      <strong style={{ color: '#0f172a', display: 'block' }}>Headquarters:</strong>
-                      Tasgaon &amp; Sangli, Maharashtra | Liaison Office: New Delhi
+                      <strong style={{ color: '#0f172a', display: 'block' }}>{t('about.headquarters')}</strong>
+                      {t('about.headquartersVal')}
                     </div>
                   </div>
                 </div>
@@ -787,7 +792,7 @@ export default function HomePage() {
                   }}
                 >
                   <Heart size={16} fill="#ffffff" />
-                  SUPPORT HOUSAI VRUDDHASHRAM
+                  {t('about.supportBtn')}
                 </Link>
               </div>
             </div>
@@ -803,13 +808,13 @@ export default function HomePage() {
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 40px' }}>
           <div style={{ textAlign: 'center', maxWidth: '640px', margin: '0 auto 48px auto' }}>
             <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#1b7a4b', letterSpacing: '1px', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>
-              OUR SOCIAL IMPACT
+              {t('initiatives.tagline')}
             </span>
             <h2 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '2.2rem', color: '#16366f', marginBottom: '12px' }}>
-              Key Initiatives &amp; Welfare Work
+              {t('initiatives.title')}
             </h2>
             <p style={{ fontSize: '0.95rem', color: '#64748b', lineHeight: '1.6' }}>
-              Explore how Ramdas Athawale Youth Foundation touches thousands of lives across Maharashtra through structured community projects.
+              {t('initiatives.sub')}
             </p>
           </div>
 
@@ -818,17 +823,17 @@ export default function HomePage() {
             {/* Card 1: Housai Vruddhashram */}
             <div style={{ backgroundColor: '#f8fafc', borderRadius: '16px', padding: '28px', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>
-                <div style={{ width: '52px', height: '52px', borderRadius: '14px', backgroundColor: '#1b7a4b', color: '#fff', fontSize: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', boxShadow: '0 4px 12px rgba(27, 122, 75, 0.3)' }}>
-                  👵👴
+                <div style={{ width: '52px', height: '52px', borderRadius: '14px', backgroundColor: '#eef7f2', color: '#1b7a4b', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', border: '1px solid #bbf7d0' }}>
+                  <Heart size={24} />
                 </div>
                 <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#1b7a4b', backgroundColor: '#eef7f2', padding: '4px 12px', borderRadius: '9999px', textTransform: 'uppercase' }}>
-                  70% Foundation Focus
+                  Primary Focus
                 </span>
                 <h3 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '1.25rem', color: '#16366f', marginTop: '12px', marginBottom: '8px' }}>
-                  Housai Vruddhashram
+                  {t('initiatives.v1')}
                 </h3>
                 <p style={{ fontSize: '0.88rem', color: '#475569', lineHeight: '1.6', marginBottom: '24px' }}>
-                  Our flagship senior care facility providing homeless and destitute elderly citizens with comfortable rooms, nutritious meals, 24/7 nursing, and emotional dignity.
+                  {t('initiatives.v1Desc')}
                 </p>
               </div>
               <Link href="/vruddhashram" style={{ fontSize: '0.85rem', fontWeight: 700, color: '#1b7a4b', display: 'flex', alignItems: 'center', gap: '4px', textDecoration: 'none' }}>
@@ -839,17 +844,17 @@ export default function HomePage() {
             {/* Card 2: Yashanmukti */}
             <div style={{ backgroundColor: '#f8fafc', borderRadius: '16px', padding: '28px', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>
-                <div style={{ width: '52px', height: '52px', borderRadius: '14px', backgroundColor: '#16366f', color: '#fff', fontSize: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', boxShadow: '0 4px 12px rgba(22, 54, 111, 0.3)' }}>
-                  🚫🍷
+                <div style={{ width: '52px', height: '52px', borderRadius: '14px', backgroundColor: '#dbeafe', color: '#16366f', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', border: '1px solid #bfdbfe' }}>
+                  <ShieldCheck size={24} />
                 </div>
                 <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#16366f', backgroundColor: '#dbeafe', padding: '4px 12px', borderRadius: '9999px', textTransform: 'uppercase' }}>
                   Youth Welfare
                 </span>
                 <h3 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '1.25rem', color: '#16366f', marginTop: '12px', marginBottom: '8px' }}>
-                  Yashanmukti Drives
+                  {t('initiatives.v2')}
                 </h3>
                 <p style={{ fontSize: '0.88rem', color: '#475569', lineHeight: '1.6', marginBottom: '24px' }}>
-                  Community de-addiction awareness rallies, youth counseling sessions, and rehabilitation support to eradicate substance abuse in Sangli &amp; Tasgaon.
+                  {t('initiatives.v2Desc')}
                 </p>
               </div>
               <Link href="/work" style={{ fontSize: '0.85rem', fontWeight: 700, color: '#16366f', display: 'flex', alignItems: 'center', gap: '4px', textDecoration: 'none' }}>
@@ -860,17 +865,17 @@ export default function HomePage() {
             {/* Card 3: Free Healthcare */}
             <div style={{ backgroundColor: '#f8fafc', borderRadius: '16px', padding: '28px', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>
-                <div style={{ width: '52px', height: '52px', borderRadius: '14px', backgroundColor: '#f3a812', color: '#fff', fontSize: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', boxShadow: '0 4px 12px rgba(243, 168, 18, 0.3)' }}>
-                  🩺💊
+                <div style={{ width: '52px', height: '52px', borderRadius: '14px', backgroundColor: '#fff3d6', color: '#b45309', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', border: '1px solid #fde68a' }}>
+                  <Activity size={24} />
                 </div>
                 <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#92400e', backgroundColor: '#fff3d6', padding: '4px 12px', borderRadius: '9999px', textTransform: 'uppercase' }}>
                   Rural Health
                 </span>
                 <h3 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '1.25rem', color: '#16366f', marginTop: '12px', marginBottom: '8px' }}>
-                  Free Medical Camps
+                  {t('initiatives.v3')}
                 </h3>
                 <p style={{ fontSize: '0.88rem', color: '#475569', lineHeight: '1.6', marginBottom: '24px' }}>
-                  Organizing multi-specialty health checkups, free eye checkups &amp; cataract operations, and free medicine distribution for rural families.
+                  {t('initiatives.v3Desc')}
                 </p>
               </div>
               <Link href="/work" style={{ fontSize: '0.85rem', fontWeight: 700, color: '#b45309', display: 'flex', alignItems: 'center', gap: '4px', textDecoration: 'none' }}>
@@ -881,17 +886,17 @@ export default function HomePage() {
             {/* Card 4: Youth & Sports */}
             <div style={{ backgroundColor: '#f8fafc', borderRadius: '16px', padding: '28px', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>
-                <div style={{ width: '52px', height: '52px', borderRadius: '14px', backgroundColor: '#4f46e5', color: '#fff', fontSize: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', boxShadow: '0 4px 12px rgba(79, 70, 229, 0.3)' }}>
-                  🏆⚽
+                <div style={{ width: '52px', height: '52px', borderRadius: '14px', backgroundColor: '#e0e7ff', color: '#4f46e5', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', border: '1px solid #c7d2fe' }}>
+                  <Award size={24} />
                 </div>
                 <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#3730a3', backgroundColor: '#e0e7ff', padding: '4px 12px', borderRadius: '9999px', textTransform: 'uppercase' }}>
                   Sports &amp; Talent
                 </span>
                 <h3 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '1.25rem', color: '#16366f', marginTop: '12px', marginBottom: '8px' }}>
-                  Youth Sports Promotion
+                  {t('initiatives.v4')}
                 </h3>
                 <p style={{ fontSize: '0.88rem', color: '#475569', lineHeight: '1.6', marginBottom: '24px' }}>
-                  Distributing sports equipment to rural athletes, sponsoring athletic tournaments, and fostering physical fitness and teamwork among youth.
+                  {t('initiatives.v4Desc')}
                 </p>
               </div>
               <Link href="/work" style={{ fontSize: '0.85rem', fontWeight: 700, color: '#4f46e5', display: 'flex', alignItems: 'center', gap: '4px', textDecoration: 'none' }}>
@@ -902,17 +907,17 @@ export default function HomePage() {
             {/* Card 5: Women Empowerment */}
             <div style={{ backgroundColor: '#f8fafc', borderRadius: '16px', padding: '28px', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>
-                <div style={{ width: '52px', height: '52px', borderRadius: '14px', backgroundColor: '#e11d48', color: '#fff', fontSize: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', boxShadow: '0 4px 12px rgba(225, 29, 72, 0.3)' }}>
-                  👩‍💼🧵
+                <div style={{ width: '52px', height: '52px', borderRadius: '14px', backgroundColor: '#ffe4e6', color: '#e11d48', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', border: '1px solid #fecdd3' }}>
+                  <Briefcase size={24} />
                 </div>
                 <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#9f1239', backgroundColor: '#ffe4e6', padding: '4px 12px', borderRadius: '9999px', textTransform: 'uppercase' }}>
                   Livelihoods
                 </span>
                 <h3 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '1.25rem', color: '#16366f', marginTop: '12px', marginBottom: '8px' }}>
-                  Women Empowerment
+                  {t('initiatives.v5')}
                 </h3>
                 <p style={{ fontSize: '0.88rem', color: '#475569', lineHeight: '1.6', marginBottom: '24px' }}>
-                  Skill development workshops, tailoring training, and micro-initiative guidance for rural women self-help groups to foster financial independence.
+                  {t('initiatives.v5Desc')}
                 </p>
               </div>
               <Link href="/work" style={{ fontSize: '0.85rem', fontWeight: 700, color: '#e11d48', display: 'flex', alignItems: 'center', gap: '4px', textDecoration: 'none' }}>
@@ -923,17 +928,17 @@ export default function HomePage() {
             {/* Card 6: Cultural & Relief */}
             <div style={{ backgroundColor: '#f8fafc', borderRadius: '16px', padding: '28px', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>
-                <div style={{ width: '52px', height: '52px', borderRadius: '14px', backgroundColor: '#d92b2b', color: '#fff', fontSize: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', boxShadow: '0 4px 12px rgba(217, 43, 43, 0.3)' }}>
-                  🎭🌊
+                <div style={{ width: '52px', height: '52px', borderRadius: '14px', backgroundColor: '#fee2e2', color: '#d92b2b', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', border: '1px solid #fecaca' }}>
+                  <Users size={24} />
                 </div>
                 <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#991b1b', backgroundColor: '#fee2e2', padding: '4px 12px', borderRadius: '9999px', textTransform: 'uppercase' }}>
                   Disaster Relief
                 </span>
                 <h3 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '1.25rem', color: '#16366f', marginTop: '12px', marginBottom: '8px' }}>
-                  Cultural &amp; Emergency Relief
+                  {t('initiatives.v6')}
                 </h3>
                 <p style={{ fontSize: '0.88rem', color: '#475569', lineHeight: '1.6', marginBottom: '24px' }}>
-                  Preserving Maharashtrian heritage and providing rapid relief kits (food packets, clean water, blankets) during floods and emergencies.
+                  {t('initiatives.v6Desc')}
                 </p>
               </div>
               <Link href="/work" style={{ fontSize: '0.85rem', fontWeight: 700, color: '#d92b2b', display: 'flex', alignItems: 'center', gap: '4px', textDecoration: 'none' }}>
@@ -951,10 +956,10 @@ export default function HomePage() {
       <section style={{ backgroundColor: '#16366f', color: '#ffffff', padding: '64px 0', borderTop: '4px solid #d92b2b' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 40px', textAlign: 'center' }}>
           <h2 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '2.2rem', color: '#ffffff', marginBottom: '16px' }}>
-            Join Hands With Us to Make a Real Difference
+            {t('cta.title')}
           </h2>
           <p style={{ fontSize: '1rem', color: 'rgba(255, 255, 255, 0.85)', maxWidth: '640px', margin: '0 auto 28px auto', lineHeight: '1.6' }}>
-            Whether by adopting a senior citizen at Housai Vruddhashram, sponsoring medical kits, or volunteering your time, your support transforms lives.
+            {t('cta.sub')}
           </p>
           <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', justifyContent: 'center' }}>
             <Link
@@ -971,7 +976,7 @@ export default function HomePage() {
                 boxShadow: '0 4px 14px rgba(27, 122, 75, 0.4)',
               }}
             >
-              DONATE &amp; SAVE TAX (80G)
+              {t('cta.donate')}
             </Link>
             <Link
               href="/contact"
@@ -987,7 +992,7 @@ export default function HomePage() {
                 textDecoration: 'none',
               }}
             >
-              CONTACT HEAD OFFICE
+              {t('cta.contact')}
             </Link>
           </div>
         </div>

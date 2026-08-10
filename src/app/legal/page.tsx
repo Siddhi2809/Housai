@@ -2,24 +2,27 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ShieldCheck, Award, FileText, CheckCircle2, Download } from 'lucide-react';
+import { ShieldCheck, Award, FileText, CheckCircle2, Download, Building } from 'lucide-react';
 import { FOUNDATION_INFO } from '@/data/foundationData';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function LegalPage() {
+  const { t } = useLanguage();
+
   return (
     <div>
       {/* PAGE BANNER */}
       <div className="page-banner">
         <div className="container">
-          <div className="badge-gold" style={{ marginBottom: '12px' }}>LEGAL COMPLIANCE (कायदेशीर कागदपत्रे)</div>
-          <h1 className="page-banner-title">Legal Documents &amp; 80G Compliance</h1>
+          <div className="badge-gold" style={{ marginBottom: '12px' }}>{t('legal.bannerBadge')}</div>
+          <h1 className="page-banner-title">{t('legal.bannerTitle')}</h1>
           <p className="page-banner-subtitle">
-            Khasdar Ramdasji Athawale Youth Foundation operates with 100% legal transparency under the Maharashtra Public Trust Act.
+            {t('legal.bannerSub')}
           </p>
           <div className="breadcrumb">
-            <Link href="/">Home</Link>
+            <Link href="/">{t('nav.home')}</Link>
             <span>/</span>
-            <span>Legal Documents</span>
+            <span>{t('nav.legal')}</span>
           </div>
         </div>
       </div>

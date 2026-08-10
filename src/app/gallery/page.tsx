@@ -3,21 +3,26 @@
 import React from 'react';
 import Link from 'next/link';
 import { GALLERY_ITEMS } from '@/data/foundationData';
-import { Sparkles, Play } from 'lucide-react';
+import { Sparkles, Play, Image as ImageIcon } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function GalleryPage() {
+  const { t } = useLanguage();
+
   return (
     <div>
+      {/* PAGE BANNER */}
       <div className="page-banner">
         <div className="container">
-          <div className="badge-gold" style={{ marginBottom: '12px' }}>MEDIA & MEMORIES</div>
-          <h1 className="page-banner-title">Photo & Video Gallery</h1>
+          <div className="badge-gold" style={{ marginBottom: '12px' }}>{t('gall.bannerBadge')}</div>
+          <h1 className="page-banner-title">{t('gall.bannerTitle')}</h1>
           <p className="page-banner-subtitle">
-            Visual highlights of our ground activities at Housai Vruddhashram, medical camps, and sports events.
+            {t('gall.bannerSub')}
           </p>
           <div className="breadcrumb">
-            <Link href="/">Home</Link> / 
-            <span>Gallery</span>
+            <Link href="/">{t('nav.home')}</Link>
+            <span>/</span>
+            <span>{t('nav.gallery')}</span>
           </div>
         </div>
       </div>
@@ -26,13 +31,13 @@ export default function GalleryPage() {
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
             {GALLERY_ITEMS.map((item) => (
-              <div key={item.id} className="card" style={{ padding: '20px' }}>
-                <div style={{ height: '180px', backgroundColor: 'var(--brand-light-blue)', borderRadius: 'var(--radius-sm)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '14px', color: 'var(--brand-blue)' }}>
-                  <Sparkles size={36} />
+              <div key={item.id} className="card" style={{ padding: '24px', borderRadius: '16px' }}>
+                <div style={{ height: '180px', backgroundColor: '#eef7f2', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '14px', color: '#1b7a4b', border: '1px solid #d1fae5' }}>
+                  <ImageIcon size={38} />
                 </div>
-                <div className="badge-gold" style={{ fontSize: '0.72rem', marginBottom: '8px' }}>{item.category}</div>
-                <h4 style={{ fontSize: '1.05rem', color: 'var(--brand-blue)', marginBottom: '6px' }}>{item.caption}</h4>
-                <p style={{ fontSize: '0.84rem', color: 'var(--text-muted)' }}>{item.date}</p>
+                <span className="badge-gold" style={{ fontSize: '0.72rem', marginBottom: '8px', display: 'inline-block' }}>{item.category}</span>
+                <h4 style={{ fontSize: '1.02rem', color: '#16366f', marginBottom: '6px', fontWeight: 700, lineHeight: '1.4' }}>{item.caption}</h4>
+                <p style={{ fontSize: '0.84rem', color: '#64748b' }}>{item.date}</p>
               </div>
             ))}
           </div>

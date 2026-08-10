@@ -4,8 +4,10 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { Phone, Mail, MapPin, Send, ShieldCheck, Clock, CheckCircle } from 'lucide-react';
 import { OFFICES, FOUNDATION_INFO } from '@/data/foundationData';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function ContactPage() {
+  const { t } = useLanguage();
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: '', phone: '', email: '', subject: '', message: '' });
 
@@ -19,15 +21,15 @@ export default function ContactPage() {
       {/* PAGE BANNER */}
       <div className="page-banner">
         <div className="container">
-          <div className="badge-gold" style={{ marginBottom: '12px' }}>GET IN TOUCH • 24/7 HELPLINE</div>
-          <h1 className="page-banner-title">Contact Us &amp; All India Offices</h1>
+          <div className="badge-gold" style={{ marginBottom: '12px' }}>{t('contact.bannerBadge')}</div>
+          <h1 className="page-banner-title">{t('contact.bannerTitle')}</h1>
           <p className="page-banner-subtitle">
-            Need emergency ambulance support, old age home admission, 80G tax receipt, or wish to join as a volunteer? Connect with our Tasgaon Headquarters, Sangli Office &amp; Vruddhashram, or Delhi Liaison Office.
+            {t('contact.bannerSub')}
           </p>
           <div className="breadcrumb">
-            <Link href="/">Home</Link>
+            <Link href="/">{t('nav.home')}</Link>
             <span>/</span>
-            <span>Contact Us</span>
+            <span>{t('nav.contact')}</span>
           </div>
         </div>
       </div>
@@ -76,7 +78,7 @@ export default function ContactPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '48px', alignItems: 'flex-start' }}>
             {/* Form */}
             <div className="card" style={{ padding: '36px', borderRadius: '20px', backgroundColor: '#ffffff' }}>
-              <h3 style={{ fontSize: '1.4rem', color: 'var(--brand-blue)', marginBottom: '8px' }}>Send Us a Message</h3>
+              <h3 style={{ fontSize: '1.4rem', color: 'var(--brand-blue)', marginBottom: '8px' }}>{t('contact.sendMsg')}</h3>
               <p style={{ fontSize: '0.9rem', color: '#64748b', marginBottom: '24px' }}>
                 Fill out the form below and our volunteer team will reach back out immediately.
               </p>
@@ -92,7 +94,7 @@ export default function ContactPage() {
               ) : (
                 <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   <div>
-                    <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '6px' }}>Full Name *</label>
+                    <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '6px' }}>{t('contact.fullName')}</label>
                     <input
                       type="text"
                       required
@@ -105,7 +107,7 @@ export default function ContactPage() {
 
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                     <div>
-                      <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '6px' }}>Phone Number *</label>
+                      <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '6px' }}>{t('contact.phone')}</label>
                       <input
                         type="tel"
                         required
@@ -116,7 +118,7 @@ export default function ContactPage() {
                       />
                     </div>
                     <div>
-                      <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '6px' }}>Email Address</label>
+                      <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '6px' }}>{t('contact.email')}</label>
                       <input
                         type="email"
                         placeholder="Email (Optional)"
@@ -128,7 +130,7 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '6px' }}>Subject / Inquiry Type *</label>
+                    <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '6px' }}>{t('contact.subject')}</label>
                     <select
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
@@ -145,7 +147,7 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '6px' }}>Your Message *</label>
+                    <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '6px' }}>{t('contact.message')}</label>
                     <textarea
                       required
                       rows={4}
@@ -162,7 +164,7 @@ export default function ContactPage() {
                     style={{ padding: '14px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', fontSize: '0.95rem' }}
                   >
                     <Send size={16} />
-                    <span>Send Message to Foundation</span>
+                    <span>{t('contact.submitBtn')}</span>
                   </button>
                 </form>
               )}
@@ -175,7 +177,7 @@ export default function ContactPage() {
                   ★ SANGLI HELPLINE LAUNCH
                 </div>
                 <h3 style={{ fontSize: '1.3rem', color: '#ffffff', marginBottom: '12px' }}>
-                  24/7 Sangli Emergency Helpline
+                  {t('contact.helplineTitle')}
                 </h3>
                 <p style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.8)', lineHeight: '1.6', marginBottom: '20px' }}>
                   Launched on the anniversary of the organization (Dec 25) at Sahyadri Guest House by Union Minister Shri Ramdas Athawale to resolve citizen queries immediately.

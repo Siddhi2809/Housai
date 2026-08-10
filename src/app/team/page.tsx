@@ -4,22 +4,25 @@ import React from 'react';
 import Link from 'next/link';
 import { KEY_OFFICERS, DIRECTORS_BOARD } from '@/data/foundationData';
 import { UserRound, Award, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function TeamPage() {
+  const { t } = useLanguage();
+
   return (
     <div>
       {/* PAGE BANNER */}
       <div className="page-banner">
         <div className="container">
-          <div className="badge-gold" style={{ marginBottom: '12px' }}>GOVERNANCE &amp; MEMBERS (मेम्बर्स)</div>
-          <h1 className="page-banner-title">Our Officers &amp; Governing Board</h1>
+          <div className="badge-gold" style={{ marginBottom: '12px' }}>{t('team.bannerBadge')}</div>
+          <h1 className="page-banner-title">{t('team.bannerTitle')}</h1>
           <p className="page-banner-subtitle">
-            Meet the founder, mentor, secretary, and board of directors driving Khasdar Ramdasji Athawale Youth Foundation forward.
+            {t('team.bannerSub')}
           </p>
           <div className="breadcrumb">
-            <Link href="/">Home</Link>
+            <Link href="/">{t('nav.home')}</Link>
             <span>/</span>
-            <span>Members &amp; Board</span>
+            <span>{t('nav.team')}</span>
           </div>
         </div>
       </div>
@@ -29,7 +32,7 @@ export default function TeamPage() {
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '44px' }}>
             <div className="badge-green" style={{ marginBottom: '10px' }}>KEY OFFICERS (प्रमुख पदाधिकारी)</div>
-            <h2 style={{ fontSize: '2.1rem', color: 'var(--brand-blue)' }}>Key Leadership &amp; Mentors</h2>
+            <h2 style={{ fontSize: '2.1rem', color: 'var(--brand-blue)' }}>{t('team.keyOfficers')}</h2>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px', marginBottom: '60px' }}>
@@ -58,7 +61,7 @@ export default function TeamPage() {
           <div style={{ marginTop: '40px' }}>
             <div style={{ textAlign: 'center', marginBottom: '36px' }}>
               <div className="badge-gold" style={{ marginBottom: '10px' }}>BOARD OF DIRECTORS (संचालक मंडळ)</div>
-              <h2 style={{ fontSize: '2rem', color: 'var(--brand-blue)' }}>Governing Board Members</h2>
+              <h2 style={{ fontSize: '2rem', color: 'var(--brand-blue)' }}>{t('team.boardMembers')}</h2>
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
