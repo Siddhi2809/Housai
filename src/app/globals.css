@@ -63,10 +63,11 @@ html {
 
 body {
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
   overflow-x: hidden;
   color: var(--text-dark);
-  background-color: #f8fafc;
+  background-color: #ffffff;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -90,11 +91,47 @@ img {
 .container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 40px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
 }
 
 .section-padding {
   padding: 72px 0;
+}
+
+/* =================== HERO RESPONSIVE =================== */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .hero-right {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-grid {
+    padding: 40px 20px 40px 20px !important;
+  }
+}
+
+/* =================== STATS RESPONSIVE =================== */
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .stats-grid > div:nth-child(2) {
+    border-right: none !important;
+  }
+  .stats-grid > div:nth-child(1),
+  .stats-grid > div:nth-child(2) {
+    border-bottom: 1px solid #e2e8f0;
+  }
 }
 
 @media (max-width: 768px) {

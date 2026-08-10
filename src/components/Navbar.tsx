@@ -3,168 +3,268 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
 import { Heart, Menu, X } from 'lucide-react';
 
+const NAV_LINKS = [
+  { label: 'Home', href: '/' },
+  { label: 'About Us', href: '/about' },
+  { label: 'Our Work', href: '/work' },
+  { label: 'Housai Vruddhashram', href: '/vruddhashram' },
+  { label: 'Team', href: '/team' },
+  { label: 'Gallery', href: '/gallery' },
+  { label: 'Contact', href: '/contact' },
+];
+
 export default function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const pathname = usePathname();
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [activePath, setActivePath] = useState('/');
 
   useEffect(() => {
+    setActivePath(window.location.pathname);
     const handleScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About Us' },
-    { href: '/work', label: 'Our Work' },
-    { href: '/vruddhashram', label: 'Housai Vruddhashram' },
-    { href: '/team', label: 'Team' },
-    { href: '/gallery', label: 'Gallery' },
-    { href: '/contact', label: 'Contact' },
-  ];
-
-  const isActive = (href: string) => {
-    if (href === '/' && pathname === '/') return true;
-    if (href !== '/' && pathname.startsWith(href)) return true;
-    return false;
-  };
-
-  const isHomePage = pathname === '/';
-
   return (
-    <header
-      className={`w-full sticky top-0 z-50 transition-all duration-300 ${
-        isHomePage
-          ? 'bg-transparent pt-4 pb-2'
-          : scrolled
-          ? 'bg-[#16366f] shadow-lg pt-2 pb-2'
-          : 'bg-[#16366f] pt-3 pb-2'
-      }`}
-    >
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Pill Navbar */}
-        <div
-          className={`w-full rounded-full flex items-center justify-between px-4 sm:px-5 py-2.5 transition-all duration-300 ${
-            isHomePage
-              ? 'bg-white shadow-xl border border-slate-200/60'
-              : 'bg-white/10 backdrop-blur-md border border-white/20'
-          }`}
-          style={{ minHeight: '60px' }}
+    <>
+      {/* Spacer so content doesn't hide under fixed navbar */}
+      <div className="h-[88px]" />
+
+      <header
+        className="fixed top-0 left-0 right-0 z-[1000] flex items-center justify-center"
+        style={{
+          padding: scrolled ? '8px 20px' : '12px 20px',
+          transition: 'padding 0.3s ease',
+        }}
+      >
+        {/* Pill / Capsule Nav Container */}
+        <nav
+          className="w-full flex items-center justify-between"
+          style={{
+            maxWidth: '1280px',
+            backgroundColor: '#ffffff',
+            borderRadius: '9999px',
+            padding: '8px 12px 8px 12px',
+            boxShadow: scrolled
+              ? '0 8px 32px rgba(22, 54, 111, 0.18)'
+              : '0 4px 24px rgba(22, 54, 111, 0.12)',
+            transition: 'box-shadow 0.3s ease',
+          }}
         >
-          {/* Brand Logo & Name */}
-          <Link href="/" className="flex items-center gap-2.5 shrink-0" onClick={() => setMobileMenuOpen(false)}>
-            <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden border-2 border-red-200 shrink-0">
+          {/* Logo + Brand Name */}
+          <Link href="/" className="flex items-center gap-3 shrink-0">
+            <div
+              style={{
+                width: '52px',
+                height: '52px',
+                borderRadius: '50%',
+                overflow: 'hidden',
+                border: '2px solid #e2e8f0',
+                flexShrink: 0,
+              }}
+            >
               <Image
                 src="/assets/logo.png"
                 alt="Ramdas Athawale Youth Foundation Logo"
-                fill
-                sizes="48px"
-                className="object-cover"
-                priority
+                width={52}
+                height={52}
+                style={{ objectFit: 'cover', width: '100%', height: '100%' }}
               />
             </div>
-            <div className="flex flex-col leading-tight">
-              <span
-                className={`font-extrabold text-[0.85rem] sm:text-[0.95rem] tracking-tight ${
-                  isHomePage ? 'text-[#16366f]' : 'text-white'
-                }`}
+            <div className="leading-tight">
+              <div
+                style={{
+                  fontFamily: 'Outfit, sans-serif',
+                  fontWeight: 800,
+                  fontSize: '0.9rem',
+                  color: '#16366f',
+                  letterSpacing: '0.3px',
+                  lineHeight: '1.2',
+                }}
               >
                 RAMDAS ATHAWALE
-              </span>
-              <span
-                className={`font-bold text-[0.6rem] sm:text-[0.65rem] tracking-widest uppercase ${
-                  isHomePage ? 'text-[#d92b2b]' : 'text-red-300'
-                }`}
+              </div>
+              <div
+                style={{
+                  fontFamily: 'Outfit, sans-serif',
+                  fontWeight: 700,
+                  fontSize: '0.72rem',
+                  color: '#1b7a4b',
+                  letterSpacing: '1.5px',
+                  textTransform: 'uppercase',
+                }}
               >
                 YOUTH FOUNDATION
-              </span>
+              </div>
             </div>
           </Link>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-4 xl:gap-6 mx-3">
-            {navItems.map((item) => {
-              const active = isActive(item.href);
+          {/* Desktop Nav Links */}
+          <ul className="hidden lg:flex items-center gap-1" style={{ listStyle: 'none' }}>
+            {NAV_LINKS.map((link) => {
+              const isActive = activePath === link.href;
               return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`relative font-semibold text-[0.85rem] xl:text-[0.9rem] whitespace-nowrap transition-colors duration-200 py-1 ${
-                    active
-                      ? 'text-[#1b7a4b] font-bold'
-                      : isHomePage
-                      ? 'text-[#16366f] hover:text-[#1b7a4b]'
-                      : 'text-white/90 hover:text-white'
-                  }`}
-                >
-                  {item.label}
-                  {active && (
-                    <span className="absolute bottom-0 left-0 w-full h-[2.5px] bg-[#1b7a4b] rounded-full" />
-                  )}
-                </Link>
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    style={{
+                      fontFamily: 'Plus Jakarta Sans, sans-serif',
+                      fontWeight: isActive ? 700 : 500,
+                      fontSize: '0.875rem',
+                      color: isActive ? '#1b7a4b' : '#374151',
+                      padding: '7px 12px',
+                      borderRadius: '9999px',
+                      display: 'block',
+                      transition: 'all 0.2s ease',
+                      textDecoration: 'none',
+                      whiteSpace: 'nowrap',
+                    }}
+                    onMouseEnter={(e) => {
+                      if (!isActive) {
+                        (e.target as HTMLElement).style.color = '#16366f';
+                        (e.target as HTMLElement).style.backgroundColor = '#f1f5f9';
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!isActive) {
+                        (e.target as HTMLElement).style.color = '#374151';
+                        (e.target as HTMLElement).style.backgroundColor = 'transparent';
+                      }
+                    }}
+                  >
+                    {link.label}
+                    {isActive && (
+                      <span
+                        style={{
+                          display: 'block',
+                          height: '2px',
+                          backgroundColor: '#1b7a4b',
+                          borderRadius: '2px',
+                          marginTop: '2px',
+                          width: '100%',
+                        }}
+                      />
+                    )}
+                  </Link>
+                </li>
               );
             })}
-          </nav>
+          </ul>
 
-          {/* Donate CTA + Mobile Toggle */}
-          <div className="flex items-center gap-2 shrink-0">
+          {/* Donate Button + Mobile Toggle */}
+          <div className="flex items-center gap-3">
             <Link
               href="/donate"
-              className="bg-[#1b7a4b] hover:bg-[#145c37] text-white font-bold text-[0.78rem] sm:text-[0.84rem] px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full flex items-center gap-1.5 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap"
+              className="hidden sm:inline-flex items-center gap-2"
+              style={{
+                backgroundColor: '#1b7a4b',
+                color: '#ffffff',
+                fontFamily: 'Outfit, sans-serif',
+                fontWeight: 700,
+                fontSize: '0.875rem',
+                padding: '10px 20px',
+                borderRadius: '9999px',
+                textDecoration: 'none',
+                whiteSpace: 'nowrap',
+                transition: 'all 0.25s ease',
+                letterSpacing: '0.3px',
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.backgroundColor = '#145c37';
+                (e.currentTarget as HTMLElement).style.transform = 'translateY(-1px)';
+                (e.currentTarget as HTMLElement).style.boxShadow = '0 6px 16px rgba(27,122,75,0.35)';
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.backgroundColor = '#1b7a4b';
+                (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
+                (e.currentTarget as HTMLElement).style.boxShadow = 'none';
+              }}
             >
-              <Heart className="w-3.5 h-3.5 fill-white text-white shrink-0" />
-              <span>DONATE NOW</span>
+              <Heart size={15} fill="#ffffff" />
+              DONATE NOW
             </Link>
 
+            {/* Hamburger */}
             <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`lg:hidden p-2 rounded-full transition-colors ${
-                isHomePage ? 'text-[#16366f] hover:bg-slate-100' : 'text-white hover:bg-white/10'
-              }`}
-              aria-label="Toggle menu"
+              className="lg:hidden flex items-center justify-center"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              style={{
+                width: '40px',
+                height: '40px',
+                borderRadius: '50%',
+                border: '1px solid #e2e8f0',
+                background: 'none',
+                cursor: 'pointer',
+                color: '#16366f',
+              }}
+              aria-label="Toggle Menu"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
-        </div>
+        </nav>
+      </header>
 
-        {/* Mobile Drawer */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden mt-2 bg-white rounded-2xl p-4 border border-slate-200 shadow-xl flex flex-col gap-1">
-            {navItems.map((item) => {
-              const active = isActive(item.href);
-              return (
+      {/* Mobile Dropdown Menu */}
+      {mobileOpen && (
+        <div
+          className="fixed top-[88px] left-4 right-4 z-[999] rounded-2xl lg:hidden"
+          style={{
+            backgroundColor: '#ffffff',
+            boxShadow: '0 12px 40px rgba(22,54,111,0.18)',
+            padding: '16px',
+          }}
+        >
+          <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+            {NAV_LINKS.map((link) => (
+              <li key={link.href}>
                 <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`px-4 py-2.5 rounded-xl font-semibold text-sm transition-colors ${
-                    active
-                      ? 'bg-[#1b7a4b]/10 text-[#1b7a4b] font-bold'
-                      : 'text-[#16366f] hover:bg-slate-50'
-                  }`}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  style={{
+                    display: 'block',
+                    padding: '10px 16px',
+                    borderRadius: '10px',
+                    fontFamily: 'Plus Jakarta Sans, sans-serif',
+                    fontWeight: 600,
+                    fontSize: '0.92rem',
+                    color: activePath === link.href ? '#1b7a4b' : '#1e293b',
+                    backgroundColor: activePath === link.href ? '#eef7f2' : 'transparent',
+                    textDecoration: 'none',
+                  }}
                 >
-                  {item.label}
+                  {link.label}
                 </Link>
-              );
-            })}
-            <div className="pt-2 border-t border-slate-100">
+              </li>
+            ))}
+            <li className="mt-2">
               <Link
                 href="/donate"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full bg-[#1b7a4b] hover:bg-[#145c37] text-white font-bold text-sm px-4 py-2.5 rounded-full flex items-center justify-center gap-2 transition-colors"
+                onClick={() => setMobileOpen(false)}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '8px',
+                  padding: '12px 16px',
+                  borderRadius: '10px',
+                  backgroundColor: '#1b7a4b',
+                  color: '#ffffff',
+                  fontFamily: 'Outfit, sans-serif',
+                  fontWeight: 700,
+                  fontSize: '0.92rem',
+                  textDecoration: 'none',
+                }}
               >
-                <Heart className="w-4 h-4 fill-white" />
-                <span>Donate Now</span>
+                <Heart size={16} fill="#ffffff" />
+                DONATE NOW
               </Link>
-            </div>
-          </div>
-        )}
-      </div>
-    </header>
+            </li>
+          </ul>
+        </div>
+      )}
+    </>
   );
 }

@@ -3,144 +3,447 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Heart, Users, ArrowRight, Star } from 'lucide-react';
+import { Heart, Users, ArrowRight, Star, Award } from 'lucide-react';
 import { IMPACT_STATS } from '@/data/foundationData';
-
-const HERO_IMAGES = {
-  leftFigure: '/assets/figure_left.png',
-  rightFigure: '/assets/figure_right.png',
-  centerFigure: '/assets/figure_center.png',
-};
 
 export default function HomePage() {
   return (
     <div className="w-full">
       {/* ======================================================== */}
-      {/* HERO SECTION — navy background, compact height            */}
+      {/* HERO SECTION                                              */}
       {/* ======================================================== */}
-      <section className="relative w-full overflow-hidden bg-[#16366f] border-b-4 border-[#d92b2b] flex items-center" style={{ minHeight: 'calc(100vh - 64px)', maxHeight: '720px', paddingTop: '32px', paddingBottom: '40px' }}>
-        
-        {/* Glow effects */}
-        <div className="absolute top-0 right-0 w-[480px] h-[480px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(27,122,75,0.2) 0%, transparent 70%)', transform: 'translate(20%, -20%)' }} />
-        <div className="absolute bottom-0 left-0 w-[350px] h-[350px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(217,43,43,0.12) 0%, transparent 70%)', transform: 'translate(-20%, 20%)' }} />
+      <section
+        style={{
+          background: 'linear-gradient(135deg, #0e1f4d 0%, #122060 40%, #163570 70%, #1a4060 100%)',
+          position: 'relative',
+          overflow: 'hidden',
+          minHeight: '520px',
+        }}
+      >
+        {/* Decorative background dots grid (bottom-right) */}
+        <div
+          style={{
+            position: 'absolute',
+            bottom: '40px',
+            right: '40px',
+            opacity: 0.15,
+            display: 'grid',
+            gridTemplateColumns: 'repeat(6, 1fr)',
+            gap: '10px',
+          }}
+        >
+          {Array.from({ length: 36 }).map((_, i) => (
+            <div
+              key={i}
+              style={{ width: '5px', height: '5px', borderRadius: '50%', backgroundColor: '#ffffff' }}
+            />
+          ))}
+        </div>
 
-        <div className="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-10 w-full relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            
-            {/* ——— LEFT COLUMN ——— */}
-            <div className="flex flex-col gap-5 text-white">
-              
-              {/* Badge */}
-              <div className="animate-fade-up inline-flex self-start items-center gap-2 px-4 py-1.5 rounded-full border border-[#1b7a4b] bg-[#1b7a4b]/15 text-sm font-bold text-white tracking-wide">
-                <Heart className="w-4 h-4 fill-[#1b7a4b] text-[#1b7a4b] shrink-0" />
+        {/* Decorative circle accent (right center) */}
+        <div
+          style={{
+            position: 'absolute',
+            right: '-60px',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            width: '520px',
+            height: '520px',
+            borderRadius: '50%',
+            border: '1px solid rgba(255,255,255,0.06)',
+            pointerEvents: 'none',
+          }}
+        />
+        <div
+          style={{
+            position: 'absolute',
+            right: '-100px',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            width: '650px',
+            height: '650px',
+            borderRadius: '50%',
+            border: '1px solid rgba(255,255,255,0.04)',
+            pointerEvents: 'none',
+          }}
+        />
+
+        {/* Decorative red dot */}
+        <div
+          style={{
+            position: 'absolute',
+            right: '260px',
+            bottom: '90px',
+            width: '14px',
+            height: '14px',
+            borderRadius: '50%',
+            backgroundColor: '#d92b2b',
+          }}
+        />
+
+        {/* Main Content */}
+        <div
+          className="hero-grid"
+          style={{
+            maxWidth: '1280px',
+            margin: '0 auto',
+            padding: '60px 40px 50px 40px',
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            alignItems: 'center',
+            gap: '40px',
+            position: 'relative',
+            zIndex: 2,
+          }}
+        >
+          {/* ---- LEFT COLUMN ---- */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+            {/* Badge */}
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+              <span
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  backgroundColor: 'rgba(27, 122, 75, 0.25)',
+                  border: '1px solid rgba(27, 122, 75, 0.5)',
+                  color: '#6ee7b7',
+                  borderRadius: '9999px',
+                  padding: '6px 16px',
+                  fontSize: '0.75rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.8px',
+                  textTransform: 'uppercase',
+                  fontFamily: 'Plus Jakarta Sans, sans-serif',
+                }}
+              >
+                <span
+                  style={{
+                    width: '18px',
+                    height: '18px',
+                    borderRadius: '50%',
+                    backgroundColor: 'rgba(110,231,183,0.2)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <Award size={11} color="#6ee7b7" />
+                </span>
                 RAMDAS ATHAWALE YOUTH FOUNDATION
-              </div>
+              </span>
+            </div>
 
-              {/* Heading */}
-              <div className="animate-fade-up delay-100 space-y-1">
-                <h1 className="font-extrabold tracking-tight leading-[1.12]" style={{ fontFamily: 'Outfit, sans-serif', fontSize: 'clamp(2.1rem, 4vw, 2.85rem)' }}>
-                  Serving With Care,{' '}
-                  <br />
-                  <span className="text-[#1b7a4b]">Dignity &amp; Humanity</span>
-                </h1>
-                <div className="w-14 h-1 bg-[#d92b2b] rounded-full mt-3" />
-              </div>
+            {/* Headline */}
+            <div>
+              <h1
+                style={{
+                  fontFamily: 'Outfit, sans-serif',
+                  fontWeight: 800,
+                  fontSize: '3rem',
+                  lineHeight: '1.18',
+                  color: '#ffffff',
+                  marginBottom: '2px',
+                }}
+              >
+                Serving With Care,
+              </h1>
+              <h1
+                style={{
+                  fontFamily: 'Outfit, sans-serif',
+                  fontWeight: 800,
+                  fontSize: '3rem',
+                  lineHeight: '1.18',
+                  color: '#22c55e',
+                }}
+              >
+                Dignity &amp; Humanity
+              </h1>
+              {/* Red underline accent */}
+              <div
+                style={{
+                  width: '56px',
+                  height: '4px',
+                  backgroundColor: '#d92b2b',
+                  borderRadius: '2px',
+                  marginTop: '14px',
+                }}
+              />
+            </div>
 
-              {/* Description */}
-              <p className="animate-fade-up delay-200 text-slate-200 leading-relaxed" style={{ fontSize: 'clamp(0.88rem, 1.5vw, 0.98rem)', maxWidth: '520px' }}>
-                Ramdas Athawale Youth Foundation is committed to uplifting lives through exemplary elderly care at{' '}
-                <strong className="text-white">Housai Vruddhashram</strong>, healthcare initiatives, social service outreach, youth sports, and skill employment generation.
+            {/* Description */}
+            <p
+              style={{
+                fontFamily: 'Plus Jakarta Sans, sans-serif',
+                fontSize: '0.975rem',
+                color: 'rgba(255,255,255,0.78)',
+                lineHeight: '1.75',
+                maxWidth: '480px',
+              }}
+            >
+              Ramdas Athawale Youth Foundation is committed to uplifting lives
+              through exemplary elderly care at{' '}
+              <strong style={{ color: '#ffffff', fontWeight: 700 }}>
+                Housai Vruddhashram
+              </strong>
+              , healthcare initiatives, social service outreach, youth sports, and
+              skill employment generation.
+            </p>
+
+            {/* CTA Buttons */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
+              <Link
+                href="/donate"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  backgroundColor: '#1b7a4b',
+                  color: '#ffffff',
+                  fontFamily: 'Outfit, sans-serif',
+                  fontWeight: 700,
+                  fontSize: '0.925rem',
+                  padding: '13px 26px',
+                  borderRadius: '10px',
+                  textDecoration: 'none',
+                  transition: 'all 0.25s ease',
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.backgroundColor = '#145c37';
+                  (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)';
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.backgroundColor = '#1b7a4b';
+                  (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
+                }}
+              >
+                <Heart size={16} fill="#ffffff" />
+                Donate Now
+              </Link>
+
+              <Link
+                href="/about"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  backgroundColor: 'rgba(255,255,255,0.1)',
+                  color: '#ffffff',
+                  fontFamily: 'Outfit, sans-serif',
+                  fontWeight: 700,
+                  fontSize: '0.925rem',
+                  padding: '13px 26px',
+                  borderRadius: '10px',
+                  textDecoration: 'none',
+                  border: '1.5px solid rgba(255,255,255,0.3)',
+                  transition: 'all 0.25s ease',
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.18)';
+                  (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)';
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(255,255,255,0.1)';
+                  (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
+                }}
+              >
+                <Users size={16} />
+                Join With Us <ArrowRight size={15} />
+              </Link>
+            </div>
+
+            {/* Supporting tagline */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span
+                style={{
+                  width: '8px',
+                  height: '8px',
+                  borderRadius: '50%',
+                  backgroundColor: '#22c55e',
+                  flexShrink: 0,
+                }}
+              />
+              <p
+                style={{
+                  fontFamily: 'Plus Jakarta Sans, sans-serif',
+                  fontSize: '0.82rem',
+                  color: 'rgba(255,255,255,0.6)',
+                  fontWeight: 600,
+                  letterSpacing: '0.3px',
+                }}
+              >
+                Supporting Senior Care • Housai Vruddhashram
               </p>
+            </div>
+          </div>
 
-              {/* CTA Buttons */}
-              <div className="animate-fade-up delay-300 flex flex-wrap gap-3">
-                <Link
-                  href="/donate"
-                  className="inline-flex items-center gap-2 bg-[#1b7a4b] hover:bg-[#145c37] text-white font-bold px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
-                  style={{ fontSize: '0.95rem' }}
-                >
-                  <Heart className="w-4 h-4 fill-white text-white" />
-                  Donate Now
-                </Link>
-                <Link
-                  href="/about"
-                  className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 text-[#16366f] font-bold px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
-                  style={{ fontSize: '0.95rem' }}
-                >
-                  <Users className="w-4 h-4 text-[#16366f]" />
-                  Join With Us
-                  <ArrowRight className="w-4 h-4 text-[#16366f]" />
-                </Link>
-              </div>
-
-              {/* Sub-label */}
-              <div className="animate-fade-up delay-400 flex items-center gap-2 pt-2 border-t border-white/10">
-                <span className="w-2 h-2 rounded-full bg-[#1b7a4b] animate-pulse flex-shrink-0" />
-                <span className="text-slate-200 font-semibold text-sm">Supporting Senior Care • Housai Vruddhashram</span>
-              </div>
+          {/* ---- RIGHT COLUMN ---- */}
+          <div
+            className="hero-right"
+            style={{
+              position: 'relative',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'flex-end',
+              justifyContent: 'center',
+              minHeight: '380px',
+            }}
+          >
+            {/* Quote text top-left of right section */}
+            <div
+              style={{
+                position: 'absolute',
+                top: '0px',
+                left: '-20px',
+                zIndex: 5,
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: 'Outfit, sans-serif',
+                  fontWeight: 800,
+                  fontSize: '1.75rem',
+                  lineHeight: '1.3',
+                  color: '#ffffff',
+                }}
+              >
+                &ldquo;Care Today.
+              </p>
+              <p
+                style={{
+                  fontFamily: 'Outfit, sans-serif',
+                  fontWeight: 800,
+                  fontSize: '1.75rem',
+                  lineHeight: '1.3',
+                  color: '#22c55e',
+                }}
+              >
+                Hope for Tomorrow.
+              </p>
+              {/* Red underline under quote */}
+              <div
+                style={{
+                  width: '56px',
+                  height: '4px',
+                  backgroundColor: '#d92b2b',
+                  borderRadius: '2px',
+                  marginTop: '8px',
+                }}
+              />
             </div>
 
-            {/* ——— RIGHT COLUMN ——— */}
-            <div className="flex flex-col items-center justify-center">
-              
-              {/* Slogan */}
-              <div className="animate-fade-up text-center mb-6 px-4">
-                <div className="inline-block relative">
-                  <span className="absolute -left-4 -top-1 text-[#1b7a4b] text-2xl font-serif">"</span>
-                  <h2 className="font-extrabold tracking-tight" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.7rem)' }}>
-                    <span className="text-white">Care Today. </span>
-                    <span className="text-[#1b7a4b]">Hope for Tomorrow.</span>
-                  </h2>
-                  <div className="w-24 h-[3px] bg-[#d92b2b] rounded-full mt-2 mx-auto" />
-                </div>
-              </div>
+            {/* Large dark green decorative circle behind photos */}
+            <div
+              style={{
+                position: 'absolute',
+                right: '-20px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                width: '340px',
+                height: '340px',
+                borderRadius: '50%',
+                backgroundColor: 'rgba(20, 92, 55, 0.45)',
+                zIndex: 1,
+              }}
+            />
 
-              {/* Portrait Composition */}
-              <div className="animate-float relative" style={{ width: '420px', maxWidth: '100%', height: '340px' }}>
-                
-                {/* Orbit circle */}
-                <div className="absolute inset-0 m-auto w-72 h-72 rounded-full border border-[#1b7a4b]/25 bg-gradient-to-br from-[#1b7a4b]/12 to-transparent pointer-events-none" />
-                
-                {/* Red orbit dot */}
-                <div className="absolute bottom-8 right-8 w-3.5 h-3.5 rounded-full bg-[#d92b2b] border-2 border-white shadow pointer-events-none" />
-
-                {/* Dot grid top-right */}
-                <div className="absolute top-0 right-0 grid grid-cols-4 gap-1.5 opacity-25 pointer-events-none">
-                  {Array.from({length: 16}).map((_, i) => <div key={i} className="w-1.5 h-1.5 rounded-full bg-white" />)}
-                </div>
-
-                {/* Dot grid bottom-right */}
-                <div className="absolute bottom-0 right-0 grid grid-cols-4 gap-1.5 opacity-25 pointer-events-none">
-                  {Array.from({length: 16}).map((_, i) => <div key={i} className="w-1.5 h-1.5 rounded-full bg-white" />)}
-                </div>
-
-                {/* Upper-left portrait */}
-                <div className="absolute animate-scale-up delay-100 rounded-full border-[5px] border-white shadow-xl overflow-hidden z-10 hover:scale-105 transition-transform duration-300"
-                  style={{ top: '8px', left: '20px', width: '130px', height: '130px' }}>
-                  <Image src={HERO_IMAGES.leftFigure} alt="Hon. Smt. Droupadi Murmu" fill sizes="130px" className="object-cover" priority />
-                </div>
-
-                {/* Upper-right portrait */}
-                <div className="absolute animate-scale-up delay-200 rounded-full border-[5px] border-white shadow-xl overflow-hidden z-10 hover:scale-105 transition-transform duration-300"
-                  style={{ top: '8px', right: '20px', width: '130px', height: '130px' }}>
-                  <Image src={HERO_IMAGES.rightFigure} alt="Hon. Shri Narendra Modi" fill sizes="130px" className="object-cover" priority />
-                </div>
-
-                {/* Center lower portrait (larger) */}
-                <div className="absolute animate-scale-up delay-300 rounded-full border-[6px] border-white shadow-2xl overflow-hidden z-20 hover:scale-105 transition-transform duration-300"
-                  style={{ bottom: '20px', left: '50%', transform: 'translateX(-50%)', width: '170px', height: '170px' }}>
-                  <Image src={HERO_IMAGES.centerFigure} alt="Hon. Shri Ramdas Athawale" fill sizes="170px" className="object-cover object-top" priority />
-                </div>
-
-                {/* HOUSAI CARE badge */}
-                <div className="absolute animate-fade-up delay-400 z-30 bg-[#d92b2b] text-white text-[0.7rem] font-extrabold tracking-wider px-3.5 py-1.5 rounded-full shadow-lg border-2 border-white flex items-center gap-1.5 uppercase"
-                  style={{ bottom: '-8px', left: '50%', transform: 'translateX(-50%)', whiteSpace: 'nowrap' }}>
-                  <Star className="w-3 h-3 fill-white text-white shrink-0" />
-                  HOUSAI CARE
-                </div>
-              </div>
+            {/* Photo: Top-Left (President / Lady figure) */}
+            <div
+              style={{
+                position: 'absolute',
+                top: '70px',
+                left: '30px',
+                width: '148px',
+                height: '148px',
+                borderRadius: '50%',
+                overflow: 'hidden',
+                border: '4px solid #ffffff',
+                boxShadow: '0 8px 24px rgba(0,0,0,0.35)',
+                zIndex: 10,
+              }}
+            >
+              <Image
+                src="/assets/figure_left.png"
+                alt="President"
+                width={148}
+                height={148}
+                style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+              />
             </div>
 
+            {/* Photo: Top-Right (PM / Right figure) */}
+            <div
+              style={{
+                position: 'absolute',
+                top: '55px',
+                right: '50px',
+                width: '148px',
+                height: '148px',
+                borderRadius: '50%',
+                overflow: 'hidden',
+                border: '4px solid #ffffff',
+                boxShadow: '0 8px 24px rgba(0,0,0,0.35)',
+                zIndex: 10,
+              }}
+            >
+              <Image
+                src="/assets/figure_right.png"
+                alt="Prime Minister"
+                width={148}
+                height={148}
+                style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+              />
+            </div>
+
+            {/* Photo: Center-Bottom (Ramdas Athawale) */}
+            <div
+              style={{
+                position: 'absolute',
+                bottom: '30px',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                width: '168px',
+                height: '168px',
+                borderRadius: '50%',
+                overflow: 'hidden',
+                border: '4px solid #ffffff',
+                boxShadow: '0 8px 28px rgba(0,0,0,0.4)',
+                zIndex: 10,
+              }}
+            >
+              <Image
+                src="/assets/figure_center.png"
+                alt="Ramdas Athawale"
+                width={168}
+                height={168}
+                style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+              />
+            </div>
+
+            {/* HOUSAI CARE red button / label */}
+            <div
+              style={{
+                position: 'absolute',
+                bottom: '40px',
+                right: '30px',
+                backgroundColor: '#d92b2b',
+                color: '#ffffff',
+                fontFamily: 'Outfit, sans-serif',
+                fontWeight: 700,
+                fontSize: '0.8rem',
+                padding: '8px 18px',
+                borderRadius: '9999px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                letterSpacing: '0.5px',
+                zIndex: 15,
+                boxShadow: '0 4px 14px rgba(217, 43, 43, 0.45)',
+              }}
+            >
+              <Star size={13} fill="#ffffff" />
+              HOUSAI CARE
+            </div>
           </div>
         </div>
       </section>
@@ -148,15 +451,68 @@ export default function HomePage() {
       {/* ======================================================== */}
       {/* STATS STRIP                                               */}
       {/* ======================================================== */}
-      <section className="w-full bg-white border-b border-slate-200 py-7">
-        <div className="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-10">
-          <div className="grid grid-cols-2 md:grid-cols-4">
-            {IMPACT_STATS.map((stat, idx) => (
-              <div key={idx} className={`flex flex-col items-center text-center py-4 px-4 ${idx < IMPACT_STATS.length - 1 ? 'border-b md:border-b-0 md:border-r border-slate-200' : ''}`}>
-                <div className="text-3xl sm:text-4xl font-extrabold text-[#1b7a4b] tracking-tight" style={{ fontFamily: 'Outfit, sans-serif' }}>
-                  {stat.prefix}{stat.count}
+      <section
+        style={{
+          width: '100%',
+          backgroundColor: '#ffffff',
+          borderBottom: '1px solid #e2e8f0',
+          paddingTop: '36px',
+          paddingBottom: '36px',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '1280px',
+            margin: '0 auto',
+            padding: '0 40px',
+          }}
+        >
+          <div
+            className="stats-grid"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(4, 1fr)',
+            }}
+          >
+            {[
+              { icon: '🏆', count: '5+', label: 'Years of Dedicated Service' },
+              { icon: '👴', count: '1,250+', label: 'Elderly Citizens Supported' },
+              { icon: '🤝', count: '85+', label: 'Social Initiatives Completed' },
+              { icon: '👥', count: '120+', label: 'Dedicated Volunteers & Staff' },
+            ].map((stat, idx, arr) => (
+              <div
+                key={idx}
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  textAlign: 'center',
+                  padding: '16px 24px',
+                  borderRight: idx < arr.length - 1 ? '1px solid #e2e8f0' : 'none',
+                }}
+              >
+                <div style={{ fontSize: '2rem', marginBottom: '6px' }}>{stat.icon}</div>
+                <div
+                  style={{
+                    fontFamily: 'Outfit, sans-serif',
+                    fontWeight: 800,
+                    fontSize: '2.1rem',
+                    color: '#16366f',
+                    lineHeight: '1.1',
+                    letterSpacing: '-0.5px',
+                  }}
+                >
+                  {stat.count}
                 </div>
-                <div className="text-xs sm:text-sm font-semibold text-slate-500 mt-1">
+                <div
+                  style={{
+                    fontFamily: 'Plus Jakarta Sans, sans-serif',
+                    fontSize: '0.875rem',
+                    color: '#64748b',
+                    fontWeight: 600,
+                    marginTop: '6px',
+                  }}
+                >
                   {stat.label}
                 </div>
               </div>
