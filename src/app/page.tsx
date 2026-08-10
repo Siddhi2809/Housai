@@ -276,33 +276,29 @@ export default function HomePage() {
               </p>
             </div>
           </div>
-
           {/* ---- RIGHT COLUMN ---- */}
           <div
             className="hero-right"
             style={{
               position: 'relative',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'flex-end',
-              justifyContent: 'center',
-              minHeight: '380px',
+              minHeight: '420px',
+              width: '100%',
             }}
           >
-            {/* Quote text top-left of right section */}
+            {/* Quote text — top-left of the right section */}
             <div
               style={{
                 position: 'absolute',
-                top: '0px',
-                left: '-20px',
-                zIndex: 5,
+                top: '10px',
+                left: '0px',
+                zIndex: 10,
               }}
             >
               <p
                 style={{
                   fontFamily: 'Outfit, sans-serif',
                   fontWeight: 800,
-                  fontSize: '1.75rem',
+                  fontSize: '1.7rem',
                   lineHeight: '1.3',
                   color: '#ffffff',
                 }}
@@ -313,137 +309,212 @@ export default function HomePage() {
                 style={{
                   fontFamily: 'Outfit, sans-serif',
                   fontWeight: 800,
-                  fontSize: '1.75rem',
+                  fontSize: '1.7rem',
                   lineHeight: '1.3',
                   color: '#22c55e',
                 }}
               >
                 Hope for Tomorrow.
               </p>
-              {/* Red underline under quote */}
               <div
                 style={{
-                  width: '56px',
+                  width: '60px',
                   height: '4px',
                   backgroundColor: '#d92b2b',
                   borderRadius: '2px',
-                  marginTop: '8px',
+                  marginTop: '10px',
                 }}
               />
             </div>
 
-            {/* Large dark green decorative circle behind photos */}
+            {/* Large green decorative circle with gradient fade towards top */}
             <div
               style={{
                 position: 'absolute',
-                right: '-20px',
+                right: '-60px',
                 top: '50%',
-                transform: 'translateY(-50%)',
-                width: '340px',
-                height: '340px',
+                transform: 'translateY(-52%)',
+                width: '380px',
+                height: '380px',
                 borderRadius: '50%',
-                backgroundColor: 'rgba(20, 92, 55, 0.45)',
+                background: 'linear-gradient(to top, #145c37 0%, rgba(20, 92, 55, 0.45) 50%, rgba(20, 92, 55, 0.08) 90%, transparent 100%)',
                 zIndex: 1,
               }}
             />
 
-            {/* Photo: Top-Left (President / Lady figure) */}
+            {/* Decorative thin circle outline behind the main circle */}
             <div
               style={{
                 position: 'absolute',
-                top: '70px',
-                left: '30px',
-                width: '148px',
-                height: '148px',
+                right: '-110px',
+                top: '50%',
+                transform: 'translateY(-52%)',
+                width: '460px',
+                height: '460px',
+                borderRadius: '50%',
+                border: '1px solid rgba(255,255,255,0.07)',
+                zIndex: 0,
+              }}
+            />
+
+            {/* Photo: Top-Left — Lady (President) */}
+            <div
+              style={{
+                position: 'absolute',
+                top: '90px',
+                left: '140px',
+                width: '145px',
+                height: '145px',
                 borderRadius: '50%',
                 overflow: 'hidden',
                 border: '4px solid #ffffff',
-                boxShadow: '0 8px 24px rgba(0,0,0,0.35)',
+                boxShadow: '0 6px 20px rgba(0,0,0,0.4)',
                 zIndex: 10,
               }}
             >
               <Image
                 src="/assets/figure_left.png"
-                alt="President"
-                width={148}
-                height={148}
-                style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                alt="President of India"
+                width={145}
+                height={145}
+                style={{ objectFit: 'cover', objectPosition: 'center top', width: '100%', height: '100%' }}
               />
             </div>
 
-            {/* Photo: Top-Right (PM / Right figure) */}
+            {/* Photo: Top-Right — PM Modi */}
             <div
               style={{
                 position: 'absolute',
-                top: '55px',
-                right: '50px',
-                width: '148px',
-                height: '148px',
+                top: '80px',
+                right: '90px',
+                width: '145px',
+                height: '145px',
                 borderRadius: '50%',
                 overflow: 'hidden',
                 border: '4px solid #ffffff',
-                boxShadow: '0 8px 24px rgba(0,0,0,0.35)',
+                boxShadow: '0 6px 20px rgba(0,0,0,0.4)',
                 zIndex: 10,
               }}
             >
               <Image
                 src="/assets/figure_right.png"
-                alt="Prime Minister"
-                width={148}
-                height={148}
-                style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                alt="Prime Minister of India"
+                width={145}
+                height={145}
+                style={{ objectFit: 'cover', objectPosition: 'center top', width: '100%', height: '100%' }}
               />
             </div>
 
-            {/* Photo: Center-Bottom (Ramdas Athawale) */}
+            {/* Photo: Center-Bottom — Ramdas Athawale (largest, in front) */}
             <div
               style={{
                 position: 'absolute',
-                bottom: '30px',
+                bottom: '60px',
                 left: '50%',
-                transform: 'translateX(-50%)',
-                width: '168px',
-                height: '168px',
+                transform: 'translateX(-30%)',
+                width: '165px',
+                height: '165px',
                 borderRadius: '50%',
                 overflow: 'hidden',
                 border: '4px solid #ffffff',
-                boxShadow: '0 8px 28px rgba(0,0,0,0.4)',
-                zIndex: 10,
+                boxShadow: '0 8px 28px rgba(0,0,0,0.45)',
+                zIndex: 12,
               }}
             >
               <Image
                 src="/assets/figure_center.png"
                 alt="Ramdas Athawale"
-                width={168}
-                height={168}
-                style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                width={165}
+                height={165}
+                style={{ objectFit: 'cover', objectPosition: 'center top', width: '100%', height: '100%' }}
               />
             </div>
 
-            {/* HOUSAI CARE red button / label */}
+            {/* HOUSAI CARE — red pill button, centered below photos */}
             <div
               style={{
                 position: 'absolute',
-                bottom: '40px',
-                right: '30px',
+                bottom: '14px',
+                left: '50%',
+                transform: 'translateX(-20%)',
                 backgroundColor: '#d92b2b',
                 color: '#ffffff',
                 fontFamily: 'Outfit, sans-serif',
                 fontWeight: 700,
-                fontSize: '0.8rem',
-                padding: '8px 18px',
+                fontSize: '0.82rem',
+                padding: '9px 22px',
                 borderRadius: '9999px',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '6px',
-                letterSpacing: '0.5px',
+                gap: '7px',
+                letterSpacing: '0.6px',
                 zIndex: 15,
-                boxShadow: '0 4px 14px rgba(217, 43, 43, 0.45)',
+                boxShadow: '0 4px 16px rgba(217,43,43,0.5)',
+                whiteSpace: 'nowrap',
               }}
             >
               <Star size={13} fill="#ffffff" />
               HOUSAI CARE
             </div>
+
+            {/* Decorative dot grid — bottom-right corner */}
+            <div
+              style={{
+                position: 'absolute',
+                bottom: '10px',
+                right: '10px',
+                display: 'grid',
+                gridTemplateColumns: 'repeat(5, 1fr)',
+                gap: '7px',
+                opacity: 0.25,
+                zIndex: 2,
+              }}
+            >
+              {Array.from({ length: 25 }).map((_, i) => (
+                <div
+                  key={i}
+                  style={{ width: '4px', height: '4px', borderRadius: '50%', backgroundColor: '#ffffff' }}
+                />
+              ))}
+            </div>
+
+            {/* Small red decorative dot on arc */}
+            <div
+              style={{
+                position: 'absolute',
+                right: '48px',
+                bottom: '120px',
+                width: '14px',
+                height: '14px',
+                borderRadius: '50%',
+                backgroundColor: '#d92b2b',
+                zIndex: 5,
+                boxShadow: '0 0 10px rgba(217, 43, 43, 0.6)',
+              }}
+            />
+
+            {/* Long concave mirrored green arc line */}
+            <svg
+              style={{
+                position: 'absolute',
+                right: '-40px',
+                bottom: '-20px',
+                zIndex: 3,
+                opacity: 0.65,
+                pointerEvents: 'none',
+              }}
+              width="450"
+              height="350"
+              viewBox="0 0 450 350"
+              fill="none"
+            >
+              <path
+                d="M 420 20 Q 180 320 0 160"
+                stroke="#22c55e"
+                strokeWidth="1.8"
+                fill="none"
+              />
+            </svg>
           </div>
         </div>
       </section>
