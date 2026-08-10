@@ -121,6 +121,16 @@ export const dictionary: Record<string, { en: string; hi: string }> = {
   'legal.bannerBadge': { en: 'LEGAL COMPLIANCE (कानूनी दस्तावेज)', hi: 'कानूनी अनुपालन एवं दस्तावेज' },
   'legal.bannerTitle': { en: 'Legal Documents & 80G Compliance', hi: 'कानूनी दस्तावेज एवं ८०जी अनुपालन' },
   'legal.bannerSub': { en: 'Khasdar Ramdasji Athawale Youth Foundation operates with 100% legal transparency under the Maharashtra Public Trust Act.', hi: 'खासदार रामदासजी आठवले यूथ फाउंडेशन महाराष्ट्र पब्लिक ट्रस्ट एक्ट के तहत १००% कानूनी पारदर्शिता के साथ संचालित होता है।' },
+  'legal.h2': { en: 'Official Trust Registrations & Tax Status', hi: 'अधिकृत ट्रस्ट नोंदणी व कर सवलत प्रमाणपत्रे' },
+  'legal.c1Title': { en: 'Public Charitable Trust Registration', hi: 'पब्लिक चॅरिटेबल ट्रस्ट नोंदणी' },
+  'legal.c1Desc': { en: 'Registered under the Maharashtra Public Trust Act. Official Registration No: MH/323/F-17200/15 (Reg. Date 2007/2015).', hi: 'महाराष्ट्र पब्लिक ट्रस्ट ॲक्ट अंतर्गत नोंदणीकृत. अधिकृत संस्था नोंदणी क्रमांक: MH/323/F-17200/15.' },
+  'legal.c2Title': { en: 'Section 80G Tax Exemption Certificate', hi: 'कलम ८०जी प्राप्तिकर सवलत प्रमाणपत्र' },
+  'legal.c2Desc': { en: 'All monetary donations made to Khasdar Ramdasji Athawale Youth Foundation are eligible for 50% tax exemption under Section 80G of the Indian Income Tax Act. Instant tax receipts provided for all online bank transfers.', hi: 'संस्थेस दिलेल्या सर्व देणग्यांवर भारतीय प्राप्तिकर कायद्याच्या कलम ८०जी अंतर्गत ५०% कर सवलत अनुज्ञेय आहे.' },
+  'legal.c3Title': { en: '12A Non-Profit Tax Exemption', hi: 'कलम १२ए नान-प्रॉफिट कर सवलत' },
+  'legal.c3Desc': { en: 'Granted non-profit charitable trust status under Section 12A of the Income Tax Department of India.', hi: 'भारतीय प्राप्तिकर विभागाकडून १२ए अंतर्गत नोंदणीकृत ना-नफा सामाजिक संस्था.' },
+  'legal.c4Title': { en: 'Need Official Trust Certificate Copy?', hi: 'संस्थेच्या प्रमाणपत्रांची अधिकृत प्रत हवी आहे का?' },
+  'legal.c4Desc': { en: 'Request certified copies for CSR audit verification.', hi: 'CSR ऑडिट पडताळणीसाठी अधिकृत साक्षांकित प्रती उपलब्ध.' },
+  'legal.c4Btn': { en: 'Contact Trust Secretary', hi: 'संस्था सेक्रेटरींशी संपर्क साधा' },
 
   // Initiatives Section
   'initiatives.tagline': { en: 'OUR SOCIAL IMPACT', hi: 'हमारा सामाजिक प्रभाव' },
@@ -148,6 +158,30 @@ export const dictionary: Record<string, { en: string; hi: string }> = {
   'foot.quickLinks': { en: 'Quick Navigation', hi: 'त्वरित नेविगेशन' },
   'foot.supportTitle': { en: 'Support & Legal', hi: 'सहयोग एवं कानूनी दस्तावेज' },
   'foot.headOffice': { en: 'Head Office Contact', hi: 'मुख्य कार्यालय संपर्क' },
+
+  // Portfolio Page
+  'port.bannerBadge': { en: 'OVER 400+ PROJECTS ACROSS 25 STATES', hi: '२५ राज्यों में ४००+ से अधिक सामाजिक प्रकल्प' },
+  'port.bannerTitle': { en: 'Social Impact & Project Portfolio', hi: 'सामाजिक प्रभाव एवं प्रकल्प पोर्टफोलियो' },
+  'port.bannerSub': { en: 'Highlighting key completed initiatives including 458 permanent houses for homeless families, 24/7 ambulance patient care, and Housai Vruddhashram elderly sanctuary.', hi: '४५८ बेघर कुटुंबांना पक्की घरे, २४/७ रुग्णवाहिका सेवा आणि हौसाई वृद्धाश्रम प्रकल्पांची माहिती.' },
+  'port.h2': { en: 'Major Accomplishments & Projects', hi: 'प्रमुख कामगिरी आणि सामाजिक प्रकल्प' },
+  'port.hCardBadge': { en: 'KEY ACCOMPLISHMENT', hi: 'प्रमुख यश व सामाजिक कामगिरी' },
+  'port.hCardTitle': { en: '458 Permanent Houses for Homeless Citizens', hi: '४५८ बेघर कुटुंबांना पक्की घरे वाटप' },
+  'port.hCardDesc': { en: 'Under our special housing drive in the Sangli district operation area, Khasdar Ramdasji Athawale Youth Foundation provided 458 homeless and destitute families with permanent fixed houses, giving them security, warmth, and long-term dignity.', hi: 'सांगली जिल्ह्यातील बेघर व गरजू ४५८ कुटुंबांना पक्की घरे उपलब्ध करून देऊन सामाजिक सुरक्षितता व आधार प्रदान केला.' },
+  'port.hCardNote': { en: 'Homeless Families Provided Permanent Homes', hi: 'बेघर कुटुंबांना पक्की घरे उपलब्ध करून दिली' },
+
+  // Gallery Page
+  'gall.bannerBadge': { en: 'VISUAL MEMORIES & FIELD ACTIVITIES', hi: 'चित्रदालन व प्रत्यक्ष सामाजिक उपक्रम' },
+  'gall.bannerTitle': { en: 'Photo & Media Gallery', hi: 'फोटो व छायाचित्र दालन' },
+  'gall.bannerSub': { en: 'Capturing moments of compassionate care at Housai Vruddhashram, emergency medical drives, youth athletic tournaments, and homeless housing handovers.', hi: 'हौसाई वृद्धाश्रम, वैद्यकीय शिबिरे, क्रीडा स्पर्धा व घरकूल उपक्रमांची छायाचित्रे.' },
+
+  // Donate Packages
+  'donate.pkgTitle': { en: 'Sponsorship Packages', hi: 'प्रायोजक व सहकार्य पर्याय' },
+  'donate.p1Title': { en: 'Sponsor One Day Meal (Vruddhashram)', hi: 'एक दिवसाचे भोजन प्रायोजित करा (वृद्धाश्रम)' },
+  'donate.p1Desc': { en: 'Breakfast, lunch & dinner for all resident seniors.', hi: 'वृद्धाश्रमातील सर्व ज्येष्ठांसाठी नाश्ता, दुपारचे व रात्रीचे जेवण.' },
+  'donate.p2Title': { en: 'Monthly Senior Citizen Adoption', hi: 'एका ज्येष्ठ नागरिकाला महिनाभरासाठी दत्तक घ्या' },
+  'donate.p2Desc': { en: 'Complete shelter, medical care, and food for 1 senior citizen.', hi: 'एका वृद्धासाठी मोफत निवारा, औषधोपचार व भोजन खर्च.' },
+  'donate.p3Title': { en: 'Medical & Ambulance Support', hi: 'वैद्यकीय व रुग्णवाहिका मदत' },
+  'donate.p3Desc': { en: 'Sponsors free medical kits & emergency patient transport.', hi: 'मोफत औषध किट व आपत्कालीन रुग्ण वाहतूक खर्च.' },
 };
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {

@@ -7,7 +7,7 @@ import { Briefcase, Calendar, MapPin, CheckCircle2, Home, Heart, Award } from 'l
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function PortfolioPage() {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
 
   return (
     <div>
@@ -40,19 +40,27 @@ export default function PortfolioPage() {
               <div key={proj.id} className="card" style={{ padding: '32px', borderRadius: '18px', backgroundColor: '#ffffff', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                 <div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-                    <span className="badge-green" style={{ fontSize: '0.75rem' }}>{proj.category}</span>
-                    <span className="badge-gold" style={{ fontSize: '0.75rem' }}>{proj.status}</span>
+                    <span className="badge-green" style={{ fontSize: '0.75rem' }}>
+                      {lang === 'hi' ? proj.hiCategory : proj.category}
+                    </span>
+                    <span className="badge-gold" style={{ fontSize: '0.75rem' }}>
+                      {lang === 'hi' ? proj.hiStatus : proj.status}
+                    </span>
                   </div>
-                  <h3 style={{ fontSize: '1.25rem', color: 'var(--brand-blue)', marginBottom: '12px', lineHeight: '1.35' }}>{proj.title}</h3>
-                  <p style={{ color: '#475569', fontSize: '0.92rem', lineHeight: '1.65', marginBottom: '20px' }}>{proj.summary}</p>
+                  <h3 style={{ fontSize: '1.25rem', color: 'var(--brand-blue)', marginBottom: '12px', lineHeight: '1.35' }}>
+                    {lang === 'hi' ? proj.hiTitle : proj.title}
+                  </h3>
+                  <p style={{ color: '#475569', fontSize: '0.92rem', lineHeight: '1.65', marginBottom: '20px' }}>
+                    {lang === 'hi' ? proj.hiSummary : proj.summary}
+                  </p>
                 </div>
 
                 <div style={{ paddingTop: '16px', borderTop: '1px solid #e2e8f0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.84rem', color: '#64748b', fontWeight: 600 }}>
                   <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                    <MapPin size={15} style={{ color: 'var(--brand-red)' }} /> {proj.location}
+                    <MapPin size={15} style={{ color: 'var(--brand-red)' }} /> {lang === 'hi' ? proj.hiLocation : proj.location}
                   </span>
                   <span style={{ display: 'flex', alignItems: 'center', gap: '5px', color: '#1b7a4b' }}>
-                    <CheckCircle2 size={15} /> {proj.beneficiaries}
+                    <CheckCircle2 size={15} /> {lang === 'hi' ? proj.hiBeneficiaries : proj.beneficiaries}
                   </span>
                 </div>
               </div>

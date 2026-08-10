@@ -112,32 +112,32 @@ export default function DonatePage() {
               {/* Sponsorship Packages */}
               <div className="card" style={{ padding: '28px', borderRadius: '20px' }}>
                 <h3 style={{ fontSize: '1.25rem', color: 'var(--brand-blue)', marginBottom: '16px', borderBottom: '2px solid #f3a812', paddingBottom: '8px' }}>
-                  Sponsorship Packages
+                  {t('donate.pkgTitle')}
                 </h3>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
                   <div style={{ padding: '14px', backgroundColor: '#f8fafc', borderRadius: '12px', borderLeft: '4px solid var(--brand-red)' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2px' }}>
-                      <strong style={{ color: 'var(--brand-blue)', fontSize: '0.94rem' }}>Sponsor One Day Meal (Vruddhashram)</strong>
+                      <strong style={{ color: 'var(--brand-blue)', fontSize: '0.94rem' }}>{t('donate.p1Title')}</strong>
                       <span className="badge-gold">₹3,500</span>
                     </div>
-                    <p style={{ fontSize: '0.82rem', color: '#64748b' }}>Breakfast, lunch &amp; dinner for all resident seniors.</p>
+                    <p style={{ fontSize: '0.82rem', color: '#64748b' }}>{t('donate.p1Desc')}</p>
                   </div>
 
                   <div style={{ padding: '14px', backgroundColor: '#f8fafc', borderRadius: '12px', borderLeft: '4px solid #1b7a4b' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2px' }}>
-                      <strong style={{ color: 'var(--brand-blue)', fontSize: '0.94rem' }}>Monthly Senior Citizen Adoption</strong>
+                      <strong style={{ color: 'var(--brand-blue)', fontSize: '0.94rem' }}>{t('donate.p2Title')}</strong>
                       <span className="badge-green">₹5,000</span>
                     </div>
-                    <p style={{ fontSize: '0.82rem', color: '#64748b' }}>Complete shelter, medical care, and food for 1 senior citizen.</p>
+                    <p style={{ fontSize: '0.82rem', color: '#64748b' }}>{t('donate.p2Desc')}</p>
                   </div>
 
                   <div style={{ padding: '14px', backgroundColor: '#f8fafc', borderRadius: '12px', borderLeft: '4px solid #f3a812' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2px' }}>
-                      <strong style={{ color: 'var(--brand-blue)', fontSize: '0.94rem' }}>Medical &amp; Ambulance Support</strong>
+                      <strong style={{ color: 'var(--brand-blue)', fontSize: '0.94rem' }}>{t('donate.p3Title')}</strong>
                       <span className="badge-gold">₹10,000</span>
                     </div>
-                    <p style={{ fontSize: '0.82rem', color: '#64748b' }}>Sponsors free medical kits &amp; emergency patient transport.</p>
+                    <p style={{ fontSize: '0.82rem', color: '#64748b' }}>{t('donate.p3Desc')}</p>
                   </div>
                 </div>
 

@@ -7,7 +7,7 @@ import { Heart, ShieldCheck, Award, Activity, Briefcase, ArrowRight } from 'luci
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function WorkPage() {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
 
   const getLucideIcon = (id: string) => {
     switch (id) {
@@ -69,9 +69,15 @@ export default function WorkPage() {
                   <div style={{ width: '56px', height: '56px', borderRadius: '14px', backgroundColor: getIconBg(work.id), display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
                     {getLucideIcon(work.id)}
                   </div>
-                  <div className="badge-gold" style={{ fontSize: '0.75rem', marginBottom: '12px' }}>{work.share}</div>
-                  <h3 style={{ fontSize: '1.3rem', color: 'var(--brand-blue)', marginBottom: '12px' }}>{work.title}</h3>
-                  <p style={{ color: '#475569', fontSize: '0.94rem', lineHeight: '1.65', marginBottom: '24px' }}>{work.description}</p>
+                  <div className="badge-gold" style={{ fontSize: '0.75rem', marginBottom: '12px' }}>
+                    {lang === 'hi' ? work.hiShare : work.share}
+                  </div>
+                  <h3 style={{ fontSize: '1.3rem', color: 'var(--brand-blue)', marginBottom: '12px' }}>
+                    {lang === 'hi' ? work.hiTitle : work.title}
+                  </h3>
+                  <p style={{ color: '#475569', fontSize: '0.94rem', lineHeight: '1.65', marginBottom: '24px' }}>
+                    {lang === 'hi' ? work.hiDescription : work.description}
+                  </p>
                 </div>
                 <Link href="/donate" className="btn btn-gold btn-sm" style={{ width: '100%', borderRadius: '10px', padding: '12px' }}>
                   <Heart size={15} fill="#000000" />
