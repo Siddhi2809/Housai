@@ -369,3 +369,22 @@ img {
 .delay-300 { animation-delay: 300ms; }
 .delay-400 { animation-delay: 400ms; }
 .delay-500 { animation-delay: 500ms; }
+
+/* =================== NAVBAR RESPONSIVE =================== */
+.desktop-links {
+  display: flex !important;
+}
+
+.mobile-toggle {
+  display: none !important;
+}
+
+@media (max-width: 1024px) {
+  .desktop-links {
+    display: none !important;
+  }
+  .mobile-toggle {
+    display: flex !important;
+  }
+}
+

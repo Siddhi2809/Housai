@@ -1,51 +1,204 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { Phone, Mail, MapPin, Send, ShieldCheck, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, ShieldCheck, Clock, CheckCircle } from 'lucide-react';
 import { OFFICES, FOUNDATION_INFO } from '@/data/foundationData';
 
 export default function ContactPage() {
+  const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({ name: '', phone: '', email: '', subject: '', message: '' });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
+
   return (
     <div>
+      {/* PAGE BANNER */}
       <div className="page-banner">
         <div className="container">
-          <div className="badge-gold" style={{ marginBottom: '12px' }}>GET IN TOUCH</div>
-          <h1 className="page-banner-title">Contact Headquarters & Offices</h1>
+          <div className="badge-gold" style={{ marginBottom: '12px' }}>GET IN TOUCH • 24/7 HELPLINE</div>
+          <h1 className="page-banner-title">Contact Us &amp; All India Offices</h1>
           <p className="page-banner-subtitle">
-            Have questions about donations, 80G receipts, senior citizen admissions, or CSR partnerships? Reach out to our teams in Sangli, Tasgaon, or Delhi.
+            Need emergency ambulance support, old age home admission, 80G tax receipt, or wish to join as a volunteer? Connect with our Tasgaon Headquarters, Sangli Office &amp; Vruddhashram, or Delhi Liaison Office.
           </p>
           <div className="breadcrumb">
-            <Link href="/">Home</Link> / 
+            <Link href="/">Home</Link>
+            <span>/</span>
             <span>Contact Us</span>
           </div>
         </div>
       </div>
 
+      {/* 3 OFFICES GRID */}
       <section className="section-padding" style={{ backgroundColor: '#ffffff' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '40px', marginBottom: '60px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '44px' }}>
+            <div className="badge-green" style={{ marginBottom: '10px' }}>OFFICIAL ADDRESSES &amp; HELPLINES</div>
+            <h2 style={{ fontSize: '2.1rem', color: 'var(--brand-blue)' }}>Our Main Regional Offices</h2>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px', marginBottom: '60px' }}>
             {OFFICES.map((off, idx) => (
-              <div key={idx} className="card" style={{ padding: '30px', borderTop: '4px solid var(--brand-red)' }}>
+              <div key={idx} className="card" style={{ padding: '32px', borderRadius: '18px', borderTop: '4px solid var(--brand-red)' }}>
                 <div className="badge-gold" style={{ marginBottom: '14px', fontSize: '0.75rem' }}>{off.type}</div>
                 <h3 style={{ fontSize: '1.25rem', color: 'var(--brand-blue)', marginBottom: '16px' }}>{off.title}</h3>
-                
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '0.92rem', color: '#4a5568' }}>
-                  <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-                    <MapPin size={18} style={{ color: 'var(--brand-red)', flexShrink: 0, marginTop: '2px' }} />
-                    <span>{off.address}</span>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '0.92rem', color: '#475569' }}>
+                  <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
+                    <MapPin size={18} style={{ color: 'var(--brand-red)', flexShrink: 0, marginTop: '3px' }} />
+                    <span style={{ lineHeight: '1.6' }}>{off.address}</span>
                   </div>
-                  <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-                    <Phone size={18} style={{ color: 'var(--brand-red)', flexShrink: 0 }} />
-                    <span>{off.phone}</span>
+
+                  <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+                    <Phone size={18} style={{ color: '#1b7a4b', flexShrink: 0 }} />
+                    <div>
+                      <strong style={{ display: 'block', color: '#0f172a' }}>Phone / Helpline:</strong>
+                      <span>{off.phone}</span>
+                    </div>
                   </div>
-                  <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-                    <Mail size={18} style={{ color: 'var(--brand-red)', flexShrink: 0 }} />
-                    <span style={{ fontSize: '0.84rem', wordBreak: 'break-all' }}>{off.email}</span>
+
+                  <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+                    <Mail size={18} style={{ color: 'var(--brand-blue)', flexShrink: 0 }} />
+                    <div>
+                      <strong style={{ display: 'block', color: '#0f172a' }}>Email:</strong>
+                      <span style={{ fontSize: '0.84rem', wordBreak: 'break-all' }}>{off.email}</span>
+                    </div>
                   </div>
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* CONTACT FORM + HELPLINE INFO */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '48px', alignItems: 'flex-start' }}>
+            {/* Form */}
+            <div className="card" style={{ padding: '36px', borderRadius: '20px', backgroundColor: '#ffffff' }}>
+              <h3 style={{ fontSize: '1.4rem', color: 'var(--brand-blue)', marginBottom: '8px' }}>Send Us a Message</h3>
+              <p style={{ fontSize: '0.9rem', color: '#64748b', marginBottom: '24px' }}>
+                Fill out the form below and our volunteer team will reach back out immediately.
+              </p>
+
+              {submitted ? (
+                <div style={{ padding: '24px', backgroundColor: '#eef7f2', borderRadius: '14px', border: '1px solid #1b7a4b', textAlign: 'center' }}>
+                  <CheckCircle size={40} style={{ color: '#1b7a4b', margin: '0 auto 12px auto' }} />
+                  <h4 style={{ color: '#16366f', fontSize: '1.1rem', marginBottom: '6px' }}>Thank You! Message Received.</h4>
+                  <p style={{ color: '#475569', fontSize: '0.88rem' }}>
+                    Our helpline team has recorded your details and will call you back shortly.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '6px' }}>Full Name *</label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. Ramesh Patil"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      style={{ width: '100%', padding: '12px 16px', borderRadius: '10px', border: '1px solid #cbd5e1', fontSize: '0.92rem', outline: 'none' }}
+                    />
+                  </div>
+
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                    <div>
+                      <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '6px' }}>Phone Number *</label>
+                      <input
+                        type="tel"
+                        required
+                        placeholder="Mobile No"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        style={{ width: '100%', padding: '12px 16px', borderRadius: '10px', border: '1px solid #cbd5e1', fontSize: '0.92rem', outline: 'none' }}
+                      />
+                    </div>
+                    <div>
+                      <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '6px' }}>Email Address</label>
+                      <input
+                        type="email"
+                        placeholder="Email (Optional)"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        style={{ width: '100%', padding: '12px 16px', borderRadius: '10px', border: '1px solid #cbd5e1', fontSize: '0.92rem', outline: 'none' }}
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '6px' }}>Subject / Inquiry Type *</label>
+                    <select
+                      value={formData.subject}
+                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                      style={{ width: '100%', padding: '12px 16px', borderRadius: '10px', border: '1px solid #cbd5e1', fontSize: '0.92rem', outline: 'none', backgroundColor: '#ffffff' }}
+                    >
+                      <option value="">Select Category</option>
+                      <option value="vruddhashram">Housai Vruddhashram Admission</option>
+                      <option value="donation">Donation &amp; 80G Receipt</option>
+                      <option value="ambulance">Emergency Ambulance Service</option>
+                      <option value="yashanmukti">Yashanmukti De-addiction Camp</option>
+                      <option value="csr">Corporate CSR Partnership</option>
+                      <option value="general">General Inquiry</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '6px' }}>Your Message *</label>
+                    <textarea
+                      required
+                      rows={4}
+                      placeholder="Please write your inquiry details..."
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      style={{ width: '100%', padding: '12px 16px', borderRadius: '10px', border: '1px solid #cbd5e1', fontSize: '0.92rem', outline: 'none' }}
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="btn btn-green"
+                    style={{ padding: '14px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', fontSize: '0.95rem' }}
+                  >
+                    <Send size={16} />
+                    <span>Send Message to Foundation</span>
+                  </button>
+                </form>
+              )}
+            </div>
+
+            {/* Helpline Info Side Card */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              <div className="card" style={{ padding: '32px', borderRadius: '20px', backgroundColor: '#0e244d', color: '#ffffff' }}>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', backgroundColor: 'rgba(243, 168, 18, 0.15)', border: '1px solid #f3a812', color: '#f3a812', borderRadius: '9999px', fontSize: '0.78rem', fontWeight: 800, marginBottom: '16px' }}>
+                  ★ SANGLI HELPLINE LAUNCH
+                </div>
+                <h3 style={{ fontSize: '1.3rem', color: '#ffffff', marginBottom: '12px' }}>
+                  24/7 Sangli Emergency Helpline
+                </h3>
+                <p style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.8)', lineHeight: '1.6', marginBottom: '20px' }}>
+                  Launched on the anniversary of the organization (Dec 25) at Sahyadri Guest House by Union Minister Shri Ramdas Athawale to resolve citizen queries immediately.
+                </p>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.92rem', color: '#f3a812', fontWeight: 700 }}>
+                  <div>📞 Helpline 1: +91 99229 43777</div>
+                  <div>📞 Helpline 2: +91 99756 01777</div>
+                  <div>📞 Helpline 3: +91 99229 42777</div>
+                  <div>☎️ Landline: 0233 3560136</div>
+                </div>
+              </div>
+
+              <div className="card" style={{ padding: '28px', borderRadius: '20px', backgroundColor: '#ffffff' }}>
+                <h4 style={{ color: 'var(--brand-blue)', fontSize: '1.1rem', marginBottom: '12px' }}>Email Addresses</h4>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.88rem', color: '#475569' }}>
+                  <div>📧 ramdasjiathawaleyuthfoundation@gmail.com</div>
+                  <div>📧 ramdasjiathawaleyouthfoudation@gmail.com</div>
+                  <div>📧 buntybhandare@gmail.com</div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>

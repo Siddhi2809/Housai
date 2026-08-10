@@ -2,8 +2,8 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { FOUNDATION_INFO, LEADERSHIP, DIRECTORS_BOARD } from '@/data/foundationData';
-import { Award, ShieldCheck, Heart, Users, CheckCircle2 } from 'lucide-react';
+import { FOUNDATION_INFO, DIRECTORS_BOARD, KEY_OFFICERS } from '@/data/foundationData';
+import { ShieldCheck, Award, Heart, Users, CheckCircle2, Building, Target, Phone, Mail } from 'lucide-react';
 
 export default function AboutPage() {
   return (
@@ -11,79 +11,98 @@ export default function AboutPage() {
       {/* PAGE BANNER */}
       <div className="page-banner">
         <div className="container">
-          <div className="badge-gold" style={{ marginBottom: '12px' }}>TRANSPARENT SOCIAL FOUNDATION</div>
+          <div className="badge-gold" style={{ marginBottom: '12px' }}>MAHARASHTRA PUBLIC CHARITABLE TRUST</div>
           <h1 className="page-banner-title">About Our Foundation</h1>
           <p className="page-banner-subtitle">
-            Ramdas Athawale Youth Foundation is dedicated to selfless social impact, senior citizen dignity, healthcare, and youth development.
+            Khasdar Ramdasji Athawale Youth Foundation (Est. 2007) — Serving over 400 projects across 25 states of India with a primary focus on Housai Vruddhashram elderly care.
           </p>
           <div className="breadcrumb">
-            <Link href="/" className="text-[#f3a812] hover:underline">Home</Link>
-            <span className="mx-1 text-white/50">/</span>
-            <span className="text-white/70">About Us</span>
+            <Link href="/">Home</Link>
+            <span>/</span>
+            <span>About Us</span>
           </div>
         </div>
       </div>
 
-      {/* WHO WE ARE */}
+      {/* FOUNDATION OVERVIEW */}
       <section className="section-padding" style={{ backgroundColor: '#ffffff' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '50px', alignItems: 'center' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '48px', alignItems: 'flex-start' }}>
             <div>
-              <div className="badge-green" style={{ marginBottom: '14px' }}>WHO WE ARE</div>
-              <h2 style={{ fontSize: '2.2rem', color: 'var(--brand-blue)', marginBottom: '20px' }}>
-                Building a Compassionate &amp; Empowered Society
+              <div className="badge-green" style={{ marginBottom: '14px' }}>ESTABLISHED 2007 • ALL INDIA OUTREACH</div>
+              <h2 style={{ fontSize: '2.1rem', color: 'var(--brand-blue)', marginBottom: '18px' }}>
+                Transforming Lives Across Scheduled Tribes &amp; Underprivileged Communities
               </h2>
-              <p style={{ color: '#4a5568', fontSize: '1.02rem', lineHeight: '1.8', marginBottom: '16px' }}>
-                <strong>Ramdas Athawale Youth Foundation</strong> is a registered social welfare trust (Reg No: MAH/1048/2021/SANGLI) founded to address urgent community needs across Maharashtra and India.
+              <p style={{ color: '#475569', fontSize: '1rem', lineHeight: '1.8', marginBottom: '16px' }}>
+                Established in 2007 under the visionary guidance of Union Minister Hon. Ramdas Athawale Saheb, <strong>Khasdar Ramdasji Athawale Youth Foundation</strong> (Reg No: MH/323/F-17200/15) operates as a registered public charitable social enterprise dedicated to overall societal development.
               </p>
-              <p style={{ color: '#4a5568', fontSize: '1.02rem', lineHeight: '1.8', marginBottom: '24px' }}>
-                While our highest priority initiative (70%) is <strong>Housai Vruddhashram</strong>, dedicated to elderly dignity and old-age home care, the Foundation also champions drug-free campaigns (Yashanmukti), rural healthcare camps, youth athletic development, women employment, and cultural preservation.
+              <p style={{ color: '#475569', fontSize: '1rem', lineHeight: '1.8', marginBottom: '24px' }}>
+                With over <strong>400+ projects</strong> in more than <strong>2,000 remote villages and urban slums</strong> across 25 Indian states, we act as a catalyst for grassroots change. We partner with government initiatives and like-minded institutions to address critical needs in medical aid, poverty alleviation, child education, and senior citizen dignity.
               </p>
 
-              <div style={{ padding: '20px', backgroundColor: '#f1f5f9', borderRadius: '14px', borderLeft: '4px solid #f3a812' }}>
-                <h4 style={{ color: 'var(--brand-blue)', fontSize: '1.1rem', marginBottom: '8px' }}>Our Fundamental Principles</h4>
-                <p style={{ color: '#555', fontSize: '0.94rem', lineHeight: '1.6' }}>
-                  Equality, Dignity for Seniors, Zero-Tolerance for Addiction, and Active Community Welfare.
-                </p>
+              <div style={{ padding: '24px', backgroundColor: '#f8fafc', borderRadius: '16px', borderLeft: '4px solid #1b7a4b', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <h4 style={{ color: 'var(--brand-blue)', fontSize: '1.1rem', fontWeight: 800 }}>Our Core Mission Objectives:</h4>
+                <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.92rem', color: '#334155' }}>
+                  <li style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                    <CheckCircle2 size={16} style={{ color: '#1b7a4b', flexShrink: 0 }} />
+                    <span><strong>1. Medical Assistance:</strong> Financial aid &amp; healthcare resources for critical treatments.</span>
+                  </li>
+                  <li style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                    <CheckCircle2 size={16} style={{ color: '#1b7a4b', flexShrink: 0 }} />
+                    <span><strong>2. Poverty Alleviation:</strong> Socioeconomic upliftment, shelter &amp; sustainable livelihoods.</span>
+                  </li>
+                  <li style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                    <CheckCircle2 size={16} style={{ color: '#1b7a4b', flexShrink: 0 }} />
+                    <span><strong>3. Child Education:</strong> Scholarships, hostel aid &amp; mentorship for poor &amp; ST community children.</span>
+                  </li>
+                </ul>
               </div>
             </div>
 
             <div>
-              <div className="card" style={{ padding: '36px', backgroundColor: '#ffffff' }}>
-                <h3 style={{ fontSize: '1.4rem', color: 'var(--brand-blue)', marginBottom: '20px', borderBottom: '2px solid #f3a812', paddingBottom: '10px' }}>
-                  Official Registration &amp; Tax Status
+              <div className="card" style={{ padding: '32px', backgroundColor: '#ffffff', borderRadius: '20px' }}>
+                <h3 style={{ fontSize: '1.3rem', color: 'var(--brand-blue)', marginBottom: '20px', borderBottom: '2px solid #f3a812', paddingBottom: '10px' }}>
+                  Official Registration &amp; Contact Details
                 </h3>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                    <ShieldCheck size={24} style={{ color: '#1b7a4b', flexShrink: 0, marginTop: '2px' }} />
+                    <ShieldCheck size={22} style={{ color: '#1b7a4b', flexShrink: 0, marginTop: '2px' }} />
                     <div>
-                      <strong style={{ display: 'block', color: '#2d3748', fontSize: '0.98rem' }}>Registered Public Charitable Trust</strong>
-                      <span style={{ color: '#64748b', fontSize: '0.88rem' }}>Reg No: MH/323/F/17200/15 (Maharashtra Public Trust Act)</span>
+                      <strong style={{ display: 'block', color: '#0f172a', fontSize: '0.95rem' }}>Maharashtra Public Charitable Trust</strong>
+                      <span style={{ color: '#64748b', fontSize: '0.85rem' }}>Reg. No. MH/323/F-17200/15</span>
                     </div>
                   </div>
 
                   <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                    <Award size={24} style={{ color: '#f3a812', flexShrink: 0, marginTop: '2px' }} />
+                    <Award size={22} style={{ color: '#f3a812', flexShrink: 0, marginTop: '2px' }} />
                     <div>
-                      <strong style={{ display: 'block', color: '#2d3748', fontSize: '0.98rem' }}>Section 80G Tax Exemption</strong>
-                      <span style={{ color: '#64748b', fontSize: '0.88rem' }}>50% Income Tax deduction for all Indian donors</span>
+                      <strong style={{ display: 'block', color: '#0f172a', fontSize: '0.95rem' }}>80G &amp; 12A Certified Tax Rebate</strong>
+                      <span style={{ color: '#64748b', fontSize: '0.85rem' }}>50% Income Tax Exemption for Donors</span>
                     </div>
                   </div>
 
                   <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                    <Users size={24} style={{ color: 'var(--brand-blue)', flexShrink: 0, marginTop: '2px' }} />
+                    <Building size={22} style={{ color: 'var(--brand-blue)', flexShrink: 0, marginTop: '2px' }} />
                     <div>
-                      <strong style={{ display: 'block', color: '#2d3748', fontSize: '0.98rem' }}>12A Registration</strong>
-                      <span style={{ color: '#64748b', fontSize: '0.88rem' }}>Tax-exempt charitable organization status</span>
+                      <strong style={{ display: 'block', color: '#0f172a', fontSize: '0.95rem' }}>Headquarters Address</strong>
+                      <span style={{ color: '#64748b', fontSize: '0.85rem' }}>Office - Shiddu, Rajarshi Shahu Nagar, Near MSEB, Bypass Road, Tasgaon, Dist. Sangli</span>
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
+                    <Phone size={22} style={{ color: '#1b7a4b', flexShrink: 0, marginTop: '2px' }} />
+                    <div>
+                      <strong style={{ display: 'block', color: '#0f172a', fontSize: '0.95rem' }}>Official Contacts &amp; Helpline</strong>
+                      <span style={{ color: '#64748b', fontSize: '0.85rem' }}>9975601777 / 9922942777 / 9922943777</span>
                     </div>
                   </div>
                 </div>
 
-                <div style={{ marginTop: '30px' }}>
-                  <Link href="/donate" className="btn btn-gold" style={{ width: '100%' }}>
+                <div style={{ marginTop: '28px' }}>
+                  <Link href="/donate" className="btn btn-gold" style={{ width: '100%', borderRadius: '12px' }}>
                     <Heart size={16} />
-                    <span>Support Our Work</span>
+                    <span>Support Housai Vruddhashram</span>
                   </Link>
                 </div>
               </div>
@@ -92,54 +111,66 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* LEADERSHIP */}
-      {LEADERSHIP && LEADERSHIP.length > 0 && (
-        <section className="section-padding" style={{ backgroundColor: '#f8fafc' }}>
-          <div className="container">
-            <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-              <div className="badge-green" style={{ marginBottom: '12px' }}>OUR LEADERSHIP</div>
-              <h2 style={{ fontSize: '2rem', color: 'var(--brand-blue)' }}>Foundation Leadership</h2>
-            </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '28px' }}>
-              {LEADERSHIP.map((member: { name: string; role: string; description?: string }, idx: number) => (
-                <div key={idx} className="card" style={{ padding: '28px', textAlign: 'center' }}>
-                  <div style={{ width: '72px', height: '72px', borderRadius: '50%', background: 'linear-gradient(135deg, #16366f, #1b7a4b)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px', color: '#fff', fontWeight: '800', fontSize: '1.6rem' }}>
-                    {member.name.charAt(0)}
-                  </div>
-                  <h3 style={{ fontSize: '1.1rem', color: 'var(--brand-blue)', marginBottom: '4px' }}>{member.name}</h3>
-                  <div style={{ fontSize: '0.82rem', color: '#1b7a4b', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '10px' }}>{member.role}</div>
-                  {member.description && (
-                    <p style={{ fontSize: '0.9rem', color: '#555', lineHeight: '1.6' }}>{member.description}</p>
-                  )}
-                </div>
-              ))}
-            </div>
+      {/* KEY OFFICERS & FOUNDER SPEECH */}
+      <section className="section-padding" style={{ backgroundColor: '#f8fafc' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '44px' }}>
+            <div className="badge-green" style={{ marginBottom: '10px' }}>FOUNDATION LEADERSHIP</div>
+            <h2 style={{ fontSize: '2.1rem', color: 'var(--brand-blue)' }}>Founder President &amp; Key Officers</h2>
+            <p style={{ fontSize: '0.95rem', color: '#64748b', marginTop: '6px' }}>
+              Guiding our mission with vision, integrity, and dedication to public welfare.
+            </p>
           </div>
-        </section>
-      )}
 
-      {/* BOARD OF DIRECTORS */}
-      {DIRECTORS_BOARD && DIRECTORS_BOARD.length > 0 && (
-        <section className="section-padding" style={{ backgroundColor: '#ffffff' }}>
-          <div className="container">
-            <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-              <div className="badge-gold" style={{ marginBottom: '12px' }}>BOARD OF DIRECTORS</div>
-              <h2 style={{ fontSize: '2rem', color: 'var(--brand-blue)' }}>Governing Board</h2>
-            </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '20px' }}>
-              {DIRECTORS_BOARD.map((director: { name: string; role: string }, idx: number) => (
-                <div key={idx} className="card" style={{ padding: '20px', display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <CheckCircle2 size={20} style={{ color: '#1b7a4b', flexShrink: 0 }} />
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '28px' }}>
+            {KEY_OFFICERS.map((officer, idx) => (
+              <div key={idx} className="card" style={{ padding: '32px', borderRadius: '18px', backgroundColor: '#ffffff' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '20px' }}>
+                  <div style={{ width: '64px', height: '64px', borderRadius: '50%', background: 'linear-gradient(135deg, #16366f, #1b7a4b)', color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', fontWeight: 800 }}>
+                    {officer.name.charAt(officer.name.indexOf(' ') + 1)}
+                  </div>
                   <div>
-                    <strong style={{ display: 'block', fontSize: '0.96rem', color: 'var(--brand-blue)' }}>{director.name}</strong>
-                    <span style={{ fontSize: '0.82rem', color: '#64748b' }}>{director.role}</span>
+                    <h3 style={{ fontSize: '1.15rem', color: 'var(--brand-blue)', marginBottom: '2px' }}>{officer.name}</h3>
+                    <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#1b7a4b', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                      {officer.title} ({officer.marathiTitle})
+                    </div>
                   </div>
                 </div>
-              ))}
-            </div>
+
+                <p style={{ fontSize: '0.92rem', color: '#475569', lineHeight: '1.7', fontStyle: 'italic', marginBottom: '16px' }}>
+                  &ldquo;{officer.message}&rdquo;
+                </p>
+
+                <div style={{ padding: '12px 16px', backgroundColor: '#f1f5f9', borderRadius: '10px', fontSize: '0.85rem', color: '#334155' }}>
+                  <strong>मराठी मनोगत:</strong> {officer.marathiMessage}
+                </div>
+              </div>
+            ))}
           </div>
-        </section>
-      )}
+        </div>
+      </section>
+
+      {/* BOARD OF DIRECTORS LIST */}
+      <section className="section-padding" style={{ backgroundColor: '#ffffff' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <div className="badge-gold" style={{ marginBottom: '10px' }}>GOVERNING COUNCIL</div>
+            <h2 style={{ fontSize: '2rem', color: 'var(--brand-blue)' }}>Board of Directors (संचालक मंडळ)</h2>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px' }}>
+            {DIRECTORS_BOARD.map((director, idx) => (
+              <div key={idx} className="card" style={{ padding: '20px', borderRadius: '14px', display: 'flex', alignItems: 'center', gap: '14px' }}>
+                <CheckCircle2 size={20} style={{ color: '#1b7a4b', flexShrink: 0 }} />
+                <div>
+                  <strong style={{ display: 'block', fontSize: '0.96rem', color: 'var(--brand-blue)' }}>{director.name}</strong>
+                  <span style={{ fontSize: '0.82rem', color: '#64748b' }}>{director.role}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

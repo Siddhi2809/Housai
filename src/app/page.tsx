@@ -546,10 +546,10 @@ export default function HomePage() {
             }}
           >
             {[
-              { icon: '🏆', count: '5+', label: 'Years of Dedicated Service' },
-              { icon: '👴', count: '1,250+', label: 'Elderly Citizens Supported' },
-              { icon: '🤝', count: '85+', label: 'Social Initiatives Completed' },
-              { icon: '👥', count: '120+', label: 'Dedicated Volunteers & Staff' },
+              { icon: '🏆', count: '17+', label: 'Years of Service (Est. 2007)' },
+              { icon: '📁', count: '400+', label: 'Projects Across 25 States' },
+              { icon: '🏠', count: '458', label: 'Homeless Houses Built' },
+              { icon: '🚩', count: '2,000+', label: 'Villages & Slums Covered' },
             ].map((stat, idx, arr) => (
               <div
                 key={idx}
@@ -591,6 +591,408 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ======================================================== */}
+      {/* ABOUT & MISSION SUMMARY                                   */}
+      {/* ======================================================== */}
+      <section style={{ backgroundColor: '#f8fafc', padding: '80px 0', borderTop: '1px solid #e2e8f0' }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 40px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '48px', alignItems: 'center' }}>
+            
+            {/* Left Column: About Info */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              <div>
+                <span
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    backgroundColor: '#eef7f2',
+                    border: '1px solid rgba(27, 122, 75, 0.3)',
+                    color: '#1b7a4b',
+                    borderRadius: '9999px',
+                    padding: '6px 16px',
+                    fontSize: '0.75rem',
+                    fontWeight: 700,
+                    letterSpacing: '0.8px',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  <Heart size={14} fill="#1b7a4b" color="#1b7a4b" />
+                  ESTABLISHED 2007 • ALL INDIA CHARITABLE TRUST
+                </span>
+              </div>
+
+              <h2
+                style={{
+                  fontFamily: 'Outfit, sans-serif',
+                  fontWeight: 800,
+                  fontSize: '2.2rem',
+                  lineHeight: '1.25',
+                  color: '#16366f',
+                }}
+              >
+                Dedicated to Elderly Care, Health, Education &amp; ST Community Welfare
+              </h2>
+
+              <p
+                style={{
+                  fontFamily: 'Plus Jakarta Sans, sans-serif',
+                  fontSize: '1rem',
+                  color: '#475569',
+                  lineHeight: '1.75',
+                }}
+              >
+                <strong style={{ color: '#0f172a', fontWeight: 700 }}>Khasdar Ramdasji Athawale Youth Foundation</strong> (Reg No: MH/323/F-17200/15) is a development organization operating over 400 projects across 2,000 remote villages &amp; urban slums in 25 states. Our primary flagship unit is <span style={{ color: '#1b7a4b', fontWeight: 700 }}>Housai Vruddhashram</span> in Sangli, providing free shelter, food, and nursing to homeless seniors.
+              </p>
+
+              {/* 2x2 Feature Grid */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px', marginTop: '8px' }}>
+                <div style={{ padding: '16px', backgroundColor: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 2px 8px rgba(0,0,0,0.04)', display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
+                  <div style={{ fontSize: '1.4rem', lineHeight: '1' }}>👵👴</div>
+                  <div>
+                    <h4 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '0.92rem', color: '#16366f' }}>Housai Vruddhashram</h4>
+                    <p style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '2px', lineHeight: '1.4' }}>Free shelter, meals, 24/7 nursing for homeless seniors.</p>
+                  </div>
+                </div>
+
+                <div style={{ padding: '16px', backgroundColor: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 2px 8px rgba(0,0,0,0.04)', display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
+                  <div style={{ fontSize: '1.4rem', lineHeight: '1' }}>🚫🍷</div>
+                  <div>
+                    <h4 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '0.92rem', color: '#16366f' }}>Yashanmukti Drives</h4>
+                    <p style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '2px', lineHeight: '1.4' }}>De-addiction rallies &amp; youth counseling campaigns.</p>
+                  </div>
+                </div>
+
+                <div style={{ padding: '16px', backgroundColor: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 2px 8px rgba(0,0,0,0.04)', display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
+                  <div style={{ fontSize: '1.4rem', lineHeight: '1' }}>🩺🚑</div>
+                  <div>
+                    <h4 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '0.92rem', color: '#16366f' }}>Arogya &amp; Ambulance</h4>
+                    <p style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '2px', lineHeight: '1.4' }}>24/7 ambulance patient care &amp; medical financial aid.</p>
+                  </div>
+                </div>
+
+                <div style={{ padding: '16px', backgroundColor: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 2px 8px rgba(0,0,0,0.04)', display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
+                  <div style={{ fontSize: '1.4rem', lineHeight: '1' }}>💼🧵</div>
+                  <div>
+                    <h4 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '0.92rem', color: '#16366f' }}>Rojgar Nirmiti &amp; ST Welfare</h4>
+                    <p style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '2px', lineHeight: '1.4' }}>Poverty alleviation &amp; education for ST children.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div style={{ marginTop: '8px' }}>
+                <Link
+                  href="/about"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    fontSize: '0.92rem',
+                    fontWeight: 700,
+                    color: '#1b7a4b',
+                    textDecoration: 'none',
+                  }}
+                >
+                  Learn More About Our Trust &amp; Governance <ArrowRight size={16} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Column: Registration Card */}
+            <div>
+              <div
+                style={{
+                  backgroundColor: '#ffffff',
+                  borderRadius: '20px',
+                  padding: '36px',
+                  border: '1px solid #e2e8f0',
+                  boxShadow: '0 12px 36px rgba(22, 54, 111, 0.08)',
+                  position: 'relative',
+                  overflow: 'hidden',
+                }}
+              >
+                <span
+                  style={{
+                    display: 'inline-block',
+                    padding: '5px 14px',
+                    backgroundColor: '#fff3d6',
+                    color: '#92400e',
+                    fontSize: '0.75rem',
+                    fontWeight: 800,
+                    borderRadius: '9999px',
+                    marginBottom: '16px',
+                    letterSpacing: '0.5px',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  Official Registration
+                </span>
+
+                <h3
+                  style={{
+                    fontFamily: 'Outfit, sans-serif',
+                    fontWeight: 800,
+                    fontSize: '1.35rem',
+                    color: '#16366f',
+                    marginBottom: '20px',
+                  }}
+                >
+                  Transparent &amp; Registered Public Trust
+                </h3>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', fontSize: '0.9rem', color: '#475569', marginBottom: '28px' }}>
+                  <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
+                    <div style={{ width: '22px', height: '22px', borderRadius: '50%', backgroundColor: '#eef7f2', color: '#1b7a4b', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontWeight: '800', fontSize: '0.75rem', marginTop: '2px' }}>✓</div>
+                    <div>
+                      <strong style={{ color: '#0f172a', display: 'block' }}>Trust Reg No:</strong>
+                      MH/323/F/17200/15 (Maharashtra Public Trust Act)
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
+                    <div style={{ width: '22px', height: '22px', borderRadius: '50%', backgroundColor: '#fff3d6', color: '#b45309', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontWeight: '800', fontSize: '0.75rem', marginTop: '2px' }}>★</div>
+                    <div>
+                      <strong style={{ color: '#0f172a', display: 'block' }}>80G Tax Exemption:</strong>
+                      50% Income Tax rebate on all monetary donations under Section 80G.
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
+                    <div style={{ width: '22px', height: '22px', borderRadius: '50%', backgroundColor: '#dbeafe', color: '#16366f', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontWeight: '800', fontSize: '0.75rem', marginTop: '2px' }}>ℹ</div>
+                    <div>
+                      <strong style={{ color: '#0f172a', display: 'block' }}>Headquarters:</strong>
+                      Tasgaon &amp; Sangli, Maharashtra | Liaison Office: New Delhi
+                    </div>
+                  </div>
+                </div>
+
+                <Link
+                  href="/donate"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px',
+                    backgroundColor: '#d92b2b',
+                    color: '#ffffff',
+                    fontFamily: 'Outfit, sans-serif',
+                    fontWeight: 700,
+                    fontSize: '0.92rem',
+                    padding: '14px 24px',
+                    borderRadius: '12px',
+                    textDecoration: 'none',
+                    boxShadow: '0 4px 14px rgba(217, 43, 43, 0.3)',
+                    textAlign: 'center',
+                  }}
+                >
+                  <Heart size={16} fill="#ffffff" />
+                  SUPPORT HOUSAI VRUDDHASHRAM
+                </Link>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ======================================================== */}
+      {/* CORE INITIATIVES GRID                                    */}
+      {/* ======================================================== */}
+      <section style={{ backgroundColor: '#ffffff', padding: '80px 0' }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 40px' }}>
+          <div style={{ textAlign: 'center', maxWidth: '640px', margin: '0 auto 48px auto' }}>
+            <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#1b7a4b', letterSpacing: '1px', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>
+              OUR SOCIAL IMPACT
+            </span>
+            <h2 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '2.2rem', color: '#16366f', marginBottom: '12px' }}>
+              Key Initiatives &amp; Welfare Work
+            </h2>
+            <p style={{ fontSize: '0.95rem', color: '#64748b', lineHeight: '1.6' }}>
+              Explore how Ramdas Athawale Youth Foundation touches thousands of lives across Maharashtra through structured community projects.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '28px' }}>
+            
+            {/* Card 1: Housai Vruddhashram */}
+            <div style={{ backgroundColor: '#f8fafc', borderRadius: '16px', padding: '28px', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div>
+                <div style={{ width: '52px', height: '52px', borderRadius: '14px', backgroundColor: '#1b7a4b', color: '#fff', fontSize: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', boxShadow: '0 4px 12px rgba(27, 122, 75, 0.3)' }}>
+                  👵👴
+                </div>
+                <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#1b7a4b', backgroundColor: '#eef7f2', padding: '4px 12px', borderRadius: '9999px', textTransform: 'uppercase' }}>
+                  70% Foundation Focus
+                </span>
+                <h3 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '1.25rem', color: '#16366f', marginTop: '12px', marginBottom: '8px' }}>
+                  Housai Vruddhashram
+                </h3>
+                <p style={{ fontSize: '0.88rem', color: '#475569', lineHeight: '1.6', marginBottom: '24px' }}>
+                  Our flagship senior care facility providing homeless and destitute elderly citizens with comfortable rooms, nutritious meals, 24/7 nursing, and emotional dignity.
+                </p>
+              </div>
+              <Link href="/vruddhashram" style={{ fontSize: '0.85rem', fontWeight: 700, color: '#1b7a4b', display: 'flex', alignItems: 'center', gap: '4px', textDecoration: 'none' }}>
+                Explore Facility Details <ArrowRight size={14} />
+              </Link>
+            </div>
+
+            {/* Card 2: Yashanmukti */}
+            <div style={{ backgroundColor: '#f8fafc', borderRadius: '16px', padding: '28px', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div>
+                <div style={{ width: '52px', height: '52px', borderRadius: '14px', backgroundColor: '#16366f', color: '#fff', fontSize: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', boxShadow: '0 4px 12px rgba(22, 54, 111, 0.3)' }}>
+                  🚫🍷
+                </div>
+                <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#16366f', backgroundColor: '#dbeafe', padding: '4px 12px', borderRadius: '9999px', textTransform: 'uppercase' }}>
+                  Youth Welfare
+                </span>
+                <h3 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '1.25rem', color: '#16366f', marginTop: '12px', marginBottom: '8px' }}>
+                  Yashanmukti Drives
+                </h3>
+                <p style={{ fontSize: '0.88rem', color: '#475569', lineHeight: '1.6', marginBottom: '24px' }}>
+                  Community de-addiction awareness rallies, youth counseling sessions, and rehabilitation support to eradicate substance abuse in Sangli &amp; Tasgaon.
+                </p>
+              </div>
+              <Link href="/work" style={{ fontSize: '0.85rem', fontWeight: 700, color: '#16366f', display: 'flex', alignItems: 'center', gap: '4px', textDecoration: 'none' }}>
+                View Awareness Drives <ArrowRight size={14} />
+              </Link>
+            </div>
+
+            {/* Card 3: Free Healthcare */}
+            <div style={{ backgroundColor: '#f8fafc', borderRadius: '16px', padding: '28px', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div>
+                <div style={{ width: '52px', height: '52px', borderRadius: '14px', backgroundColor: '#f3a812', color: '#fff', fontSize: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', boxShadow: '0 4px 12px rgba(243, 168, 18, 0.3)' }}>
+                  🩺💊
+                </div>
+                <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#92400e', backgroundColor: '#fff3d6', padding: '4px 12px', borderRadius: '9999px', textTransform: 'uppercase' }}>
+                  Rural Health
+                </span>
+                <h3 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '1.25rem', color: '#16366f', marginTop: '12px', marginBottom: '8px' }}>
+                  Free Medical Camps
+                </h3>
+                <p style={{ fontSize: '0.88rem', color: '#475569', lineHeight: '1.6', marginBottom: '24px' }}>
+                  Organizing multi-specialty health checkups, free eye checkups &amp; cataract operations, and free medicine distribution for rural families.
+                </p>
+              </div>
+              <Link href="/work" style={{ fontSize: '0.85rem', fontWeight: 700, color: '#b45309', display: 'flex', alignItems: 'center', gap: '4px', textDecoration: 'none' }}>
+                Learn About Health Camps <ArrowRight size={14} />
+              </Link>
+            </div>
+
+            {/* Card 4: Youth & Sports */}
+            <div style={{ backgroundColor: '#f8fafc', borderRadius: '16px', padding: '28px', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div>
+                <div style={{ width: '52px', height: '52px', borderRadius: '14px', backgroundColor: '#4f46e5', color: '#fff', fontSize: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', boxShadow: '0 4px 12px rgba(79, 70, 229, 0.3)' }}>
+                  🏆⚽
+                </div>
+                <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#3730a3', backgroundColor: '#e0e7ff', padding: '4px 12px', borderRadius: '9999px', textTransform: 'uppercase' }}>
+                  Sports &amp; Talent
+                </span>
+                <h3 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '1.25rem', color: '#16366f', marginTop: '12px', marginBottom: '8px' }}>
+                  Youth Sports Promotion
+                </h3>
+                <p style={{ fontSize: '0.88rem', color: '#475569', lineHeight: '1.6', marginBottom: '24px' }}>
+                  Distributing sports equipment to rural athletes, sponsoring athletic tournaments, and fostering physical fitness and teamwork among youth.
+                </p>
+              </div>
+              <Link href="/work" style={{ fontSize: '0.85rem', fontWeight: 700, color: '#4f46e5', display: 'flex', alignItems: 'center', gap: '4px', textDecoration: 'none' }}>
+                See Sports Programs <ArrowRight size={14} />
+              </Link>
+            </div>
+
+            {/* Card 5: Women Empowerment */}
+            <div style={{ backgroundColor: '#f8fafc', borderRadius: '16px', padding: '28px', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div>
+                <div style={{ width: '52px', height: '52px', borderRadius: '14px', backgroundColor: '#e11d48', color: '#fff', fontSize: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', boxShadow: '0 4px 12px rgba(225, 29, 72, 0.3)' }}>
+                  👩‍💼🧵
+                </div>
+                <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#9f1239', backgroundColor: '#ffe4e6', padding: '4px 12px', borderRadius: '9999px', textTransform: 'uppercase' }}>
+                  Livelihoods
+                </span>
+                <h3 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '1.25rem', color: '#16366f', marginTop: '12px', marginBottom: '8px' }}>
+                  Women Empowerment
+                </h3>
+                <p style={{ fontSize: '0.88rem', color: '#475569', lineHeight: '1.6', marginBottom: '24px' }}>
+                  Skill development workshops, tailoring training, and micro-initiative guidance for rural women self-help groups to foster financial independence.
+                </p>
+              </div>
+              <Link href="/work" style={{ fontSize: '0.85rem', fontWeight: 700, color: '#e11d48', display: 'flex', alignItems: 'center', gap: '4px', textDecoration: 'none' }}>
+                Explore Livelihood Projects <ArrowRight size={14} />
+              </Link>
+            </div>
+
+            {/* Card 6: Cultural & Relief */}
+            <div style={{ backgroundColor: '#f8fafc', borderRadius: '16px', padding: '28px', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div>
+                <div style={{ width: '52px', height: '52px', borderRadius: '14px', backgroundColor: '#d92b2b', color: '#fff', fontSize: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', boxShadow: '0 4px 12px rgba(217, 43, 43, 0.3)' }}>
+                  🎭🌊
+                </div>
+                <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#991b1b', backgroundColor: '#fee2e2', padding: '4px 12px', borderRadius: '9999px', textTransform: 'uppercase' }}>
+                  Disaster Relief
+                </span>
+                <h3 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '1.25rem', color: '#16366f', marginTop: '12px', marginBottom: '8px' }}>
+                  Cultural &amp; Emergency Relief
+                </h3>
+                <p style={{ fontSize: '0.88rem', color: '#475569', lineHeight: '1.6', marginBottom: '24px' }}>
+                  Preserving Maharashtrian heritage and providing rapid relief kits (food packets, clean water, blankets) during floods and emergencies.
+                </p>
+              </div>
+              <Link href="/work" style={{ fontSize: '0.85rem', fontWeight: 700, color: '#d92b2b', display: 'flex', alignItems: 'center', gap: '4px', textDecoration: 'none' }}>
+                View Emergency Outreach <ArrowRight size={14} />
+              </Link>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ======================================================== */}
+      {/* CTA BANNER                                               */}
+      {/* ======================================================== */}
+      <section style={{ backgroundColor: '#16366f', color: '#ffffff', padding: '64px 0', borderTop: '4px solid #d92b2b' }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 40px', textAlign: 'center' }}>
+          <h2 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '2.2rem', color: '#ffffff', marginBottom: '16px' }}>
+            Join Hands With Us to Make a Real Difference
+          </h2>
+          <p style={{ fontSize: '1rem', color: 'rgba(255, 255, 255, 0.85)', maxWidth: '640px', margin: '0 auto 28px auto', lineHeight: '1.6' }}>
+            Whether by adopting a senior citizen at Housai Vruddhashram, sponsoring medical kits, or volunteering your time, your support transforms lives.
+          </p>
+          <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <Link
+              href="/donate"
+              style={{
+                backgroundColor: '#1b7a4b',
+                color: '#ffffff',
+                fontFamily: 'Outfit, sans-serif',
+                fontWeight: 700,
+                fontSize: '0.9rem',
+                padding: '14px 28px',
+                borderRadius: '10px',
+                textDecoration: 'none',
+                boxShadow: '0 4px 14px rgba(27, 122, 75, 0.4)',
+              }}
+            >
+              DONATE &amp; SAVE TAX (80G)
+            </Link>
+            <Link
+              href="/contact"
+              style={{
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                color: '#ffffff',
+                border: '1.5px solid rgba(255, 255, 255, 0.3)',
+                fontFamily: 'Outfit, sans-serif',
+                fontWeight: 700,
+                fontSize: '0.9rem',
+                padding: '14px 28px',
+                borderRadius: '10px',
+                textDecoration: 'none',
+              }}
+            >
+              CONTACT HEAD OFFICE
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
+
 }
