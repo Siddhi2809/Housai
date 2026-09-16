@@ -32,27 +32,27 @@ export default function Navbar() {
 
   return (
     <>
-      {/* TOP HELPLINE STRIP */}
-      <div style={{ backgroundColor: '#0A381F', color: '#ffffff', fontSize: '0.78rem', padding: '6px 0', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
-            <span style={{ display: 'flex', alignItems: 'center', gap: '5px', color: '#f3a812', fontWeight: '700' }}>
-              <Phone size={13} /> {t('nav.helpline')} +91 {FOUNDATION_INFO.phoneMobile} | 0233 3560136
+      {/* TOP HELPLINE & UTILITY STRIP */}
+      <div className="top-strip" style={{ backgroundColor: '#0A381F', color: '#ffffff', fontSize: '0.78rem', padding: '6px 0', borderBottom: '1px solid rgba(255,255,255,0.1)', position: 'relative', zIndex: 1002 }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '8px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap', overflow: 'hidden' }}>
+            <span style={{ display: 'flex', alignItems: 'center', gap: '5px', color: '#f3a812', fontWeight: '700', whiteSpace: 'nowrap' }}>
+              <Phone size={13} /> {t('nav.helpline')} +91 {FOUNDATION_INFO.phoneMobile}
             </span>
-            <span style={{ color: 'rgba(255,255,255,0.7)', display: 'flex', alignItems: 'center', gap: '5px' }}>
+            <span className="top-strip-email" style={{ color: 'rgba(255,255,255,0.7)', display: 'flex', alignItems: 'center', gap: '5px', whiteSpace: 'nowrap' }}>
               <Mail size={13} /> {FOUNDATION_INFO.emailPrimary}
             </span>
           </div>
 
           {/* LANGUAGE SELECTOR */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexShrink: 0 }}>
             <Globe size={13} style={{ color: '#f3a812' }} />
-            <span style={{ color: 'rgba(255,255,255,0.8)', fontWeight: 600, fontSize: '0.75rem' }}>{t('nav.language')}</span>
+            <span className="top-strip-lang-label" style={{ color: 'rgba(255,255,255,0.8)', fontWeight: 600, fontSize: '0.75rem' }}>{t('nav.language')}</span>
             <div style={{ display: 'inline-flex', backgroundColor: 'rgba(255,255,255,0.15)', borderRadius: '9999px', padding: '2px' }}>
               <button
                 onClick={() => setLang('en')}
                 style={{
-                  padding: '2px 10px',
+                  padding: '2px 8px',
                   borderRadius: '9999px',
                   border: 'none',
                   fontSize: '0.72rem',
@@ -68,7 +68,7 @@ export default function Navbar() {
               <button
                 onClick={() => setLang('hi')}
                 style={{
-                  padding: '2px 10px',
+                  padding: '2px 8px',
                   borderRadius: '9999px',
                   border: 'none',
                   fontSize: '0.72rem',
@@ -86,48 +86,47 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Spacer for sticky header */}
-      <div style={{ height: '76px' }} />
-
       <header
+        className="main-header"
         style={{
-          position: 'fixed',
-          top: '32px',
+          position: 'sticky',
+          top: 0,
           left: 0,
           right: 0,
           zIndex: 1000,
-          backgroundColor: 'transparent',
-          pointerEvents: 'none',
+          backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.96)' : 'transparent',
+          backdropFilter: scrolled ? 'blur(10px)' : 'none',
+          WebkitBackdropFilter: scrolled ? 'blur(10px)' : 'none',
           display: 'flex',
           justifyContent: 'center',
-          padding: scrolled ? '8px 16px' : '12px 16px',
+          padding: scrolled ? '6px 16px' : '10px 16px',
+          marginTop: scrolled ? '0' : '-8px',
           transition: 'all 0.3s ease',
         }}
       >
         <nav
           style={{
-            pointerEvents: 'auto',
             width: '100%',
             maxWidth: '1280px',
             backgroundColor: '#ffffff',
             borderRadius: '9999px',
-            padding: '6px 16px',
+            padding: '6px 14px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
             boxShadow: scrolled
-              ? '0 10px 30px rgba(22, 54, 111, 0.2)'
-              : '0 4px 20px rgba(22, 54, 111, 0.12)',
+              ? '0 6px 20px rgba(15, 76, 42, 0.15)'
+              : '0 4px 18px rgba(15, 76, 42, 0.12)',
             border: '1px solid #e2e8f0',
           }}
         >
           {/* Logo & Foundation Title */}
-          <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
+          <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', minWidth: 0 }}>
             <div
               className="nav-logo-icon"
               style={{
-                width: '42px',
-                height: '42px',
+                width: '40px',
+                height: '40px',
                 borderRadius: '50%',
                 overflow: 'hidden',
                 border: '2px solid #0F4C2A',
@@ -137,21 +136,24 @@ export default function Navbar() {
               <Image
                 src="/assets/logo.png"
                 alt="Logo"
-                width={42}
-                height={42}
+                width={40}
+                height={40}
                 style={{ objectFit: 'cover', width: '100%', height: '100%' }}
               />
             </div>
-            <div>
+            <div style={{ overflow: 'hidden' }}>
               <div
                 className="nav-title-primary"
                 style={{
                   fontFamily: 'Outfit, sans-serif',
                   fontWeight: 800,
-                  fontSize: '0.85rem',
+                  fontSize: '0.84rem',
                   color: '#0F4C2A',
-                  lineHeight: '1.2',
+                  lineHeight: '1.15',
                   letterSpacing: '0.2px',
+                  whiteSpace: 'nowrap',
+                  textOverflow: 'ellipsis',
+                  overflow: 'hidden',
                 }}
               >
                 KHASDAR RAMDASJI ATHAWALE
@@ -161,10 +163,11 @@ export default function Navbar() {
                 style={{
                   fontFamily: 'Outfit, sans-serif',
                   fontWeight: 700,
-                  fontSize: '0.68rem',
+                  fontSize: '0.65rem',
                   color: '#800020',
                   letterSpacing: '1.2px',
                   textTransform: 'uppercase',
+                  whiteSpace: 'nowrap',
                 }}
               >
                 YOUTH FOUNDATION
@@ -185,7 +188,7 @@ export default function Navbar() {
                       fontWeight: isActive ? 800 : 600,
                       fontSize: '0.82rem',
                       color: isActive ? '#ffffff' : '#334155',
-                      padding: '6px 14px',
+                      padding: '6px 13px',
                       borderRadius: '9999px',
                       textDecoration: 'none',
                       whiteSpace: 'nowrap',
@@ -212,8 +215,8 @@ export default function Navbar() {
                 color: '#ffffff',
                 fontFamily: 'Outfit, sans-serif',
                 fontWeight: 700,
-                fontSize: '0.8rem',
-                padding: '8px 14px',
+                fontSize: '0.78rem',
+                padding: '7px 13px',
                 borderRadius: '9999px',
                 textDecoration: 'none',
                 display: 'flex',
@@ -224,7 +227,7 @@ export default function Navbar() {
               }}
             >
               <Heart size={13} fill="#ffffff" />
-              {t('nav.donate')}
+              <span>{t('nav.donate')}</span>
             </Link>
 
             <button
@@ -255,10 +258,10 @@ export default function Navbar() {
         <div
           style={{
             position: 'fixed',
-            top: '90px',
-            left: '16px',
-            right: '16px',
-            zIndex: 999,
+            top: '86px',
+            left: '12px',
+            right: '12px',
+            zIndex: 1001,
             backgroundColor: '#ffffff',
             borderRadius: '16px',
             padding: '16px',
@@ -266,6 +269,54 @@ export default function Navbar() {
             border: '1px solid #e2e8f0',
           }}
         >
+          {/* Mobile Language Switcher row */}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              paddingBottom: '12px',
+              marginBottom: '10px',
+              borderBottom: '1px solid #f1f5f9',
+            }}
+          >
+            <span style={{ fontSize: '0.8rem', fontWeight: 600, color: '#64748b', display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <Globe size={14} color="#0F4C2A" /> Language / भाषा
+            </span>
+            <div style={{ display: 'inline-flex', backgroundColor: '#f1f5f9', borderRadius: '9999px', padding: '2px' }}>
+              <button
+                onClick={() => setLang('en')}
+                style={{
+                  padding: '4px 12px',
+                  borderRadius: '9999px',
+                  border: 'none',
+                  fontSize: '0.75rem',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  backgroundColor: lang === 'en' ? '#800020' : 'transparent',
+                  color: lang === 'en' ? '#ffffff' : '#475569',
+                }}
+              >
+                English
+              </button>
+              <button
+                onClick={() => setLang('hi')}
+                style={{
+                  padding: '4px 12px',
+                  borderRadius: '9999px',
+                  border: 'none',
+                  fontSize: '0.75rem',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  backgroundColor: lang === 'hi' ? '#800020' : 'transparent',
+                  color: lang === 'hi' ? '#ffffff' : '#475569',
+                }}
+              >
+                हिंदी
+              </button>
+            </div>
+          </div>
+
           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '6px' }}>
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href;
