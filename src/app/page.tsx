@@ -530,9 +530,10 @@ export default function HomePage() {
         style={{
           width: '100%',
           backgroundColor: '#ffffff',
-          borderBottom: '1px solid #e2e8f0',
-          paddingTop: '36px',
-          paddingBottom: '36px',
+          borderBottom: '1px solid #e8eef0',
+          paddingTop: '40px',
+          paddingBottom: '40px',
+          boxShadow: '0 4px 20px rgba(15, 76, 42, 0.04)',
         }}
       >
         <div
@@ -550,10 +551,10 @@ export default function HomePage() {
             }}
           >
             {[
-              { icon: '🏆', count: '17+', label: t('stats.years') },
-              { icon: '📁', count: '400+', label: t('stats.projects') },
-              { icon: '🏠', count: '458', label: t('stats.houses') },
-              { icon: '🚩', count: '2,000+', label: t('stats.villages') },
+              { icon: '🏆', count: '17+', label: t('stats.years'), accent: '#f3a812' },
+              { icon: '📁', count: '400+', label: t('stats.projects'), accent: '#0F4C2A' },
+              { icon: '🏠', count: '458', label: t('stats.houses'), accent: '#800020' },
+              { icon: '🚩', count: '2,000+', label: t('stats.villages'), accent: '#0F4C2A' },
             ].map((stat, idx, arr) => (
               <div
                 key={idx}
@@ -563,18 +564,19 @@ export default function HomePage() {
                   alignItems: 'center',
                   textAlign: 'center',
                   padding: '16px 24px',
-                  borderRight: idx < arr.length - 1 ? '1px solid #e2e8f0' : 'none',
+                  borderRight: idx < arr.length - 1 ? '1px solid #e8eef0' : 'none',
+                  transition: 'transform 0.25s ease',
                 }}
               >
-                <div style={{ fontSize: '2rem', marginBottom: '6px' }}>{stat.icon}</div>
+                <div style={{ fontSize: '2.1rem', marginBottom: '8px' }}>{stat.icon}</div>
                 <div
                   style={{
                     fontFamily: 'Outfit, sans-serif',
-                    fontWeight: 800,
-                    fontSize: '2.1rem',
-                    color: '#16366f',
-                    lineHeight: '1.1',
-                    letterSpacing: '-0.5px',
+                    fontWeight: 900,
+                    fontSize: '2.4rem',
+                    color: '#0F4C2A',
+                    lineHeight: '1.05',
+                    letterSpacing: '-0.03em',
                   }}
                 >
                   {stat.count}
@@ -582,10 +584,11 @@ export default function HomePage() {
                 <div
                   style={{
                     fontFamily: 'Plus Jakarta Sans, sans-serif',
-                    fontSize: '0.875rem',
+                    fontSize: '0.85rem',
                     color: '#64748b',
                     fontWeight: 600,
-                    marginTop: '6px',
+                    marginTop: '8px',
+                    letterSpacing: '0.2px',
                   }}
                 >
                   {stat.label}
@@ -599,30 +602,15 @@ export default function HomePage() {
       {/* ======================================================== */}
       {/* ABOUT & MISSION SUMMARY                                   */}
       {/* ======================================================== */}
-      <section style={{ backgroundColor: '#f8fafc', padding: '80px 0', borderTop: '1px solid #e2e8f0' }}>
+      <section style={{ backgroundColor: '#f8fafc', padding: '88px 0', borderTop: '1px solid #e8eef0' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 40px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '48px', alignItems: 'center' }}>
             
             {/* Left Column: About Info */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
               <div>
-                <span
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    backgroundColor: '#eef7f2',
-                    border: '1px solid rgba(27, 122, 75, 0.3)',
-                    color: '#1b7a4b',
-                    borderRadius: '9999px',
-                    padding: '6px 16px',
-                    fontSize: '0.75rem',
-                    fontWeight: 700,
-                    letterSpacing: '0.8px',
-                    textTransform: 'uppercase',
-                  }}
-                >
-                  <Heart size={14} fill="#1b7a4b" color="#1b7a4b" />
+                <span className="badge-green">
+                  <Heart size={13} fill="#0F4C2A" color="#0F4C2A" />
                   {t('about.badge')}
                 </span>
               </div>
@@ -631,9 +619,10 @@ export default function HomePage() {
                 style={{
                   fontFamily: 'Outfit, sans-serif',
                   fontWeight: 800,
-                  fontSize: '2.2rem',
-                  lineHeight: '1.25',
-                  color: '#16366f',
+                  fontSize: '2.35rem',
+                  lineHeight: '1.2',
+                  color: '#0F4C2A',
+                  letterSpacing: '-0.02em',
                 }}
               >
                 {t('about.title')}
@@ -644,51 +633,51 @@ export default function HomePage() {
                   fontFamily: 'Plus Jakarta Sans, sans-serif',
                   fontSize: '1rem',
                   color: '#475569',
-                  lineHeight: '1.75',
+                  lineHeight: '1.8',
                 }}
               >
                 {t('about.desc')}
               </p>
 
               {/* 2x2 Feature Grid */}
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px', marginTop: '8px' }}>
-                <div style={{ padding: '16px', backgroundColor: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 2px 8px rgba(0,0,0,0.04)', display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                  <div style={{ width: '36px', height: '36px', borderRadius: '8px', backgroundColor: '#eef7f2', color: '#1b7a4b', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                    <Heart size={18} />
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px', marginTop: '6px' }}>
+                <div style={{ padding: '18px', backgroundColor: '#ffffff', borderRadius: '16px', border: '1px solid #e8eef0', boxShadow: '0 2px 10px rgba(15, 76, 42, 0.04)', display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
+                  <div style={{ width: '40px', height: '40px', borderRadius: '10px', backgroundColor: '#f0f7f3', color: '#0F4C2A', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <Heart size={20} />
                   </div>
                   <div>
-                    <h4 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '0.92rem', color: '#16366f' }}>{t('initiatives.v1')}</h4>
-                    <p style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '2px', lineHeight: '1.4' }}>{t('initiatives.v1Desc')}</p>
+                    <h4 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '0.94rem', color: '#0F4C2A' }}>{t('initiatives.v1')}</h4>
+                    <p style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '3px', lineHeight: '1.45' }}>{t('initiatives.v1Desc')}</p>
                   </div>
                 </div>
 
-                <div style={{ padding: '16px', backgroundColor: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 2px 8px rgba(0,0,0,0.04)', display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                  <div style={{ width: '36px', height: '36px', borderRadius: '8px', backgroundColor: '#dbeafe', color: '#16366f', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                    <ShieldCheck size={18} />
+                <div style={{ padding: '18px', backgroundColor: '#ffffff', borderRadius: '16px', border: '1px solid #e8eef0', boxShadow: '0 2px 10px rgba(15, 76, 42, 0.04)', display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
+                  <div style={{ width: '40px', height: '40px', borderRadius: '10px', backgroundColor: '#fcf0f2', color: '#800020', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <ShieldCheck size={20} />
                   </div>
                   <div>
-                    <h4 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '0.92rem', color: '#16366f' }}>{t('initiatives.v2')}</h4>
-                    <p style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '2px', lineHeight: '1.4' }}>{t('initiatives.v2Desc')}</p>
+                    <h4 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '0.94rem', color: '#800020' }}>{t('initiatives.v2')}</h4>
+                    <p style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '3px', lineHeight: '1.45' }}>{t('initiatives.v2Desc')}</p>
                   </div>
                 </div>
 
-                <div style={{ padding: '16px', backgroundColor: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 2px 8px rgba(0,0,0,0.04)', display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                  <div style={{ width: '36px', height: '36px', borderRadius: '8px', backgroundColor: '#fff3d6', color: '#b45309', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                    <Activity size={18} />
+                <div style={{ padding: '18px', backgroundColor: '#ffffff', borderRadius: '16px', border: '1px solid #e8eef0', boxShadow: '0 2px 10px rgba(15, 76, 42, 0.04)', display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
+                  <div style={{ width: '40px', height: '40px', borderRadius: '10px', backgroundColor: '#fff8eb', color: '#b45309', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <Activity size={20} />
                   </div>
                   <div>
-                    <h4 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '0.92rem', color: '#16366f' }}>{t('initiatives.v3')}</h4>
-                    <p style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '2px', lineHeight: '1.4' }}>{t('initiatives.v3Desc')}</p>
+                    <h4 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '0.94rem', color: '#0F4C2A' }}>{t('initiatives.v3')}</h4>
+                    <p style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '3px', lineHeight: '1.45' }}>{t('initiatives.v3Desc')}</p>
                   </div>
                 </div>
 
-                <div style={{ padding: '16px', backgroundColor: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 2px 8px rgba(0,0,0,0.04)', display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                  <div style={{ width: '36px', height: '36px', borderRadius: '8px', backgroundColor: '#ffe4e6', color: '#e11d48', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                    <Briefcase size={18} />
+                <div style={{ padding: '18px', backgroundColor: '#ffffff', borderRadius: '16px', border: '1px solid #e8eef0', boxShadow: '0 2px 10px rgba(15, 76, 42, 0.04)', display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
+                  <div style={{ width: '40px', height: '40px', borderRadius: '10px', backgroundColor: '#f0f7f3', color: '#0F4C2A', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <Briefcase size={20} />
                   </div>
                   <div>
-                    <h4 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '0.92rem', color: '#16366f' }}>{t('initiatives.v5')}</h4>
-                    <p style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '2px', lineHeight: '1.4' }}>{t('initiatives.v5Desc')}</p>
+                    <h4 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '0.94rem', color: '#0F4C2A' }}>{t('initiatives.v5')}</h4>
+                    <p style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '3px', lineHeight: '1.45' }}>{t('initiatives.v5Desc')}</p>
                   </div>
                 </div>
               </div>
@@ -700,10 +689,11 @@ export default function HomePage() {
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '8px',
-                    fontSize: '0.92rem',
-                    fontWeight: 700,
-                    color: '#1b7a4b',
+                    fontSize: '0.94rem',
+                    fontWeight: 800,
+                    color: '#0F4C2A',
                     textDecoration: 'none',
+                    letterSpacing: '0.2px',
                   }}
                 >
                   {t('about.learnMore')} <ArrowRight size={16} />
@@ -716,38 +706,31 @@ export default function HomePage() {
               <div
                 style={{
                   backgroundColor: '#ffffff',
-                  borderRadius: '20px',
-                  padding: '36px',
-                  border: '1px solid #e2e8f0',
-                  boxShadow: '0 12px 36px rgba(22, 54, 111, 0.08)',
+                  borderRadius: '24px',
+                  padding: '38px',
+                  border: '1.5px solid rgba(15, 76, 42, 0.15)',
+                  boxShadow: '0 16px 36px rgba(15, 76, 42, 0.08)',
                   position: 'relative',
                   overflow: 'hidden',
                 }}
               >
-                <span
-                  style={{
-                    display: 'inline-block',
-                    padding: '5px 14px',
-                    backgroundColor: '#fff3d6',
-                    color: '#92400e',
-                    fontSize: '0.75rem',
-                    fontWeight: 800,
-                    borderRadius: '9999px',
-                    marginBottom: '16px',
-                    letterSpacing: '0.5px',
-                    textTransform: 'uppercase',
-                  }}
-                >
-                  Official Registration
-                </span>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '18px' }}>
+                  <span className="badge-gold">
+                    Official Registration
+                  </span>
+                  <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#800020', letterSpacing: '0.5px' }}>
+                    Govt. Certified
+                  </span>
+                </div>
 
                 <h3
                   style={{
                     fontFamily: 'Outfit, sans-serif',
                     fontWeight: 800,
-                    fontSize: '1.35rem',
-                    color: '#16366f',
+                    fontSize: '1.4rem',
+                    color: '#0F4C2A',
                     marginBottom: '20px',
+                    lineHeight: '1.25',
                   }}
                 >
                   {t('about.cardTitle')}
@@ -755,25 +738,25 @@ export default function HomePage() {
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', fontSize: '0.9rem', color: '#475569', marginBottom: '28px' }}>
                   <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                    <div style={{ width: '22px', height: '22px', borderRadius: '50%', backgroundColor: '#eef7f2', color: '#1b7a4b', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontWeight: '800', fontSize: '0.75rem', marginTop: '2px' }}>✓</div>
+                    <div style={{ width: '24px', height: '24px', borderRadius: '50%', backgroundColor: '#f0f7f3', color: '#0F4C2A', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontWeight: '800', fontSize: '0.78rem', marginTop: '2px' }}>✓</div>
                     <div>
-                      <strong style={{ color: '#0f172a', display: 'block' }}>{t('about.regNo')}</strong>
+                      <strong style={{ color: '#0b1911', display: 'block' }}>{t('about.regNo')}</strong>
                       MH/323/F/17200/15 (Maharashtra Public Trust Act)
                     </div>
                   </div>
 
                   <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                    <div style={{ width: '22px', height: '22px', borderRadius: '50%', backgroundColor: '#fff3d6', color: '#b45309', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontWeight: '800', fontSize: '0.75rem', marginTop: '2px' }}>★</div>
+                    <div style={{ width: '24px', height: '24px', borderRadius: '50%', backgroundColor: '#fff8eb', color: '#b45309', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontWeight: '800', fontSize: '0.78rem', marginTop: '2px' }}>★</div>
                     <div>
-                      <strong style={{ color: '#0f172a', display: 'block' }}>{t('about.taxExempt')}</strong>
+                      <strong style={{ color: '#0b1911', display: 'block' }}>{t('about.taxExempt')}</strong>
                       {t('about.taxDesc')}
                     </div>
                   </div>
 
                   <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                    <div style={{ width: '22px', height: '22px', borderRadius: '50%', backgroundColor: '#dbeafe', color: '#16366f', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontWeight: '800', fontSize: '0.75rem', marginTop: '2px' }}>ℹ</div>
+                    <div style={{ width: '24px', height: '24px', borderRadius: '50%', backgroundColor: '#fcf0f2', color: '#800020', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontWeight: '800', fontSize: '0.78rem', marginTop: '2px' }}>ℹ</div>
                     <div>
-                      <strong style={{ color: '#0f172a', display: 'block' }}>{t('about.headquarters')}</strong>
+                      <strong style={{ color: '#0b1911', display: 'block' }}>{t('about.headquarters')}</strong>
                       {t('about.headquartersVal')}
                     </div>
                   </div>
@@ -781,25 +764,15 @@ export default function HomePage() {
 
                 <Link
                   href="/donate"
+                  className="btn btn-maroon"
                   style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '8px',
-                    backgroundColor: '#d92b2b',
-                    color: '#ffffff',
-                    fontFamily: 'Outfit, sans-serif',
-                    fontWeight: 700,
-                    fontSize: '0.92rem',
-                    padding: '14px 24px',
+                    width: '100%',
                     borderRadius: '12px',
-                    textDecoration: 'none',
-                    boxShadow: '0 4px 14px rgba(217, 43, 43, 0.3)',
-                    textAlign: 'center',
+                    padding: '14px',
                   }}
                 >
                   <Heart size={16} fill="#ffffff" />
-                  {t('about.supportBtn')}
+                  <span>Support Foundation Projects</span>
                 </Link>
               </div>
             </div>
@@ -811,16 +784,16 @@ export default function HomePage() {
       {/* ======================================================== */}
       {/* CORE INITIATIVES GRID                                    */}
       {/* ======================================================== */}
-      <section style={{ backgroundColor: '#ffffff', padding: '80px 0' }}>
+      <section style={{ backgroundColor: '#ffffff', padding: '88px 0' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 40px' }}>
-          <div style={{ textAlign: 'center', maxWidth: '640px', margin: '0 auto 48px auto' }}>
-            <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#1b7a4b', letterSpacing: '1px', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>
+          <div style={{ textAlign: 'center', maxWidth: '680px', margin: '0 auto 52px auto' }}>
+            <span className="badge-green" style={{ marginBottom: '12px' }}>
               {t('initiatives.tagline')}
             </span>
-            <h2 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '2.2rem', color: '#16366f', marginBottom: '12px' }}>
+            <h2 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '2.35rem', color: '#0F4C2A', marginBottom: '12px', letterSpacing: '-0.02em' }}>
               {t('initiatives.title')}
             </h2>
-            <p style={{ fontSize: '0.95rem', color: '#64748b', lineHeight: '1.6' }}>
+            <p style={{ fontSize: '0.98rem', color: '#64748b', lineHeight: '1.7' }}>
               {t('initiatives.sub')}
             </p>
           </div>
@@ -828,128 +801,128 @@ export default function HomePage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '28px' }}>
             
             {/* Card 1: Housai Vruddhashram */}
-            <div style={{ backgroundColor: '#f8fafc', borderRadius: '16px', padding: '28px', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div className="card" style={{ padding: '30px', borderTop: '4px solid #800020', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>
-                <div style={{ width: '52px', height: '52px', borderRadius: '14px', backgroundColor: '#eef7f2', color: '#1b7a4b', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', border: '1px solid #bbf7d0' }}>
-                  <Heart size={24} />
+                <div style={{ width: '54px', height: '54px', borderRadius: '14px', backgroundColor: '#fcf0f2', color: '#800020', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
+                  <Heart size={26} fill="#800020" />
                 </div>
-                <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#1b7a4b', backgroundColor: '#eef7f2', padding: '4px 12px', borderRadius: '9999px', textTransform: 'uppercase' }}>
+                <span className="badge-maroon" style={{ fontSize: '0.72rem', marginBottom: '12px', display: 'inline-block' }}>
                   Primary Focus
                 </span>
-                <h3 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '1.25rem', color: '#16366f', marginTop: '12px', marginBottom: '8px' }}>
+                <h3 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.3rem', color: '#0F4C2A', marginBottom: '10px' }}>
                   {t('initiatives.v1')}
                 </h3>
-                <p style={{ fontSize: '0.88rem', color: '#475569', lineHeight: '1.6', marginBottom: '24px' }}>
+                <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: '1.65', marginBottom: '24px' }}>
                   {t('initiatives.v1Desc')}
                 </p>
               </div>
-              <Link href="/vruddhashram" style={{ fontSize: '0.85rem', fontWeight: 700, color: '#1b7a4b', display: 'flex', alignItems: 'center', gap: '4px', textDecoration: 'none' }}>
-                Explore Facility Details <ArrowRight size={14} />
+              <Link href="/vruddhashram" style={{ fontSize: '0.88rem', fontWeight: 800, color: '#800020', display: 'flex', alignItems: 'center', gap: '6px', textDecoration: 'none' }}>
+                Explore Facility Details <ArrowRight size={15} />
               </Link>
             </div>
 
             {/* Card 2: Yashanmukti */}
-            <div style={{ backgroundColor: '#f8fafc', borderRadius: '16px', padding: '28px', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div className="card" style={{ padding: '30px', borderTop: '4px solid #0F4C2A', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>
-                <div style={{ width: '52px', height: '52px', borderRadius: '14px', backgroundColor: '#dbeafe', color: '#16366f', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', border: '1px solid #bfdbfe' }}>
-                  <ShieldCheck size={24} />
+                <div style={{ width: '54px', height: '54px', borderRadius: '14px', backgroundColor: '#f0f7f3', color: '#0F4C2A', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
+                  <ShieldCheck size={26} />
                 </div>
-                <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#16366f', backgroundColor: '#dbeafe', padding: '4px 12px', borderRadius: '9999px', textTransform: 'uppercase' }}>
+                <span className="badge-green" style={{ fontSize: '0.72rem', marginBottom: '12px', display: 'inline-block' }}>
                   Youth Welfare
                 </span>
-                <h3 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '1.25rem', color: '#16366f', marginTop: '12px', marginBottom: '8px' }}>
+                <h3 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.3rem', color: '#0F4C2A', marginBottom: '10px' }}>
                   {t('initiatives.v2')}
                 </h3>
-                <p style={{ fontSize: '0.88rem', color: '#475569', lineHeight: '1.6', marginBottom: '24px' }}>
+                <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: '1.65', marginBottom: '24px' }}>
                   {t('initiatives.v2Desc')}
                 </p>
               </div>
-              <Link href="/work" style={{ fontSize: '0.85rem', fontWeight: 700, color: '#16366f', display: 'flex', alignItems: 'center', gap: '4px', textDecoration: 'none' }}>
-                View Awareness Drives <ArrowRight size={14} />
+              <Link href="/work" style={{ fontSize: '0.88rem', fontWeight: 800, color: '#0F4C2A', display: 'flex', alignItems: 'center', gap: '6px', textDecoration: 'none' }}>
+                View Awareness Drives <ArrowRight size={15} />
               </Link>
             </div>
 
             {/* Card 3: Free Healthcare */}
-            <div style={{ backgroundColor: '#f8fafc', borderRadius: '16px', padding: '28px', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div className="card" style={{ padding: '30px', borderTop: '4px solid #f3a812', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>
-                <div style={{ width: '52px', height: '52px', borderRadius: '14px', backgroundColor: '#fff3d6', color: '#b45309', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', border: '1px solid #fde68a' }}>
-                  <Activity size={24} />
+                <div style={{ width: '54px', height: '54px', borderRadius: '14px', backgroundColor: '#fff8eb', color: '#b45309', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
+                  <Activity size={26} />
                 </div>
-                <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#92400e', backgroundColor: '#fff3d6', padding: '4px 12px', borderRadius: '9999px', textTransform: 'uppercase' }}>
+                <span className="badge-gold" style={{ fontSize: '0.72rem', marginBottom: '12px', display: 'inline-block' }}>
                   Rural Health
                 </span>
-                <h3 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '1.25rem', color: '#16366f', marginTop: '12px', marginBottom: '8px' }}>
+                <h3 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.3rem', color: '#0F4C2A', marginBottom: '10px' }}>
                   {t('initiatives.v3')}
                 </h3>
-                <p style={{ fontSize: '0.88rem', color: '#475569', lineHeight: '1.6', marginBottom: '24px' }}>
+                <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: '1.65', marginBottom: '24px' }}>
                   {t('initiatives.v3Desc')}
                 </p>
               </div>
-              <Link href="/work" style={{ fontSize: '0.85rem', fontWeight: 700, color: '#b45309', display: 'flex', alignItems: 'center', gap: '4px', textDecoration: 'none' }}>
-                Learn About Health Camps <ArrowRight size={14} />
+              <Link href="/work" style={{ fontSize: '0.88rem', fontWeight: 800, color: '#b45309', display: 'flex', alignItems: 'center', gap: '6px', textDecoration: 'none' }}>
+                Learn About Health Camps <ArrowRight size={15} />
               </Link>
             </div>
 
             {/* Card 4: Youth & Sports */}
-            <div style={{ backgroundColor: '#f8fafc', borderRadius: '16px', padding: '28px', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div className="card" style={{ padding: '30px', borderTop: '4px solid #0F4C2A', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>
-                <div style={{ width: '52px', height: '52px', borderRadius: '14px', backgroundColor: '#e0e7ff', color: '#4f46e5', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', border: '1px solid #c7d2fe' }}>
-                  <Award size={24} />
+                <div style={{ width: '54px', height: '54px', borderRadius: '14px', backgroundColor: '#f0f7f3', color: '#0F4C2A', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
+                  <Award size={26} />
                 </div>
-                <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#3730a3', backgroundColor: '#e0e7ff', padding: '4px 12px', borderRadius: '9999px', textTransform: 'uppercase' }}>
+                <span className="badge-green" style={{ fontSize: '0.72rem', marginBottom: '12px', display: 'inline-block' }}>
                   Sports &amp; Talent
                 </span>
-                <h3 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '1.25rem', color: '#16366f', marginTop: '12px', marginBottom: '8px' }}>
+                <h3 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.3rem', color: '#0F4C2A', marginBottom: '10px' }}>
                   {t('initiatives.v4')}
                 </h3>
-                <p style={{ fontSize: '0.88rem', color: '#475569', lineHeight: '1.6', marginBottom: '24px' }}>
+                <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: '1.65', marginBottom: '24px' }}>
                   {t('initiatives.v4Desc')}
                 </p>
               </div>
-              <Link href="/work" style={{ fontSize: '0.85rem', fontWeight: 700, color: '#4f46e5', display: 'flex', alignItems: 'center', gap: '4px', textDecoration: 'none' }}>
-                See Sports Programs <ArrowRight size={14} />
+              <Link href="/work" style={{ fontSize: '0.88rem', fontWeight: 800, color: '#0F4C2A', display: 'flex', alignItems: 'center', gap: '6px', textDecoration: 'none' }}>
+                See Sports Programs <ArrowRight size={15} />
               </Link>
             </div>
 
             {/* Card 5: Women Empowerment */}
-            <div style={{ backgroundColor: '#f8fafc', borderRadius: '16px', padding: '28px', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div className="card" style={{ padding: '30px', borderTop: '4px solid #800020', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>
-                <div style={{ width: '52px', height: '52px', borderRadius: '14px', backgroundColor: '#ffe4e6', color: '#e11d48', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', border: '1px solid #fecdd3' }}>
-                  <Briefcase size={24} />
+                <div style={{ width: '54px', height: '54px', borderRadius: '14px', backgroundColor: '#fcf0f2', color: '#800020', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
+                  <Briefcase size={26} />
                 </div>
-                <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#9f1239', backgroundColor: '#ffe4e6', padding: '4px 12px', borderRadius: '9999px', textTransform: 'uppercase' }}>
+                <span className="badge-maroon" style={{ fontSize: '0.72rem', marginBottom: '12px', display: 'inline-block' }}>
                   Livelihoods
                 </span>
-                <h3 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '1.25rem', color: '#16366f', marginTop: '12px', marginBottom: '8px' }}>
+                <h3 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.3rem', color: '#0F4C2A', marginBottom: '10px' }}>
                   {t('initiatives.v5')}
                 </h3>
-                <p style={{ fontSize: '0.88rem', color: '#475569', lineHeight: '1.6', marginBottom: '24px' }}>
+                <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: '1.65', marginBottom: '24px' }}>
                   {t('initiatives.v5Desc')}
                 </p>
               </div>
-              <Link href="/work" style={{ fontSize: '0.85rem', fontWeight: 700, color: '#e11d48', display: 'flex', alignItems: 'center', gap: '4px', textDecoration: 'none' }}>
-                Explore Livelihood Projects <ArrowRight size={14} />
+              <Link href="/work" style={{ fontSize: '0.88rem', fontWeight: 800, color: '#800020', display: 'flex', alignItems: 'center', gap: '6px', textDecoration: 'none' }}>
+                Explore Livelihood Projects <ArrowRight size={15} />
               </Link>
             </div>
 
-            {/* Card 6: Cultural & Relief */}
-            <div style={{ backgroundColor: '#f8fafc', borderRadius: '16px', padding: '28px', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            {/* Card 6: Disaster Relief */}
+            <div className="card" style={{ padding: '30px', borderTop: '4px solid #f3a812', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>
-                <div style={{ width: '52px', height: '52px', borderRadius: '14px', backgroundColor: '#fee2e2', color: '#d92b2b', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', border: '1px solid #fecaca' }}>
-                  <Users size={24} />
+                <div style={{ width: '54px', height: '54px', borderRadius: '14px', backgroundColor: '#fff8eb', color: '#b45309', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
+                  <Users size={26} />
                 </div>
-                <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#991b1b', backgroundColor: '#fee2e2', padding: '4px 12px', borderRadius: '9999px', textTransform: 'uppercase' }}>
+                <span className="badge-gold" style={{ fontSize: '0.72rem', marginBottom: '12px', display: 'inline-block' }}>
                   Disaster Relief
                 </span>
-                <h3 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '1.25rem', color: '#16366f', marginTop: '12px', marginBottom: '8px' }}>
+                <h3 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.3rem', color: '#0F4C2A', marginBottom: '10px' }}>
                   {t('initiatives.v6')}
                 </h3>
-                <p style={{ fontSize: '0.88rem', color: '#475569', lineHeight: '1.6', marginBottom: '24px' }}>
+                <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: '1.65', marginBottom: '24px' }}>
                   {t('initiatives.v6Desc')}
                 </p>
               </div>
-              <Link href="/work" style={{ fontSize: '0.85rem', fontWeight: 700, color: '#d92b2b', display: 'flex', alignItems: 'center', gap: '4px', textDecoration: 'none' }}>
-                View Emergency Outreach <ArrowRight size={14} />
+              <Link href="/work" style={{ fontSize: '0.88rem', fontWeight: 800, color: '#b45309', display: 'flex', alignItems: 'center', gap: '6px', textDecoration: 'none' }}>
+                View Emergency Outreach <ArrowRight size={15} />
               </Link>
             </div>
 
@@ -962,40 +935,14 @@ export default function HomePage() {
       {/* ======================================================== */}
       <section
         style={{
-          backgroundColor: '#fafbfc',
-          padding: '80px 0',
+          backgroundColor: '#f8fafc',
+          padding: '92px 0',
           position: 'relative',
-          borderTop: '1px solid #eaedf2',
-          borderBottom: '1px solid #eaedf2',
+          borderTop: '1px solid #e8eef0',
+          borderBottom: '1px solid #e8eef0',
           overflow: 'hidden',
         }}
       >
-        {/* Subtle background decorative shapes */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '-100px',
-            right: '-100px',
-            width: '400px',
-            height: '400px',
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(22, 54, 111, 0.04) 0%, rgba(255,255,255,0) 70%)',
-            pointerEvents: 'none',
-          }}
-        />
-        <div
-          style={{
-            position: 'absolute',
-            bottom: '-120px',
-            left: '-80px',
-            width: '380px',
-            height: '380px',
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(217, 43, 43, 0.04) 0%, rgba(255,255,255,0) 70%)',
-            pointerEvents: 'none',
-          }}
-        />
-
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 40px', position: 'relative', zIndex: 1 }}>
           <div
             style={{
@@ -1012,8 +959,8 @@ export default function HomePage() {
                   position: 'relative',
                   borderRadius: '24px',
                   overflow: 'hidden',
-                  boxShadow: '0 20px 40px rgba(14, 31, 77, 0.12)',
-                  border: '1px solid rgba(22, 54, 111, 0.1)',
+                  boxShadow: '0 20px 44px rgba(15, 76, 42, 0.16)',
+                  border: '2px solid rgba(15, 76, 42, 0.15)',
                   aspectRatio: '4 / 3',
                   backgroundColor: '#e2e8f0',
                 }}
@@ -1028,7 +975,7 @@ export default function HomePage() {
                   style={{
                     position: 'absolute',
                     inset: 0,
-                    background: 'linear-gradient(to top, rgba(14, 31, 77, 0.6) 0%, rgba(14, 31, 77, 0) 50%)',
+                    background: 'linear-gradient(to top, rgba(10, 56, 31, 0.75) 0%, rgba(10, 56, 31, 0.1) 60%)',
                   }}
                 />
                 <div
@@ -1038,32 +985,28 @@ export default function HomePage() {
                     left: '24px',
                     right: '24px',
                     color: '#ffffff',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
                   }}
                 >
-                  <div>
-                    <span
-                      style={{
-                        fontSize: '0.75rem',
-                        fontWeight: 700,
-                        letterSpacing: '0.05em',
-                        textTransform: 'uppercase',
-                        backgroundColor: 'rgba(217, 43, 43, 0.9)',
-                        color: '#ffffff',
-                        padding: '4px 12px',
-                        borderRadius: '9999px',
-                        display: 'inline-block',
-                        marginBottom: '6px',
-                      }}
-                    >
-                      Flagship Facility • Sangli
-                    </span>
-                    <h4 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '1.1rem', margin: 0 }}>
-                      Warm, Safe &amp; Peaceful Sanctuary
-                    </h4>
-                  </div>
+                  <span
+                    style={{
+                      fontSize: '0.74rem',
+                      fontWeight: 800,
+                      letterSpacing: '0.06em',
+                      textTransform: 'uppercase',
+                      backgroundColor: '#800020',
+                      color: '#ffffff',
+                      padding: '5px 14px',
+                      borderRadius: '9999px',
+                      display: 'inline-block',
+                      marginBottom: '8px',
+                      border: '1px solid rgba(243, 168, 18, 0.4)',
+                    }}
+                  >
+                    Flagship Facility • Sangli
+                  </span>
+                  <h4 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.2rem', margin: 0, color: '#ffffff' }}>
+                    Warm, Safe &amp; Peaceful Sanctuary
+                  </h4>
                 </div>
               </div>
 
@@ -1071,13 +1014,13 @@ export default function HomePage() {
               <div
                 style={{
                   position: 'absolute',
-                  top: '-20px',
-                  right: '-20px',
+                  top: '-18px',
+                  right: '-18px',
                   backgroundColor: '#ffffff',
-                  borderRadius: '16px',
-                  padding: '16px 20px',
-                  boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-                  border: '1px solid #f1f5f9',
+                  borderRadius: '18px',
+                  padding: '16px 22px',
+                  boxShadow: '0 12px 30px rgba(128, 0, 32, 0.16)',
+                  border: '1px solid rgba(128, 0, 32, 0.15)',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '12px',
@@ -1089,20 +1032,20 @@ export default function HomePage() {
                     width: '44px',
                     height: '44px',
                     borderRadius: '12px',
-                    backgroundColor: '#fef2f2',
-                    color: '#d92b2b',
+                    backgroundColor: '#fcf0f2',
+                    color: '#800020',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                   }}
                 >
-                  <Heart size={22} fill="#d92b2b" />
+                  <Heart size={22} fill="#800020" />
                 </div>
                 <div>
-                  <div style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.1rem', color: '#16366f', lineHeight: 1 }}>
+                  <div style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 900, fontSize: '1.15rem', color: '#800020', lineHeight: 1 }}>
                     100% Free
                   </div>
-                  <div style={{ fontSize: '0.78rem', color: '#64748b', fontWeight: 600, marginTop: '2px' }}>
+                  <div style={{ fontSize: '0.78rem', color: '#64748b', fontWeight: 700, marginTop: '3px' }}>
                     Care &amp; Shelter
                   </div>
                 </div>
@@ -1112,24 +1055,11 @@ export default function HomePage() {
             {/* Right Column: Title, Subtitle, Description, Features, CTA */}
             <div>
               {/* Pillar Category Badge */}
-              <div
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  backgroundColor: 'rgba(22, 54, 111, 0.08)',
-                  color: '#16366f',
-                  fontSize: '0.8rem',
-                  fontWeight: 700,
-                  letterSpacing: '0.05em',
-                  textTransform: 'uppercase',
-                  padding: '6px 14px',
-                  borderRadius: '9999px',
-                  marginBottom: '16px',
-                }}
-              >
-                <ShieldCheck size={16} style={{ color: '#d92b2b' }} />
-                <span>Primary Foundation Focus</span>
+              <div style={{ marginBottom: '14px' }}>
+                <span className="badge-green">
+                  <ShieldCheck size={14} />
+                  <span>Primary Foundation Focus</span>
+                </span>
               </div>
 
               {/* Title & Subtitle */}
@@ -1137,10 +1067,11 @@ export default function HomePage() {
                 style={{
                   fontFamily: 'Outfit, sans-serif',
                   fontWeight: 800,
-                  fontSize: '2.4rem',
-                  color: '#16366f',
+                  fontSize: '2.5rem',
+                  color: '#0F4C2A',
                   marginBottom: '8px',
-                  lineHeight: '1.2',
+                  lineHeight: '1.18',
+                  letterSpacing: '-0.02em',
                 }}
               >
                 Housai Vruddhashram
@@ -1148,9 +1079,9 @@ export default function HomePage() {
               <h3
                 style={{
                   fontFamily: 'Outfit, sans-serif',
-                  fontWeight: 600,
+                  fontWeight: 700,
                   fontSize: '1.25rem',
-                  color: '#d92b2b',
+                  color: '#800020',
                   marginBottom: '20px',
                 }}
               >
@@ -1162,7 +1093,7 @@ export default function HomePage() {
                 style={{
                   fontSize: '1rem',
                   color: '#475569',
-                  lineHeight: '1.7',
+                  lineHeight: '1.75',
                   marginBottom: '28px',
                 }}
               >
@@ -1178,14 +1109,13 @@ export default function HomePage() {
                   marginBottom: '32px',
                 }}
               >
-                {/* Feature 1 */}
                 <div
                   style={{
                     backgroundColor: '#ffffff',
                     padding: '16px 18px',
                     borderRadius: '14px',
-                    border: '1px solid #e2e8f0',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.03)',
+                    border: '1px solid #e8eef0',
+                    boxShadow: '0 2px 8px rgba(15, 76, 42, 0.04)',
                     display: 'flex',
                     alignItems: 'center',
                     gap: '14px',
@@ -1193,32 +1123,31 @@ export default function HomePage() {
                 >
                   <div
                     style={{
-                      width: '42px',
-                      height: '42px',
+                      width: '40px',
+                      height: '40px',
                       borderRadius: '10px',
-                      backgroundColor: '#eff6ff',
-                      color: '#16366f',
+                      backgroundColor: '#f0f7f3',
+                      color: '#0F4C2A',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       flexShrink: 0,
                     }}
                   >
-                    <ShieldCheck size={22} />
+                    <ShieldCheck size={20} />
                   </div>
-                  <span style={{ fontSize: '0.92rem', fontWeight: 700, color: '#1e293b', lineHeight: '1.3' }}>
+                  <span style={{ fontSize: '0.9rem', fontWeight: 700, color: '#0F4C2A', lineHeight: '1.3' }}>
                     Comfortable &amp; Safe Living
                   </span>
                 </div>
 
-                {/* Feature 2 */}
                 <div
                   style={{
                     backgroundColor: '#ffffff',
                     padding: '16px 18px',
                     borderRadius: '14px',
-                    border: '1px solid #e2e8f0',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.03)',
+                    border: '1px solid #e8eef0',
+                    boxShadow: '0 2px 8px rgba(15, 76, 42, 0.04)',
                     display: 'flex',
                     alignItems: 'center',
                     gap: '14px',
@@ -1226,10 +1155,10 @@ export default function HomePage() {
                 >
                   <div
                     style={{
-                      width: '42px',
-                      height: '42px',
+                      width: '40px',
+                      height: '40px',
                       borderRadius: '10px',
-                      backgroundColor: '#fef3c7',
+                      backgroundColor: '#fff8eb',
                       color: '#b45309',
                       display: 'flex',
                       alignItems: 'center',
@@ -1237,21 +1166,20 @@ export default function HomePage() {
                       flexShrink: 0,
                     }}
                   >
-                    <Heart size={22} />
+                    <Heart size={20} />
                   </div>
-                  <span style={{ fontSize: '0.92rem', fontWeight: 700, color: '#1e293b', lineHeight: '1.3' }}>
+                  <span style={{ fontSize: '0.9rem', fontWeight: 700, color: '#1e293b', lineHeight: '1.3' }}>
                     Nutritious Food &amp; Daily Care
                   </span>
                 </div>
 
-                {/* Feature 3 */}
                 <div
                   style={{
                     backgroundColor: '#ffffff',
                     padding: '16px 18px',
                     borderRadius: '14px',
-                    border: '1px solid #e2e8f0',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.03)',
+                    border: '1px solid #e8eef0',
+                    boxShadow: '0 2px 8px rgba(15, 76, 42, 0.04)',
                     display: 'flex',
                     alignItems: 'center',
                     gap: '14px',
@@ -1259,32 +1187,31 @@ export default function HomePage() {
                 >
                   <div
                     style={{
-                      width: '42px',
-                      height: '42px',
+                      width: '40px',
+                      height: '40px',
                       borderRadius: '10px',
-                      backgroundColor: '#ecfdf5',
-                      color: '#047857',
+                      backgroundColor: '#f0f7f3',
+                      color: '#0F4C2A',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       flexShrink: 0,
                     }}
                   >
-                    <Activity size={22} />
+                    <Activity size={20} />
                   </div>
-                  <span style={{ fontSize: '0.92rem', fontWeight: 700, color: '#1e293b', lineHeight: '1.3' }}>
+                  <span style={{ fontSize: '0.9rem', fontWeight: 700, color: '#0F4C2A', lineHeight: '1.3' }}>
                     Health &amp; Medical Support
                   </span>
                 </div>
 
-                {/* Feature 4 */}
                 <div
                   style={{
                     backgroundColor: '#ffffff',
                     padding: '16px 18px',
                     borderRadius: '14px',
-                    border: '1px solid #e2e8f0',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.03)',
+                    border: '1px solid #e8eef0',
+                    boxShadow: '0 2px 8px rgba(15, 76, 42, 0.04)',
                     display: 'flex',
                     alignItems: 'center',
                     gap: '14px',
@@ -1292,21 +1219,21 @@ export default function HomePage() {
                 >
                   <div
                     style={{
-                      width: '42px',
-                      height: '42px',
+                      width: '40px',
+                      height: '40px',
                       borderRadius: '10px',
-                      backgroundColor: '#f3e8ff',
-                      color: '#7e22ce',
+                      backgroundColor: '#fcf0f2',
+                      color: '#800020',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       flexShrink: 0,
                     }}
                   >
-                    <Users size={22} />
+                    <Users size={20} />
                   </div>
-                  <span style={{ fontSize: '0.92rem', fontWeight: 700, color: '#1e293b', lineHeight: '1.3' }}>
-                    Activities, Companionship &amp; Well-being
+                  <span style={{ fontSize: '0.9rem', fontWeight: 700, color: '#800020', lineHeight: '1.3' }}>
+                    Activities &amp; Companionship
                   </span>
                 </div>
               </div>
@@ -1315,44 +1242,18 @@ export default function HomePage() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
                 <Link
                   href="/vruddhashram"
-                  style={{
-                    backgroundColor: '#16366f',
-                    color: '#ffffff',
-                    fontFamily: 'Outfit, sans-serif',
-                    fontWeight: 700,
-                    fontSize: '0.95rem',
-                    padding: '14px 28px',
-                    borderRadius: '12px',
-                    textDecoration: 'none',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    boxShadow: '0 6px 18px rgba(22, 54, 111, 0.25)',
-                    transition: 'all 0.2s ease',
-                  }}
+                  className="btn btn-dark-green"
+                  style={{ padding: '14px 28px', borderRadius: '12px' }}
                 >
                   <span>Know More</span>
-                  <ArrowRight size={18} />
+                  <ArrowRight size={17} />
                 </Link>
                 <Link
                   href="/donate"
-                  style={{
-                    backgroundColor: '#d92b2b',
-                    color: '#ffffff',
-                    fontFamily: 'Outfit, sans-serif',
-                    fontWeight: 700,
-                    fontSize: '0.95rem',
-                    padding: '14px 28px',
-                    borderRadius: '12px',
-                    textDecoration: 'none',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    boxShadow: '0 6px 18px rgba(217, 43, 43, 0.25)',
-                    transition: 'all 0.2s ease',
-                  }}
+                  className="btn btn-maroon"
+                  style={{ padding: '14px 28px', borderRadius: '12px' }}
                 >
-                  <Heart size={18} fill="#ffffff" />
+                  <Heart size={16} fill="#ffffff" />
                   <span>Support Housai Vruddhashram</span>
                 </Link>
               </div>
@@ -1364,51 +1265,50 @@ export default function HomePage() {
       {/* ======================================================== */}
       {/* CTA BANNER                                               */}
       {/* ======================================================== */}
-      <section style={{ backgroundColor: '#16366f', color: '#ffffff', padding: '64px 0', borderTop: '4px solid #d92b2b' }}>
+      <section
+        style={{
+          background: 'linear-gradient(135deg, #0A381F 0%, #0F4C2A 60%, #630019 100%)',
+          color: '#ffffff',
+          padding: '72px 0',
+          borderTop: '4px solid #800020',
+          position: 'relative',
+        }}
+      >
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 40px', textAlign: 'center' }}>
-          <h2 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '2.2rem', color: '#ffffff', marginBottom: '16px' }}>
+          <h2 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '2.4rem', color: '#ffffff', marginBottom: '16px', letterSpacing: '-0.02em' }}>
             {t('cta.title')}
           </h2>
-          <p style={{ fontSize: '1rem', color: 'rgba(255, 255, 255, 0.85)', maxWidth: '640px', margin: '0 auto 28px auto', lineHeight: '1.6' }}>
+          <p style={{ fontSize: '1.05rem', color: 'rgba(255, 255, 255, 0.88)', maxWidth: '640px', margin: '0 auto 30px auto', lineHeight: '1.7' }}>
             {t('cta.sub')}
           </p>
           <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', justifyContent: 'center' }}>
             <Link
               href="/donate"
+              className="btn btn-maroon"
               style={{
-                backgroundColor: '#1b7a4b',
-                color: '#ffffff',
-                fontFamily: 'Outfit, sans-serif',
-                fontWeight: 700,
-                fontSize: '0.9rem',
-                padding: '14px 28px',
-                borderRadius: '10px',
-                textDecoration: 'none',
-                boxShadow: '0 4px 14px rgba(27, 122, 75, 0.4)',
+                padding: '14px 32px',
+                borderRadius: '12px',
+                border: '1px solid rgba(243, 168, 18, 0.4)',
               }}
             >
-              {t('cta.donate')}
+              <Heart size={16} fill="#ffffff" />
+              <span>{t('cta.donate')}</span>
             </Link>
             <Link
               href="/contact"
+              className="btn btn-outline-green"
               style={{
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                padding: '14px 32px',
+                borderRadius: '12px',
+                borderColor: 'rgba(255, 255, 255, 0.4)',
                 color: '#ffffff',
-                border: '1.5px solid rgba(255, 255, 255, 0.3)',
-                fontFamily: 'Outfit, sans-serif',
-                fontWeight: 700,
-                fontSize: '0.9rem',
-                padding: '14px 28px',
-                borderRadius: '10px',
-                textDecoration: 'none',
               }}
             >
-              {t('cta.contact')}
+              <span>{t('cta.contact')}</span>
             </Link>
           </div>
         </div>
       </section>
     </div>
   );
-
 }

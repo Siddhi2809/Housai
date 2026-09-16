@@ -34,23 +34,23 @@ export default function VruddhashramPage() {
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '50px', alignItems: 'center' }}>
             <div>
-              <div className="badge-green" style={{ marginBottom: '14px' }}>PRIMARY FOUNDATION UNIT</div>
-              <h2 style={{ fontSize: '2.2rem', color: 'var(--brand-blue)', marginBottom: '20px', lineHeight: '1.25' }}>
+              <div className="badge-green" style={{ marginBottom: '16px' }}>PRIMARY FOUNDATION UNIT</div>
+              <h2 style={{ fontSize: '2.5rem', color: '#0F4C2A', marginBottom: '20px', lineHeight: '1.2', letterSpacing: '-0.02em' }}>
                 {t('vruddha.h2')}
               </h2>
-              <p style={{ color: '#475569', fontSize: '1.02rem', lineHeight: '1.8', marginBottom: '16px' }}>
+              <p style={{ color: '#475569', fontSize: '1.05rem', lineHeight: '1.8', marginBottom: '16px' }}>
                 {t('vruddha.p1')}
               </p>
-              <p style={{ color: '#475569', fontSize: '1.02rem', lineHeight: '1.8', marginBottom: '24px' }}>
+              <p style={{ color: '#475569', fontSize: '1.02rem', lineHeight: '1.8', marginBottom: '28px' }}>
                 We provide round-the-clock free shelter, wholesome diet kitchens, emergency ambulance backup, medical checkups, and emotional companionship to senior citizens who have no family or financial support.
               </p>
 
               <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-                <Link href="/donate" className="btn btn-gold" style={{ padding: '14px 24px', borderRadius: '12px' }}>
-                  <Heart size={18} fill="#000000" />
+                <Link href="/donate" className="btn btn-maroon" style={{ padding: '14px 28px', borderRadius: '12px' }}>
+                  <Heart size={18} fill="#ffffff" />
                   <span>{t('vruddha.sponsorBtn')}</span>
                 </Link>
-                <Link href="/contact" className="btn btn-outline-blue" style={{ padding: '14px 24px', borderRadius: '12px' }}>
+                <Link href="/contact" className="btn btn-outline-green" style={{ padding: '14px 28px', borderRadius: '12px' }}>
                   <Phone size={18} />
                   <span>{t('vruddha.inquireBtn')}</span>
                 </Link>
@@ -58,34 +58,42 @@ export default function VruddhashramPage() {
             </div>
 
             <div>
-              <div className="card priority-card" style={{ padding: '36px', borderRadius: '20px' }}>
+              <div className="card priority-card" style={{ padding: '38px', borderRadius: '24px', borderTop: '4px solid #800020' }}>
                 <div className="priority-ribbon">SANGLI FACILITY</div>
-                <h3 style={{ fontSize: '1.35rem', color: 'var(--brand-blue)', marginBottom: '20px', borderBottom: '2px solid var(--gold-primary)', paddingBottom: '10px' }}>
+                <h3 style={{ fontSize: '1.4rem', color: '#0F4C2A', marginBottom: '22px', borderBottom: '2px solid rgba(243, 168, 18, 0.4)', paddingBottom: '12px', fontWeight: 800 }}>
                   Facility Highlights &amp; Services
                 </h3>
 
-                <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '14px' }}>
-                  <li style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                    <CheckCircle2 size={20} style={{ color: 'var(--bg-normal-green)', flexShrink: 0, marginTop: '2px' }} />
-                    <span style={{ color: '#334155', fontSize: '0.95rem' }}>{t('vruddha.f1')}</span>
+                <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                  <li style={{ display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
+                    <div style={{ width: '28px', height: '28px', borderRadius: '50%', backgroundColor: '#f0f7f3', color: '#0F4C2A', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '2px' }}>
+                      <CheckCircle2 size={18} />
+                    </div>
+                    <span style={{ color: '#334155', fontSize: '0.98rem', fontWeight: 500, lineHeight: '1.5' }}>{t('vruddha.f1')}</span>
                   </li>
-                  <li style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                    <CheckCircle2 size={20} style={{ color: 'var(--bg-normal-green)', flexShrink: 0, marginTop: '2px' }} />
-                    <span style={{ color: '#334155', fontSize: '0.95rem' }}>{t('vruddha.f2')}</span>
+                  <li style={{ display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
+                    <div style={{ width: '28px', height: '28px', borderRadius: '50%', backgroundColor: '#f0f7f3', color: '#0F4C2A', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '2px' }}>
+                      <CheckCircle2 size={18} />
+                    </div>
+                    <span style={{ color: '#334155', fontSize: '0.98rem', fontWeight: 500, lineHeight: '1.5' }}>{t('vruddha.f2')}</span>
                   </li>
-                  <li style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                    <CheckCircle2 size={20} style={{ color: 'var(--bg-normal-green)', flexShrink: 0, marginTop: '2px' }} />
-                    <span style={{ color: '#334155', fontSize: '0.95rem' }}>{t('vruddha.f3')}</span>
+                  <li style={{ display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
+                    <div style={{ width: '28px', height: '28px', borderRadius: '50%', backgroundColor: '#f0f7f3', color: '#0F4C2A', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '2px' }}>
+                      <CheckCircle2 size={18} />
+                    </div>
+                    <span style={{ color: '#334155', fontSize: '0.98rem', fontWeight: 500, lineHeight: '1.5' }}>{t('vruddha.f3')}</span>
                   </li>
-                  <li style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                    <CheckCircle2 size={20} style={{ color: 'var(--bg-normal-green)', flexShrink: 0, marginTop: '2px' }} />
-                    <span style={{ color: '#334155', fontSize: '0.95rem' }}>{t('vruddha.f4')}</span>
+                  <li style={{ display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
+                    <div style={{ width: '28px', height: '28px', borderRadius: '50%', backgroundColor: '#f0f7f3', color: '#0F4C2A', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '2px' }}>
+                      <CheckCircle2 size={18} />
+                    </div>
+                    <span style={{ color: '#334155', fontSize: '0.98rem', fontWeight: 500, lineHeight: '1.5' }}>{t('vruddha.f4')}</span>
                   </li>
                 </ul>
 
-                <div style={{ marginTop: '28px', padding: '16px', backgroundColor: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0', fontSize: '0.86rem', color: '#475569' }}>
-                  <strong>Address:</strong> Behind Sugar Factory, Shalini Nagar, Sangli, Maharashtra. <br />
-                  <strong>Direct Helpline:</strong> 0233 3560136 / 9922943777
+                <div style={{ marginTop: '28px', padding: '18px', backgroundColor: '#f8fafc', borderRadius: '14px', border: '1px solid #e8eef0', fontSize: '0.88rem', color: '#475569', lineHeight: '1.65' }}>
+                  <strong style={{ color: '#0F4C2A' }}>Address:</strong> Behind Sugar Factory, Shalini Nagar, Sangli, Maharashtra. <br />
+                  <strong style={{ color: '#800020' }}>Direct Helpline:</strong> 0233 3560136 / 9922943777
                 </div>
               </div>
             </div>
