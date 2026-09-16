@@ -18,7 +18,7 @@ export default function ContactPage() {
 
   return (
     <div>
-      {/* PAGE BANNER */}
+    
       <div className="page-banner">
         <div className="container">
           <div className="badge-gold" style={{ marginBottom: '12px' }}>{t('contact.bannerBadge')}</div>
@@ -105,7 +105,7 @@ export default function ContactPage() {
                     />
                   </div>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                  <div className="form-two-col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                     <div>
                       <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '6px' }}>{t('contact.phone')}</label>
                       <input

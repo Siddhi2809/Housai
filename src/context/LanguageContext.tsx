@@ -29,8 +29,7 @@ export const dictionary: Record<string, { en: string; hi: string }> = {
   'nav.contact': { en: 'Contact', hi: 'संपर्क करें' },
   'nav.donate': { en: 'DONATE NOW', hi: 'दान करें' },
   'nav.helpline': { en: 'Helpline / हेल्पलाइन:', hi: 'हेल्पलाइन / Helpline:' },
-  'nav.language': { en: 'Language / भाषा:', hi: 'भाषा / Language:' },
-
+  'nav.language': { en: '', hi: 'भाषा / Language:' },
   // Hero Section
   'hero.badge': { en: 'KHASDAR RAMDASJI ATHAWALE YOUTH FOUNDATION', hi: 'खासदार रामदासजी आठवले यूथ फाउंडेशन' },
   'hero.title1': { en: 'Serving With Care,', hi: 'सेवा, देखभाल और' },

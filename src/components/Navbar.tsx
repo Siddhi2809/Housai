@@ -14,9 +14,7 @@ const NAV_LINKS = [
   { key: 'nav.vruddhashram', href: '/vruddhashram' },
   { key: 'nav.work', href: '/work' },
   { key: 'nav.team', href: '/team' },
-  { key: 'nav.portfolio', href: '/portfolio' },
   { key: 'nav.gallery', href: '/gallery' },
-  { key: 'nav.legal', href: '/legal' },
   { key: 'nav.contact', href: '/contact' },
 ];
 
@@ -35,7 +33,7 @@ export default function Navbar() {
   return (
     <>
       {/* TOP HELPLINE STRIP */}
-      <div style={{ backgroundColor: '#0e244d', color: '#ffffff', fontSize: '0.78rem', padding: '6px 0', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
+      <div style={{ backgroundColor: '#0A381F', color: '#ffffff', fontSize: '0.78rem', padding: '6px 0', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
             <span style={{ display: 'flex', alignItems: 'center', gap: '5px', color: '#f3a812', fontWeight: '700' }}>
@@ -48,7 +46,7 @@ export default function Navbar() {
 
           {/* LANGUAGE SELECTOR */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <Globe size={13} style={{ color: '#22c55e' }} />
+            <Globe size={13} style={{ color: '#f3a812' }} />
             <span style={{ color: 'rgba(255,255,255,0.8)', fontWeight: 600, fontSize: '0.75rem' }}>{t('nav.language')}</span>
             <div style={{ display: 'inline-flex', backgroundColor: 'rgba(255,255,255,0.15)', borderRadius: '9999px', padding: '2px' }}>
               <button
@@ -60,7 +58,7 @@ export default function Navbar() {
                   fontSize: '0.72rem',
                   fontWeight: 700,
                   cursor: 'pointer',
-                  backgroundColor: lang === 'en' ? '#1b7a4b' : 'transparent',
+                  backgroundColor: lang === 'en' ? '#800020' : 'transparent',
                   color: lang === 'en' ? '#ffffff' : 'rgba(255,255,255,0.7)',
                   transition: 'all 0.2s ease',
                 }}
@@ -76,7 +74,7 @@ export default function Navbar() {
                   fontSize: '0.72rem',
                   fontWeight: 700,
                   cursor: 'pointer',
-                  backgroundColor: lang === 'hi' ? '#1b7a4b' : 'transparent',
+                  backgroundColor: lang === 'hi' ? '#800020' : 'transparent',
                   color: lang === 'hi' ? '#ffffff' : 'rgba(255,255,255,0.7)',
                   transition: 'all 0.2s ease',
                 }}
@@ -98,19 +96,22 @@ export default function Navbar() {
           left: 0,
           right: 0,
           zIndex: 1000,
+          backgroundColor: 'transparent',
+          pointerEvents: 'none',
           display: 'flex',
           justifyContent: 'center',
-          padding: scrolled ? '6px 16px' : '10px 16px',
+          padding: scrolled ? '8px 16px' : '12px 16px',
           transition: 'all 0.3s ease',
         }}
       >
         <nav
           style={{
+            pointerEvents: 'auto',
             width: '100%',
             maxWidth: '1280px',
             backgroundColor: '#ffffff',
             borderRadius: '9999px',
-            padding: '6px 14px',
+            padding: '6px 16px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
@@ -123,30 +124,32 @@ export default function Navbar() {
           {/* Logo & Foundation Title */}
           <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
             <div
+              className="nav-logo-icon"
               style={{
-                width: '46px',
-                height: '46px',
+                width: '42px',
+                height: '42px',
                 borderRadius: '50%',
                 overflow: 'hidden',
-                border: '2px solid #1b7a4b',
+                border: '2px solid #0F4C2A',
                 flexShrink: 0,
               }}
             >
               <Image
                 src="/assets/logo.png"
                 alt="Logo"
-                width={46}
-                height={46}
+                width={42}
+                height={42}
                 style={{ objectFit: 'cover', width: '100%', height: '100%' }}
               />
             </div>
             <div>
               <div
+                className="nav-title-primary"
                 style={{
                   fontFamily: 'Outfit, sans-serif',
                   fontWeight: 800,
                   fontSize: '0.85rem',
-                  color: '#16366f',
+                  color: '#0F4C2A',
                   lineHeight: '1.2',
                   letterSpacing: '0.2px',
                 }}
@@ -154,11 +157,12 @@ export default function Navbar() {
                 KHASDAR RAMDASJI ATHAWALE
               </div>
               <div
+                className="nav-title-secondary"
                 style={{
                   fontFamily: 'Outfit, sans-serif',
                   fontWeight: 700,
                   fontSize: '0.68rem',
-                  color: '#1b7a4b',
+                  color: '#800020',
                   letterSpacing: '1.2px',
                   textTransform: 'uppercase',
                 }}
@@ -185,9 +189,9 @@ export default function Navbar() {
                       borderRadius: '9999px',
                       textDecoration: 'none',
                       whiteSpace: 'nowrap',
-                      backgroundColor: isActive ? '#1b7a4b' : 'transparent',
-                      boxShadow: isActive ? '0 0 14px rgba(27, 122, 75, 0.6)' : 'none',
-                      border: isActive ? '1px solid #22c55e' : '1px solid transparent',
+                      backgroundColor: isActive ? '#0F4C2A' : 'transparent',
+                      boxShadow: isActive ? '0 0 14px rgba(15, 76, 42, 0.5)' : 'none',
+                      border: isActive ? '1px solid #800020' : '1px solid transparent',
                       transition: 'all 0.25s ease',
                     }}
                   >
@@ -199,26 +203,27 @@ export default function Navbar() {
           </ul>
 
           {/* CTA & Mobile Hamburger */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
             <Link
               href="/donate"
+              className="nav-donate-btn"
               style={{
-                backgroundColor: '#1b7a4b',
+                backgroundColor: '#800020',
                 color: '#ffffff',
                 fontFamily: 'Outfit, sans-serif',
                 fontWeight: 700,
-                fontSize: '0.82rem',
-                padding: '9px 18px',
+                fontSize: '0.8rem',
+                padding: '8px 14px',
                 borderRadius: '9999px',
                 textDecoration: 'none',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '6px',
+                gap: '5px',
                 whiteSpace: 'nowrap',
-                boxShadow: '0 4px 12px rgba(27, 122, 75, 0.3)',
+                boxShadow: '0 4px 12px rgba(128, 0, 32, 0.3)',
               }}
             >
-              <Heart size={14} fill="#ffffff" />
+              <Heart size={13} fill="#ffffff" />
               {t('nav.donate')}
             </Link>
 
@@ -226,15 +231,16 @@ export default function Navbar() {
               className="mobile-toggle"
               onClick={() => setMobileOpen(!mobileOpen)}
               style={{
-                width: '38px',
-                height: '38px',
+                width: '36px',
+                height: '36px',
                 borderRadius: '50%',
                 border: '1px solid #cbd5e1',
                 backgroundColor: '#ffffff',
-                color: '#16366f',
+                color: '#0F4C2A',
                 alignItems: 'center',
                 justifyContent: 'center',
                 cursor: 'pointer',
+                flexShrink: 0,
               }}
               aria-label="Toggle Navigation"
             >
@@ -256,7 +262,7 @@ export default function Navbar() {
             backgroundColor: '#ffffff',
             borderRadius: '16px',
             padding: '16px',
-            boxShadow: '0 12px 36px rgba(22, 54, 111, 0.25)',
+            boxShadow: '0 12px 36px rgba(15, 76, 42, 0.25)',
             border: '1px solid #e2e8f0',
           }}
         >
@@ -276,8 +282,8 @@ export default function Navbar() {
                       fontSize: '0.88rem',
                       fontWeight: isActive ? 800 : 500,
                       color: isActive ? '#ffffff' : '#1e293b',
-                      backgroundColor: isActive ? '#1b7a4b' : 'transparent',
-                      boxShadow: isActive ? '0 0 10px rgba(27, 122, 75, 0.5)' : 'none',
+                      backgroundColor: isActive ? '#0F4C2A' : 'transparent',
+                      boxShadow: isActive ? '0 0 10px rgba(15, 76, 42, 0.5)' : 'none',
                       textDecoration: 'none',
                     }}
                   >

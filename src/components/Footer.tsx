@@ -13,7 +13,7 @@ export default function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer style={{ backgroundColor: 'var(--brand-blue)', color: 'var(--text-white)', paddingTop: '70px', paddingBottom: '30px', borderTop: '4px solid var(--brand-red)' }}>
+    <footer style={{ backgroundColor: '#111', color: 'var(--text-white)', paddingTop: '70px', paddingBottom: '30px', borderTop: '4px solid var(--brand-red)' }}>
       <div className="container">
         
         {/* Main 4-Column Grid */}

@@ -59,12 +59,12 @@ export default function WorkPage() {
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '44px' }}>
             <div className="badge-green" style={{ marginBottom: '10px' }}>5 MAIN SOCIAL SECTORS</div>
-            <h2 style={{ fontSize: '2.1rem', color: 'var(--brand-blue)' }}>Key Development Areas</h2>
+            <h2 style={{ fontSize: '2.1rem', color: '#0F4C2A' }}>Key Development Areas</h2>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px' }}>
             {WORK_AREAS.map((work) => (
-              <div key={work.id} className="card" style={{ padding: '32px', borderRadius: '18px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', backgroundColor: '#ffffff' }}>
+              <div key={work.id} className="card" style={{ padding: '32px', borderRadius: '18px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', backgroundColor: '#ffffff', borderTop: work.id === 'vruddhashram' ? '4px solid #800020' : '1px solid #e2e8f0' }}>
                 <div>
                   <div style={{ width: '56px', height: '56px', borderRadius: '14px', backgroundColor: getIconBg(work.id), display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
                     {getLucideIcon(work.id)}
@@ -72,16 +72,20 @@ export default function WorkPage() {
                   <div className="badge-gold" style={{ fontSize: '0.75rem', marginBottom: '12px' }}>
                     {lang === 'hi' ? work.hiShare : work.share}
                   </div>
-                  <h3 style={{ fontSize: '1.3rem', color: 'var(--brand-blue)', marginBottom: '12px' }}>
+                  <h3 style={{ fontSize: '1.3rem', color: '#0F4C2A', marginBottom: '12px' }}>
                     {lang === 'hi' ? work.hiTitle : work.title}
                   </h3>
                   <p style={{ color: '#475569', fontSize: '0.94rem', lineHeight: '1.65', marginBottom: '24px' }}>
                     {lang === 'hi' ? work.hiDescription : work.description}
                   </p>
                 </div>
-                <Link href="/donate" className="btn btn-gold btn-sm" style={{ width: '100%', borderRadius: '10px', padding: '12px' }}>
-                  <Heart size={15} fill="#000000" />
-                  <span>{t('work.supportBtn')}</span>
+                <Link
+                  href={work.id === 'vruddhashram' ? '/vruddhashram' : '/donate'}
+                  className={work.id === 'vruddhashram' ? "btn btn-maroon btn-sm" : "btn btn-dark-green btn-sm"}
+                  style={{ width: '100%', borderRadius: '10px', padding: '12px' }}
+                >
+                  <Heart size={15} fill="#ffffff" />
+                  <span>{work.id === 'vruddhashram' ? (lang === 'hi' ? 'हौसाई वृद्धाश्रम पहा' : 'Explore Vruddhashram') : t('work.supportBtn')}</span>
                 </Link>
               </div>
             ))}

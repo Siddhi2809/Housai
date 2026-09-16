@@ -284,6 +284,7 @@ export default function HomePage() {
           >
             {/* Quote text — top-left of the right section */}
             <div
+              className="hero-quote"
               style={{
                 position: 'absolute',
                 top: '10px',
@@ -326,6 +327,7 @@ export default function HomePage() {
 
             {/* Large green decorative circle with gradient fade towards top */}
             <div
+              className="hero-circle-main"
               style={{
                 position: 'absolute',
                 right: '-60px',
@@ -341,6 +343,7 @@ export default function HomePage() {
 
             {/* Decorative thin circle outline behind the main circle */}
             <div
+              className="hero-circle-outline"
               style={{
                 position: 'absolute',
                 right: '-110px',
@@ -356,6 +359,7 @@ export default function HomePage() {
 
             {/* Photo: Top-Left — Lady (President) */}
             <div
+              className="hero-img-left"
               style={{
                 position: 'absolute',
                 top: '90px',
@@ -380,6 +384,7 @@ export default function HomePage() {
 
             {/* Photo: Top-Right — PM Modi */}
             <div
+              className="hero-img-right"
               style={{
                 position: 'absolute',
                 top: '80px',
@@ -404,6 +409,7 @@ export default function HomePage() {
 
             {/* Photo: Center-Bottom — Ramdas Athawale (largest, in front) */}
             <div
+              className="hero-img-center"
               style={{
                 position: 'absolute',
                 bottom: '60px',
@@ -429,6 +435,7 @@ export default function HomePage() {
 
             {/* HOUSAI CARE — red pill button, centered below photos */}
             <div
+              className="hero-pill-badge"
               style={{
                 position: 'absolute',
                 bottom: '14px',
@@ -946,6 +953,410 @@ export default function HomePage() {
               </Link>
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* ======================================================== */}
+      {/* HOUSAI VRUDDHASHRAM FEATURED SECTION                      */}
+      {/* ======================================================== */}
+      <section
+        style={{
+          backgroundColor: '#fafbfc',
+          padding: '80px 0',
+          position: 'relative',
+          borderTop: '1px solid #eaedf2',
+          borderBottom: '1px solid #eaedf2',
+          overflow: 'hidden',
+        }}
+      >
+        {/* Subtle background decorative shapes */}
+        <div
+          style={{
+            position: 'absolute',
+            top: '-100px',
+            right: '-100px',
+            width: '400px',
+            height: '400px',
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(22, 54, 111, 0.04) 0%, rgba(255,255,255,0) 70%)',
+            pointerEvents: 'none',
+          }}
+        />
+        <div
+          style={{
+            position: 'absolute',
+            bottom: '-120px',
+            left: '-80px',
+            width: '380px',
+            height: '380px',
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(217, 43, 43, 0.04) 0%, rgba(255,255,255,0) 70%)',
+            pointerEvents: 'none',
+          }}
+        />
+
+        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 40px', position: 'relative', zIndex: 1 }}>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
+              gap: '56px',
+              alignItems: 'center',
+            }}
+          >
+            {/* Left Column: Authentic Image with badge & decorative frame */}
+            <div style={{ position: 'relative' }}>
+              <div
+                style={{
+                  position: 'relative',
+                  borderRadius: '24px',
+                  overflow: 'hidden',
+                  boxShadow: '0 20px 40px rgba(14, 31, 77, 0.12)',
+                  border: '1px solid rgba(22, 54, 111, 0.1)',
+                  aspectRatio: '4 / 3',
+                  backgroundColor: '#e2e8f0',
+                }}
+              >
+                <Image
+                  src="/assets/hero_elderly.png"
+                  alt="Housai Vruddhashram Senior Citizens Care"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'linear-gradient(to top, rgba(14, 31, 77, 0.6) 0%, rgba(14, 31, 77, 0) 50%)',
+                  }}
+                />
+                <div
+                  style={{
+                    position: 'absolute',
+                    bottom: '24px',
+                    left: '24px',
+                    right: '24px',
+                    color: '#ffffff',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                  }}
+                >
+                  <div>
+                    <span
+                      style={{
+                        fontSize: '0.75rem',
+                        fontWeight: 700,
+                        letterSpacing: '0.05em',
+                        textTransform: 'uppercase',
+                        backgroundColor: 'rgba(217, 43, 43, 0.9)',
+                        color: '#ffffff',
+                        padding: '4px 12px',
+                        borderRadius: '9999px',
+                        display: 'inline-block',
+                        marginBottom: '6px',
+                      }}
+                    >
+                      Flagship Facility • Sangli
+                    </span>
+                    <h4 style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 700, fontSize: '1.1rem', margin: 0 }}>
+                      Warm, Safe &amp; Peaceful Sanctuary
+                    </h4>
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating Stat Badge */}
+              <div
+                style={{
+                  position: 'absolute',
+                  top: '-20px',
+                  right: '-20px',
+                  backgroundColor: '#ffffff',
+                  borderRadius: '16px',
+                  padding: '16px 20px',
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+                  border: '1px solid #f1f5f9',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  zIndex: 2,
+                }}
+              >
+                <div
+                  style={{
+                    width: '44px',
+                    height: '44px',
+                    borderRadius: '12px',
+                    backgroundColor: '#fef2f2',
+                    color: '#d92b2b',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <Heart size={22} fill="#d92b2b" />
+                </div>
+                <div>
+                  <div style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.1rem', color: '#16366f', lineHeight: 1 }}>
+                    100% Free
+                  </div>
+                  <div style={{ fontSize: '0.78rem', color: '#64748b', fontWeight: 600, marginTop: '2px' }}>
+                    Care &amp; Shelter
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: Title, Subtitle, Description, Features, CTA */}
+            <div>
+              {/* Pillar Category Badge */}
+              <div
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  backgroundColor: 'rgba(22, 54, 111, 0.08)',
+                  color: '#16366f',
+                  fontSize: '0.8rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.05em',
+                  textTransform: 'uppercase',
+                  padding: '6px 14px',
+                  borderRadius: '9999px',
+                  marginBottom: '16px',
+                }}
+              >
+                <ShieldCheck size={16} style={{ color: '#d92b2b' }} />
+                <span>Primary Foundation Focus</span>
+              </div>
+
+              {/* Title & Subtitle */}
+              <h2
+                style={{
+                  fontFamily: 'Outfit, sans-serif',
+                  fontWeight: 800,
+                  fontSize: '2.4rem',
+                  color: '#16366f',
+                  marginBottom: '8px',
+                  lineHeight: '1.2',
+                }}
+              >
+                Housai Vruddhashram
+              </h2>
+              <h3
+                style={{
+                  fontFamily: 'Outfit, sans-serif',
+                  fontWeight: 600,
+                  fontSize: '1.25rem',
+                  color: '#d92b2b',
+                  marginBottom: '20px',
+                }}
+              >
+                Care, Dignity &amp; A Home for Senior Citizens
+              </h3>
+
+              {/* Description */}
+              <p
+                style={{
+                  fontSize: '1rem',
+                  color: '#475569',
+                  lineHeight: '1.7',
+                  marginBottom: '28px',
+                }}
+              >
+                Housai Vruddhashram is a flagship initiative of the Ramdas Athawale Foundation dedicated to providing a safe, caring, respectful, and comfortable home for homeless, destitute, and vulnerable senior citizens. We ensure that every resident experiences true compassion, dignity, complete medical support, and a peaceful family environment in their golden years.
+              </p>
+
+              {/* 4 Feature Items */}
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+                  gap: '16px',
+                  marginBottom: '32px',
+                }}
+              >
+                {/* Feature 1 */}
+                <div
+                  style={{
+                    backgroundColor: '#ffffff',
+                    padding: '16px 18px',
+                    borderRadius: '14px',
+                    border: '1px solid #e2e8f0',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.03)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '14px',
+                  }}
+                >
+                  <div
+                    style={{
+                      width: '42px',
+                      height: '42px',
+                      borderRadius: '10px',
+                      backgroundColor: '#eff6ff',
+                      color: '#16366f',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0,
+                    }}
+                  >
+                    <ShieldCheck size={22} />
+                  </div>
+                  <span style={{ fontSize: '0.92rem', fontWeight: 700, color: '#1e293b', lineHeight: '1.3' }}>
+                    Comfortable &amp; Safe Living
+                  </span>
+                </div>
+
+                {/* Feature 2 */}
+                <div
+                  style={{
+                    backgroundColor: '#ffffff',
+                    padding: '16px 18px',
+                    borderRadius: '14px',
+                    border: '1px solid #e2e8f0',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.03)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '14px',
+                  }}
+                >
+                  <div
+                    style={{
+                      width: '42px',
+                      height: '42px',
+                      borderRadius: '10px',
+                      backgroundColor: '#fef3c7',
+                      color: '#b45309',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0,
+                    }}
+                  >
+                    <Heart size={22} />
+                  </div>
+                  <span style={{ fontSize: '0.92rem', fontWeight: 700, color: '#1e293b', lineHeight: '1.3' }}>
+                    Nutritious Food &amp; Daily Care
+                  </span>
+                </div>
+
+                {/* Feature 3 */}
+                <div
+                  style={{
+                    backgroundColor: '#ffffff',
+                    padding: '16px 18px',
+                    borderRadius: '14px',
+                    border: '1px solid #e2e8f0',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.03)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '14px',
+                  }}
+                >
+                  <div
+                    style={{
+                      width: '42px',
+                      height: '42px',
+                      borderRadius: '10px',
+                      backgroundColor: '#ecfdf5',
+                      color: '#047857',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0,
+                    }}
+                  >
+                    <Activity size={22} />
+                  </div>
+                  <span style={{ fontSize: '0.92rem', fontWeight: 700, color: '#1e293b', lineHeight: '1.3' }}>
+                    Health &amp; Medical Support
+                  </span>
+                </div>
+
+                {/* Feature 4 */}
+                <div
+                  style={{
+                    backgroundColor: '#ffffff',
+                    padding: '16px 18px',
+                    borderRadius: '14px',
+                    border: '1px solid #e2e8f0',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.03)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '14px',
+                  }}
+                >
+                  <div
+                    style={{
+                      width: '42px',
+                      height: '42px',
+                      borderRadius: '10px',
+                      backgroundColor: '#f3e8ff',
+                      color: '#7e22ce',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0,
+                    }}
+                  >
+                    <Users size={22} />
+                  </div>
+                  <span style={{ fontSize: '0.92rem', fontWeight: 700, color: '#1e293b', lineHeight: '1.3' }}>
+                    Activities, Companionship &amp; Well-being
+                  </span>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
+                <Link
+                  href="/vruddhashram"
+                  style={{
+                    backgroundColor: '#16366f',
+                    color: '#ffffff',
+                    fontFamily: 'Outfit, sans-serif',
+                    fontWeight: 700,
+                    fontSize: '0.95rem',
+                    padding: '14px 28px',
+                    borderRadius: '12px',
+                    textDecoration: 'none',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    boxShadow: '0 6px 18px rgba(22, 54, 111, 0.25)',
+                    transition: 'all 0.2s ease',
+                  }}
+                >
+                  <span>Know More</span>
+                  <ArrowRight size={18} />
+                </Link>
+                <Link
+                  href="/donate"
+                  style={{
+                    backgroundColor: '#d92b2b',
+                    color: '#ffffff',
+                    fontFamily: 'Outfit, sans-serif',
+                    fontWeight: 700,
+                    fontSize: '0.95rem',
+                    padding: '14px 28px',
+                    borderRadius: '12px',
+                    textDecoration: 'none',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    boxShadow: '0 6px 18px rgba(217, 43, 43, 0.25)',
+                    transition: 'all 0.2s ease',
+                  }}
+                >
+                  <Heart size={18} fill="#ffffff" />
+                  <span>Support Housai Vruddhashram</span>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
